@@ -1,4 +1,4 @@
-/* Global styles */
+/* Global styles - LynxJS compatible */
 
 * {
 	box-sizing: border-box;
@@ -14,43 +14,65 @@ body {
 	line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	margin-bottom: 0.5rem;
+/* Heading classes */
+.h1 {
+	font-size: 2rem;
 	font-weight: 600;
 	line-height: 1.2;
+	margin-bottom: 0.5rem;
 }
 
-h1 {
-	font-size: 2rem;
-}
-
-h2 {
+.h2 {
 	font-size: 1.75rem;
+	font-weight: 600;
+	line-height: 1.2;
+	margin-bottom: 0.5rem;
 }
 
-h3 {
+.h3 {
 	font-size: 1.5rem;
+	font-weight: 600;
+	line-height: 1.2;
+	margin-bottom: 0.5rem;
 }
 
-h4 {
+.h4 {
 	font-size: 1.25rem;
+	font-weight: 600;
+	line-height: 1.2;
+	margin-bottom: 0.5rem;
 }
 
-p {
+.h5 {
+	font-size: 1.1rem;
+	font-weight: 600;
+	line-height: 1.2;
+	margin-bottom: 0.5rem;
+}
+
+.h6 {
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1.2;
+	margin-bottom: 0.5rem;
+}
+
+/* Paragraph class */
+.p {
 	margin-bottom: 1rem;
+	font-size: 1rem;
+	line-height: 1.5;
 }
 
-a {
+/* Link class */
+.link {
 	color: var(--color-primary);
 	text-decoration: none;
 	cursor: pointer;
+	font-weight: 500;
 }
 
-a:hover {
-	text-decoration: underline;
-}
-
-button, .button {
+.button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -61,21 +83,12 @@ button, .button {
 	padding: 0.5rem 1rem;
 	font-size: 1rem;
 	cursor: pointer;
-	transition: background-color 0.2s;
 }
 
-button:hover, .button:hover {
-	background-color: var(--color-primary-dark);
-}
-
-button.secondary, .button.secondary {
+.button.secondary {
 	background-color: transparent;
 	color: var(--color-primary);
 	border: 1px solid var(--color-primary);
-}
-
-button.secondary:hover, .button.secondary:hover {
-	background-color: rgba(109, 40, 217, 0.1);
 }
 
 input, select, textarea {
@@ -90,7 +103,6 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
 	outline: none;
 	border-color: var(--color-primary);
-	box-shadow: 0 0 0 2px rgba(109, 40, 217, 0.2);
 }
 
 .container {

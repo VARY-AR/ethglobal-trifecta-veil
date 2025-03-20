@@ -1,4 +1,4 @@
-/* Grid-based layout system */
+/* Layout system - LynxJS compatible */
 
 :root {
 	--gap-xs: 0.25rem;
@@ -7,43 +7,40 @@
 	--gap-lg: 1.5rem;
 	--gap-xl: 2rem;
 	
-	--padding-xs: 0.5rem;
-	--padding-sm: 1rem;
-	--padding-md: 1.5rem;
-	--padding-lg: 2rem;
-	--padding-xl: 3rem;
-	
-	--border-radius-sm: 0.25rem;
-	--border-radius-md: 0.5rem;
-	--border-radius-lg: 1rem;
-	
 	--color-primary: #6d28d9;
 	--color-primary-dark: #5b21b6;
-	--color-secondary: #10b981;
+	--color-primary-light: #8b5cf6;
+	
 	--color-background: #f9fafb;
 	--color-surface: #ffffff;
 	--color-text: #1f2937;
 	--color-text-light: #6b7280;
 	--color-border: #e5e7eb;
+	
 	--color-error: #ef4444;
 	--color-success: #10b981;
+	--color-warning: #f59e0b;
+	--color-info: #3b82f6;
+	
+	--border-radius-sm: 0.25rem;
+	--border-radius-md: 0.5rem;
+	--border-radius-lg: 1rem;
 }
 
+/* Row and column layout */
 .row {
-	display: grid;
-	grid-auto-flow: column;
-	grid-auto-columns: 1fr;
-	gap: var(--gap-md);
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 	width: 100%;
 }
 
 .column {
-	display: grid;
-	grid-auto-flow: row;
-	gap: var(--gap-md);
-	width: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
+/* Gap utilities */
 .gap-xs {
 	gap: var(--gap-xs);
 }
@@ -64,63 +61,85 @@
 	gap: var(--gap-xl);
 }
 
-.pad-xs {
-	padding: var(--padding-xs);
+/* Padding utilities */
+.p-xs {
+	padding: var(--gap-xs);
 }
 
-.pad-sm {
-	padding: var(--padding-sm);
+.p-sm {
+	padding: var(--gap-sm);
 }
 
-.pad-md {
-	padding: var(--padding-md);
+.p-md {
+	padding: var(--gap-md);
 }
 
-.pad-lg {
-	padding: var(--padding-lg);
+.p-lg {
+	padding: var(--gap-lg);
 }
 
-.pad-xl {
-	padding: var(--padding-xl);
+.p-xl {
+	padding: var(--gap-xl);
 }
 
+/* Card */
 .card {
 	background-color: var(--color-surface);
 	border-radius: var(--border-radius-md);
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-	padding: var(--padding-md);
+	padding: var(--gap-md);
+	margin-bottom: var(--gap-md);
+	border: 1px solid var(--color-border);
+}
+
+/* Flex and alignment utilities */
+.flex-1 {
+	flex: 1;
 }
 
 .center {
 	align-items: center;
-	justify-items: center;
+	justify-content: center;
 }
 
-.stretch {
-	align-items: stretch;
+.justify-center {
+	justify-content: center;
 }
 
-.grow {
-	flex-grow: 1;
-}
-
-.full-width {
-	width: 100%;
+.items-center {
+	align-items: center;
 }
 
 .text-center {
 	text-align: center;
 }
 
-/* For fixed grid layouts */
-.grid-2 {
-	grid-template-columns: repeat(2, 1fr);
+/* Multi-column layouts */
+.row-2 {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
-.grid-3 {
-	grid-template-columns: repeat(3, 1fr);
+.row-2 > * {
+	flex: 1 1 calc(50% - var(--gap-md));
 }
 
-.grid-4 {
-	grid-template-columns: repeat(4, 1fr);
+.row-3 {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.row-3 > * {
+	flex: 1 1 calc(33.333% - var(--gap-md));
+}
+
+.row-4 {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.row-4 > * {
+	flex: 1 1 calc(25% - var(--gap-md));
 } 

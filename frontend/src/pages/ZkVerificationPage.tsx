@@ -1,225 +1,219 @@
 import { useState } from '@lynx-js/react'
 import { Header } from '$/components/Header.js'
-import { Card } from '$/components/Card.js'
 import '$/shared/layout.css'
 import '$/shared/global.css'
 
-type ProofStatus = 'not-started' | 'generating' | 'ready' | 'verified' | 'failed'
+// Possible states for the proof generation process
+type ProofStatus = 'not-started' | 'generating' | 'ready' | 'verified'
 
 export function ZkVerificationPage() {
 	const [selectedVerification, setSelectedVerification] = useState<string | null>(null)
 	const [proofStatus, setProofStatus] = useState<ProofStatus>('not-started')
 	const [activeStep, setActiveStep] = useState(1)
 	
+	// Available verification options
 	const verificationOptions = [
 		{
 			id: 'luxury-owner',
-			title: 'Luxury Product Owner',
-			description: 'Prove you own at least one luxury product without revealing which one.',
-			requiredAttributes: ['Has 1+ luxury item'],
-			brandRewards: 3,
+			title: 'Luxury Brand Owner',
+			description: 'Prove you own products from luxury brands without revealing specific items',
+			requiredAttributes: ['Own at least 2 items from luxury brands'],
+			brandRewards: 'Access to exclusive events & limited editions'
 		},
 		{
 			id: 'early-adopter',
 			title: 'Early Adopter',
-			description: 'Prove you purchased products within the first month of release.',
-			requiredAttributes: ['Purchased within 30 days of release'],
-			brandRewards: 5,
+			description: 'Verify you purchased products within 30 days of release',
+			requiredAttributes: ['Own at least 3 items purchased within 30 days of release'],
+			brandRewards: 'Early access to new collections'
 		},
 		{
-			id: 'multi-category',
-			title: 'Multi-Category Collector',
-			description: 'Prove you own products from at least 3 different categories.',
-			requiredAttributes: ['Has products in 3+ categories'],
-			brandRewards: 7,
-		},
-		{
-			id: 'brand-loyal',
-			title: 'Brand Loyalist',
-			description: 'Prove you own 3+ products from the same brand.',
-			requiredAttributes: ['Has 3+ products from same brand'],
-			brandRewards: 4,
-		},
+			id: 'collection-diversity',
+			title: 'Collection Diversity',
+			description: 'Prove you own products across multiple categories',
+			requiredAttributes: ['Own items from at least 3 different product categories'],
+			brandRewards: 'Personalized recommendations & discounts'
+		}
 	]
 	
-	const handleSelectVerification = (verificationId: string) => {
-		setSelectedVerification(verificationId)
+	// Find selected verification option
+	const selectedOption = verificationOptions.find(option => option.id === selectedVerification) || verificationOptions[0]
+	
+	// Handle selecting a verification type
+	const handleSelectVerification = (id: string) => {
+		setSelectedVerification(id)
 		setActiveStep(2)
 	}
 	
+	// Generate a ZK proof
 	const handleGenerateProof = () => {
+		console.log('Generating proof for:', selectedOption.title)
 		setProofStatus('generating')
-		// Simulate proof generation with Noir (would be done via a circuit)
+		
+		// Simulate proof generation
 		setTimeout(() => {
 			setProofStatus('ready')
 			setActiveStep(3)
 		}, 2000)
 	}
 	
+	// Verify a proof
 	const handleVerifyProof = () => {
-		// Simulate verification process
+		console.log('Verifying proof for:', selectedOption.title)
+		
+		// Simulate verification
 		setTimeout(() => {
 			setProofStatus('verified')
 			setActiveStep(4)
 		}, 1500)
 	}
 	
+	// Reset proof generation
 	const handleNewProof = () => {
 		setSelectedVerification(null)
 		setProofStatus('not-started')
 		setActiveStep(1)
 	}
 	
-	const selectedOption = selectedVerification 
-		? verificationOptions.find(opt => opt.id === selectedVerification) 
-		: null
-	
 	return (
 		<view className="page">
 			<Header />
 			
 			<view className="container">
-				<view className="column gap-xl pad-lg">
-					<h1>Zero-Knowledge Verification</h1>
-					
-					<view className="progress-indicator">
-						<view className="row gap-md">
-							<view className={`progress-step ${activeStep >= 1 ? 'active' : ''}`}>
-								<text>1. Select Verification</text>
+				<text className="h1">Zero-Knowledge Verification</text>
+				
+				{/* Progress indicator */}
+				<view className="progress-indicator">
+					<view className="row gap-sm">
+						<view className={`progress-step ${activeStep >= 1 ? 'active' : ''}`}>
+							<text>1. Select Type</text>
+						</view>
+						<view className={`progress-step ${activeStep >= 2 ? 'active' : ''}`}>
+							<text>2. Generate Proof</text>
+						</view>
+						<view className={`progress-step ${activeStep >= 3 ? 'active' : ''}`}>
+							<text>3. Verify</text>
+						</view>
+						<view className={`progress-step ${activeStep >= 4 ? 'active' : ''}`}>
+							<text>4. Complete</text>
+						</view>
+					</view>
+				</view>
+				
+				{/* Step 1: Select verification type */}
+				{activeStep === 1 && (
+					<view className="section">
+						<text className="h2">Select Verification Type</text>
+						<text className="p">Choose what you'd like to verify without revealing your specific products.</text>
+						
+						<view className="row-1">
+							{verificationOptions.map(option => (
+								<view key={option.id} bindtap={() => handleSelectVerification(option.id)}>
+									<view className={`card verification-option ${selectedVerification === option.id ? 'selected' : ''}`}>
+										<text className="h3">{option.title}</text>
+										<text className="p">{option.description}</text>
+										
+										<view className="row gap-md">
+											<view className="column">
+												<text className="text-success">✓ Requirements:</text>
+												<text>{option.requiredAttributes}</text>
+											</view>
+											
+											<view className="column">
+												<text>Rewards:</text>
+												<view className="reward-indicator">
+													<text className="reward-label">{option.brandRewards}</text>
+												</view>
+											</view>
+										</view>
+									</view>
+								</view>
+							))}
+						</view>
+					</view>
+				)}
+				
+				{/* Step 2: Generate proof */}
+				{activeStep === 2 && (
+					<view className="section">
+						<text className="h2">Generate ZK Proof for {selectedOption.title}</text>
+						<text className="p">
+							This will create a zero-knowledge proof that verifies your ownership
+							attributes without revealing your specific products.
+						</text>
+						
+						<view className="card">
+							<view className="form-group">
+								<text>Required Attributes:</text>
+								<text>{selectedOption.requiredAttributes}</text>
 							</view>
-							<view className={`progress-step ${activeStep >= 2 ? 'active' : ''}`}>
-								<text>2. Generate Proof</text>
+							
+							<view className="form-group">
+								<text>Potential Rewards:</text>
+								<text>{selectedOption.brandRewards}</text>
 							</view>
-							<view className={`progress-step ${activeStep >= 3 ? 'active' : ''}`}>
-								<text>3. Verify</text>
+							
+							{proofStatus === 'generating' ? (
+								<text>Generating proof...</text>
+							) : (
+								<view className="button" bindtap={handleGenerateProof}>
+									<text>Generate Proof</text>
+								</view>
+							)}
+						</view>
+					</view>
+				)}
+				
+				{/* Step 3: Proof ready */}
+				{activeStep === 3 && (
+					<view className="section">
+						<text className="h2">Proof Ready</text>
+						<text className="p">Your zero-knowledge proof has been generated and is ready to be verified.</text>
+						
+						<view className="card">
+							<view className="form-group">
+								<text>Proof Type:</text>
+								<text>{selectedOption.title}</text>
 							</view>
-							<view className={`progress-step ${activeStep >= 4 ? 'active' : ''}`}>
-								<text>4. Success</text>
+							
+							<view className="form-group">
+								<text>Verification For:</text>
+								<text>Collection Attributes</text>
+							</view>
+							
+							<view className="proof-visualization-placeholder">
+								<text>ZK Proof Visualization</text>
+							</view>
+							
+							<view className="button" bindtap={handleVerifyProof}>
+								<text>Verify Proof</text>
 							</view>
 						</view>
 					</view>
-					
-					{activeStep === 1 && (
-						<view className="column gap-lg">
-							<h2>Select Verification Type</h2>
-							<p>Choose what you'd like to verify without revealing your specific products.</p>
+				)}
+				
+				{/* Step 4: Verification complete */}
+				{activeStep === 4 && (
+					<view className="section text-center">
+						<view className="success-icon">✓</view>
+						<text className="h2">Verification Successful!</text>
+						<text className="p">Your zero-knowledge proof has been verified without revealing your specific product information.</text>
+						
+						<view className="card">
+							<text className="h3">You've Unlocked:</text>
+							<text>{selectedOption.brandRewards}</text>
 							
-							<view className="verification-options column gap-md">
-								{verificationOptions.map((option) => (
-									<view key={option.id} bindtap={() => handleSelectVerification(option.id)}>
-										<Card className={`verification-option ${selectedVerification === option.id ? 'selected' : ''}`}>
-											<view className="row">
-												<view className="column" style={{ flex: 1 }}>
-													<h3>{option.title}</h3>
-													<p>{option.description}</p>
-													<view className="required-attributes">
-														<text className="attribute-label">Required attributes:</text>
-														{option.requiredAttributes.map((attr, i) => (
-															<text key={i} className="attribute-item">{attr}</text>
-														))}
-													</view>
-												</view>
-												<view className="column center" style={{ flex: 0 }}>
-													<view className="reward-indicator">
-														<text>{option.brandRewards}</text>
-														<text className="reward-label">rewards</text>
-													</view>
-												</view>
-											</view>
-										</Card>
-									</view>
-								))}
+							<view className="row gap-md justify-center">
+								<view className="button" bindtap={() => console.log('View rewards')}>
+									<text>View Rewards</text>
+								</view>
+								<view className="button secondary" bindtap={handleNewProof}>
+									<text>Create New Proof</text>
+								</view>
 							</view>
 						</view>
-					)}
-					
-					{activeStep === 2 && selectedOption && (
-						<Card>
-							<view className="column gap-lg">
-								<h2>Generate ZK Proof for {selectedOption.title}</h2>
-								<p>
-									You're about to generate a zero-knowledge proof that verifies
-									you meet the criteria without revealing your specific products.
-								</p>
-								
-								<view className="verification-details column gap-md">
-									<view className="detail-item">
-										<text className="detail-label">What you're proving:</text>
-										<text className="detail-value">{selectedOption.description}</text>
-									</view>
-									
-									<view className="detail-item">
-										<text className="detail-label">Information being shared:</text>
-										<text className="detail-value">Only that you satisfy the criteria, not which specific products you own</text>
-									</view>
-									
-									<view className="detail-item">
-										<text className="detail-label">What remains private:</text>
-										<text className="detail-value">Your specific products, purchase dates, and personal details</text>
-									</view>
-								</view>
-								
-								<view className="button" bindtap={handleGenerateProof}>
-									<text>{proofStatus === 'generating' ? 'Generating...' : 'Generate Proof'}</text>
-								</view>
-								
-								{proofStatus === 'generating' && (
-									<view className="proof-generation-indicator">
-										<text>Generating zero-knowledge proof...</text>
-									</view>
-								)}
-							</view>
-						</Card>
-					)}
-					
-					{activeStep === 3 && selectedOption && (
-						<Card>
-							<view className="column gap-lg">
-								<h2>Proof Ready</h2>
-								<p>Your zero-knowledge proof has been generated and is ready to be verified.</p>
-								
-								<view className="proof-visualization-placeholder">
-									<text>Proof visualization would appear here</text>
-								</view>
-								
-								<view className="proof-summary column gap-md">
-									<text className="proof-header">Proof Summary:</text>
-									<text>- Type: {selectedOption.title}</text>
-									<text>- Generated: {new Date().toLocaleString()}</text>
-									<text>- Valid until: {new Date(Date.now() + 86400000).toLocaleString()}</text>
-								</view>
-								
-								<view className="button" bindtap={handleVerifyProof}>
-									<text>Verify Proof</text>
-								</view>
-							</view>
-						</Card>
-					)}
-					
-					{activeStep === 4 && selectedOption && (
-						<Card>
-							<view className="column gap-lg center text-center">
-								<view className="success-icon">✓</view>
-								<h2>Verification Successful!</h2>
-								<p>Your zero-knowledge proof has been verified without revealing your specific product information.</p>
-								
-								<view className="verified-summary">
-									<text>You've proven: {selectedOption.title}</text>
-									<text>Unlock {selectedOption.brandRewards} brand rewards</text>
-								</view>
-								
-								<view className="row gap-md">
-									<view className="button" bindtap={() => console.log('View rewards')}>
-										<text>View Available Rewards</text>
-									</view>
-									<view className="button secondary" bindtap={handleNewProof}>
-										<text>Create Another Proof</text>
-									</view>
-								</view>
-							</view>
-						</Card>
-					)}
-				</view>
+					</view>
+				)}
 			</view>
 		</view>
 	)

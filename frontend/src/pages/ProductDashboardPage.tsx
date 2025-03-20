@@ -1,144 +1,224 @@
 import { useState } from '@lynx-js/react'
 import { Header } from '$/components/Header.js'
-import { Card } from '$/components/Card.js'
 import '$/shared/layout.css'
 import '$/shared/global.css'
 
 export function ProductDashboardPage() {
-	const [scannerActive, setScannerActive] = useState(false)
-	const [products, setProducts] = useState([
+	const [activeTab, setActiveTab] = useState('owned')
+	const [sortBy, setSortBy] = useState('recent')
+	const [showFilters, setShowFilters] = useState(false)
+
+	// Sample product data
+	const products = [
 		{
-			id: 'prod-1',
-			name: 'Premium Watch X1',
-			brand: 'LuxTime',
-			category: 'Watches',
-			purchaseDate: '2023-04-15',
-			image: 'watch-placeholder.jpg',
-		},
-		{
-			id: 'prod-2',
-			name: 'Designer Handbag',
-			brand: 'FashionLux',
-			category: 'Accessories',
-			purchaseDate: '2023-06-22',
-			image: 'handbag-placeholder.jpg',
-		},
-		{
-			id: 'prod-3',
-			name: 'Limited Sneakers',
-			brand: 'UrbanKicks',
+			id: 'p1',
+			name: 'Limited Edition Sneakers',
+			brand: 'Nike',
 			category: 'Footwear',
-			purchaseDate: '2023-08-10',
-			image: 'sneakers-placeholder.jpg',
+			price: '$220',
+			purchaseDate: '2023-05-15',
+			image: '/placeholder-product1.jpg',
+			verified: true,
+			isLimited: true
+		},
+		{
+			id: 'p2',
+			name: 'Designer Handbag',
+			brand: 'Louis Vuitton',
+			category: 'Accessories',
+			price: '$1,800',
+			purchaseDate: '2023-02-28',
+			image: '/placeholder-product2.jpg',
+			verified: true,
+			isLimited: true
+		},
+		{
+			id: 'p3',
+			name: 'Collectible T-Shirt',
+			brand: 'Supreme',
+			category: 'Apparel',
+			price: '$120',
+			purchaseDate: '2023-06-10',
+			image: '/placeholder-product3.jpg',
+			verified: true,
+			isLimited: false
+		},
+		{
+			id: 'p4',
+			name: 'Vintage Watch',
+			brand: 'Rolex',
+			category: 'Accessories',
+			price: '$8,500',
+			purchaseDate: '2022-11-05',
+			image: '/placeholder-product4.jpg',
+			verified: false,
+			isLimited: true
 		}
-	])
-	
-	const toggleScanner = () => {
-		setScannerActive(!scannerActive)
-	}
-	
-	const handleImportEcommerce = () => {
-		console.log('Import from e-commerce account')
-		// Add logic to connect to e-commerce accounts
-	}
-	
-	const handleAddProduct = (productData: any) => {
-		console.log('Adding product', productData)
-		setProducts([...products, productData])
-		setScannerActive(false)
-	}
-	
+	]
+
+	// Sort products
+	const sortedProducts = [...products].sort((a, b) => {
+		if (sortBy === 'recent') {
+			return new Date(b.purchaseDate).getTime() - new Date(a.purchaseDate).getTime()
+		} else if (sortBy === 'price-high') {
+			return parseFloat(b.price.replace('$', '').replace(',', '')) - parseFloat(a.price.replace('$', '').replace(',', ''))
+		} else if (sortBy === 'price-low') {
+			return parseFloat(a.price.replace('$', '').replace(',', '')) - parseFloat(b.price.replace('$', '').replace(',', ''))
+		}
+		return 0
+	})
+
 	return (
 		<view className="page">
 			<Header />
 			
 			<view className="container">
-				<view className="column gap-xl pad-lg">
-					<view className="row">
-						<h1>My Product Collection</h1>
-						<view style={{ flex: 1 }} />
-						<view className="row gap-sm">
-							<view className="button" bindtap={toggleScanner}>
-								<text>{scannerActive ? 'Close Scanner' : 'Scan QR Code'}</text>
-							</view>
-							<view className="button secondary" bindtap={handleImportEcommerce}>
-								<text>Import from Shop</text>
-							</view>
-						</view>
+				<view className="row mb-md">
+					<text className="h1">Your Product Collection</text>
+					
+					<view className="filters-toggle" bindtap={() => setShowFilters(!showFilters)}>
+						<text>Filters</text>
+						<text>{showFilters ? '▲' : '▼'}</text>
 					</view>
-					
-					{scannerActive && (
-						<Card>
-							<view className="column gap-md">
-								<h3>Scan Product QR Code</h3>
-								<view className="qr-scanner-placeholder">
-									<text className="scanner-text">Camera viewfinder would appear here</text>
-								</view>
-								<p>Point your camera at the QR code on your product or packaging</p>
-								<view className="button" bindtap={() => {
-									handleAddProduct({
-										id: `prod-${products.length + 1}`,
-										name: 'New Scanned Product',
-										brand: 'TestBrand',
-										category: 'Test Category',
-										purchaseDate: new Date().toISOString().split('T')[0],
-										image: 'placeholder.jpg',
-									})
-								}}>
-									<text>Mock Successful Scan</text>
-								</view>
+				</view>
+				
+				{/* Filters */}
+				{showFilters && (
+					<view className="filters-panel card p-md mb-md">
+						<view className="row gap-md">
+							<view className="form-group">
+								<text>Sort by:</text>
+								<select value={sortBy} onChange={(e: any) => setSortBy(e.target.value)}>
+									<option value="recent">Most Recent</option>
+									<option value="price-high">Price (High to Low)</option>
+									<option value="price-low">Price (Low to High)</option>
+								</select>
 							</view>
-						</Card>
-					)}
-					
-					<view className="column gap-md">
-						<view className="row">
-							<h2>Your Products ({products.length})</h2>
-							<view style={{ flex: 1 }} />
-							<view className="product-filter">
+							
+							<view className="form-group">
+								<text>Category:</text>
 								<select>
-									<option value="">All Categories</option>
-									<option value="Watches">Watches</option>
-									<option value="Accessories">Accessories</option>
-									<option value="Footwear">Footwear</option>
+									<option value="all">All Categories</option>
+									<option value="footwear">Footwear</option>
+									<option value="apparel">Apparel</option>
+									<option value="accessories">Accessories</option>
+								</select>
+							</view>
+							
+							<view className="form-group">
+								<text>Brand:</text>
+								<select>
+									<option value="all">All Brands</option>
+									<option value="nike">Nike</option>
+									<option value="louis-vuitton">Louis Vuitton</option>
+									<option value="supreme">Supreme</option>
+									<option value="rolex">Rolex</option>
 								</select>
 							</view>
 						</view>
-						
-						<view className="product-grid row grid-3 gap-lg">
-							{products.map((product) => (
-								<Card key={product.id} className="product-card">
-									<view className="product-image placeholder" />
-									<h3>{product.name}</h3>
-									<view className="product-details">
-										<text>Brand: {product.brand}</text>
-										<text>Category: {product.category}</text>
-										<text>Purchased: {product.purchaseDate}</text>
-									</view>
-									<view className="button" bindtap={() => console.log('View details', product.id)}>
-										<text>View Details</text>
-									</view>
-								</Card>
-							))}
+					</view>
+				)}
+				
+				{/* Product collection tabs */}
+				<view className="tabs">
+					<view className="row">
+						<view
+							className={`tab ${activeTab === 'owned' ? 'active' : ''}`}
+							bindtap={() => setActiveTab('owned')}
+						>
+							<text>Owned Products</text>
+						</view>
+						<view
+							className={`tab ${activeTab === 'wishlist' ? 'active' : ''}`}
+							bindtap={() => setActiveTab('wishlist')}
+						>
+							<text>Wishlist</text>
 						</view>
 					</view>
-					
-					<Card className="import-section">
-						<view className="row">
-							<view className="column" style={{ flex: 2 }}>
-								<h3>Connect Your Shopping Accounts</h3>
-								<p>Import your verified purchases automatically by connecting your accounts from supported retailers.</p>
-								<view className="row gap-sm">
-									<view className="button" bindtap={() => console.log('Connect account')}>
-										<text>Connect Account</text>
+				</view>
+				
+				{/* Product grid */}
+				{activeTab === 'owned' && (
+					<view className="row-2 gap-md">
+						{sortedProducts.map(product => (
+							<view className="card product-card" key={product.id}>
+								<view className="product-image">
+									<text>{product.name}</text>
+								</view>
+								<view className="card-content">
+									<text className="h3">{product.name}</text>
+									<text className="brand">{product.brand}</text>
+									<text className="p">Category: {product.category}</text>
+									<text className="p">Price: {product.price}</text>
+									<text className="p">Purchased: {new Date(product.purchaseDate).toLocaleDateString()}</text>
+									
+									<view className="product-badges">
+										{product.verified && (
+											<view className="badge verified">
+												<text>✓ Verified</text>
+											</view>
+										)}
+										{product.isLimited && (
+											<view className="badge limited">
+												<text>Limited Edition</text>
+											</view>
+										)}
+									</view>
+									
+									<view className="row mt-sm">
+										<view className="button" bindtap={() => {}}>
+											<text>View Passport</text>
+										</view>
 									</view>
 								</view>
 							</view>
-							<view className="column center" style={{ flex: 1 }}>
-								<view className="connected-shops-placeholder" />
+						))}
+					</view>
+				)}
+				
+				{/* Wishlist tab content */}
+				{activeTab === 'wishlist' && (
+					<view className="card p-md text-center">
+						<text className="h3">Your Wishlist</text>
+						<text className="p">You haven't added any products to your wishlist yet.</text>
+						<text className="p">As you browse collections, you can add items here to keep track of what you want.</text>
+						
+						<view className="button mt-md" bindtap={() => {}}>
+							<text>Browse Marketplace</text>
+						</view>
+					</view>
+				)}
+				
+				{/* Add product section */}
+				<view className="section mt-xl">
+					<text className="h2">Add Products to Your Collection</text>
+					<text className="p">Register your physical product purchases to create digital ownership records.</text>
+					
+					<view className="row-3 gap-md mt-md">
+						<view className="card p-md text-center">
+							<text className="h3">Scan QR Code</text>
+							<text className="p">For products with QR verification</text>
+							<view className="button mt-sm" bindtap={() => {}}>
+								<text>Open Scanner</text>
 							</view>
 						</view>
-					</Card>
+						
+						<view className="card p-md text-center">
+							<text className="h3">Upload Receipt</text>
+							<text className="p">Verify purchase with receipt</text>
+							<view className="button mt-sm" bindtap={() => {}}>
+								<text>Upload Receipt</text>
+							</view>
+						</view>
+						
+						<view className="card p-md text-center">
+							<text className="h3">Serial Number</text>
+							<text className="p">Enter product serial number</text>
+							<view className="button mt-sm" bindtap={() => {}}>
+								<text>Enter Serial</text>
+							</view>
+						</view>
+					</view>
 				</view>
 			</view>
 		</view>

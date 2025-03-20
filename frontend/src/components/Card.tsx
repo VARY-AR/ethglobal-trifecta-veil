@@ -1,28 +1,26 @@
 import type { ReactNode } from '@lynx-js/react'
 import '$/shared/layout.css'
 
-type CardProps = {
-	children: ReactNode
-	title?: string
-	padding?: 'sm' | 'md' | 'lg'
-	className?: string
-}
-
 export function Card({
 	children,
 	title,
 	padding = 'md',
 	className = '',
-}: CardProps) {
+}: {
+	children: ReactNode
+	title?: string
+	padding?: 'sm' | 'md' | 'lg'
+	className?: string
+}) {
 	const paddingClass = padding === 'sm' 
-		? 'pad-sm' 
+		? 'p-sm' 
 		: padding === 'lg' 
-		? 'pad-lg' 
-		: 'pad-md'
+		? 'p-lg' 
+		: 'p-md'
 	
 	return (
 		<view className={`card ${paddingClass} ${className}`}>
-			{title && <h3 className="card-title">{title}</h3>}
+			{title && <text className="h3 card-title">{title}</text>}
 			{children}
 		</view>
 	)

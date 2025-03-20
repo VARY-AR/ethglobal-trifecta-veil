@@ -1,18 +1,24 @@
 import { useState } from '@lynx-js/react'
 import { Header } from '$/components/Header.js'
-import { Card } from '$/components/Card.js'
 import '$/shared/layout.css'
 import '$/shared/global.css'
 
 export function BrandOnboardingPage() {
+	// Brand onboarding state
 	const [currentStep, setCurrentStep] = useState(1)
 	const [brandProfile, setBrandProfile] = useState({
 		name: '',
 		website: '',
 		description: '',
 		logo: null,
-		categories: [] as string[],
-		productCatalogUrl: '',
+		categories: {
+			luxury: false,
+			streetwear: false,
+			athletics: false,
+			accessories: false,
+			other: false
+		},
+		productCatalogUrl: ''
 	})
 	
 	const handleNext = () => {
@@ -30,28 +36,23 @@ export function BrandOnboardingPage() {
 	const handleInputChange = (field: string, value: string) => {
 		setBrandProfile({
 			...brandProfile,
-			[field]: value,
+			[field]: value
 		})
 	}
 	
 	const handleCategoryToggle = (category: string) => {
-		if (brandProfile.categories.includes(category)) {
-			setBrandProfile({
-				...brandProfile,
-				categories: brandProfile.categories.filter(c => c !== category),
-			})
-		} else {
-			setBrandProfile({
-				...brandProfile,
-				categories: [...brandProfile.categories, category],
-			})
-		}
+		setBrandProfile({
+			...brandProfile,
+			categories: {
+				...brandProfile.categories,
+				[category]: !brandProfile.categories[category as keyof typeof brandProfile.categories]
+			}
+		})
 	}
 	
 	const handleSubmit = () => {
 		console.log('Submitting brand profile:', brandProfile)
-		// In a real app, this would send data to an API
-		setCurrentStep(4)
+		// In a real app, we would submit this to a server
 	}
 	
 	return (
@@ -59,242 +60,236 @@ export function BrandOnboardingPage() {
 			<Header />
 			
 			<view className="container">
-				<view className="column gap-xl pad-lg">
-					<h1>Brand Onboarding</h1>
-					
-					<view className="progress-indicator">
-						<view className="row gap-md">
-							<view className={`progress-step ${currentStep >= 1 ? 'active' : ''}`}>
-								<text>1. Brand Profile</text>
-							</view>
-							<view className={`progress-step ${currentStep >= 2 ? 'active' : ''}`}>
-								<text>2. Product Catalog</text>
-							</view>
-							<view className={`progress-step ${currentStep >= 3 ? 'active' : ''}`}>
-								<text>3. Verification Methods</text>
-							</view>
-							<view className={`progress-step ${currentStep >= 4 ? 'active' : ''}`}>
-								<text>4. Complete</text>
-							</view>
+				<view className="row mb-lg">
+					<text className="h1">Brand Onboarding</text>
+				</view>
+				
+				{/* Progress bar */}
+				<view className="progress-bar">
+					<view className="steps">
+						<view className={`step ${currentStep >= 1 ? 'active' : ''}`}>
+							<view className="step-number"><text>1</text></view>
+							<text>Brand Profile</text>
+						</view>
+						<view className={`step-connector ${currentStep >= 2 ? 'active' : ''}`} />
+						<view className={`step ${currentStep >= 2 ? 'active' : ''}`}>
+							<view className="step-number"><text>2</text></view>
+							<text>Product Catalog</text>
+						</view>
+						<view className={`step-connector ${currentStep >= 3 ? 'active' : ''}`} />
+						<view className={`step ${currentStep >= 3 ? 'active' : ''}`}>
+							<view className="step-number"><text>3</text></view>
+							<text>Verification Methods</text>
+						</view>
+						<view className={`step-connector ${currentStep >= 4 ? 'active' : ''}`} />
+						<view className={`step ${currentStep >= 4 ? 'active' : ''}`}>
+							<view className="step-number"><text>4</text></view>
+							<text>Complete</text>
 						</view>
 					</view>
-					
+				</view>
+				
+				<view className="card p-lg mt-md">
+					{/* Step 1: Brand Profile */}
 					{currentStep === 1 && (
-						<Card>
-							<view className="column gap-lg">
-								<h2>Create Your Brand Profile</h2>
-								<p>Let's set up your brand's presence on our platform to offer exclusive rewards.</p>
-								
+						<view className="onboarding-step">
+							<text className="h2">Brand Profile</text>
+							<text className="p">Let's set up your brand's presence on our platform.</text>
+							
+							<view className="form">
 								<view className="form-group">
 									<text>Brand Name</text>
-									<input 
-										type="text" 
-										placeholder="Enter your brand name" 
+									<input
+										type="text"
 										value={brandProfile.name}
+										placeholder="Enter brand name"
 										onChange={(e: any) => handleInputChange('name', e.target.value)}
 									/>
 								</view>
 								
 								<view className="form-group">
 									<text>Website</text>
-									<input 
-										type="text" 
-										placeholder="https://your-brand.com" 
+									<input
+										type="url"
 										value={brandProfile.website}
+										placeholder="https://yourbrand.com"
 										onChange={(e: any) => handleInputChange('website', e.target.value)}
 									/>
 								</view>
 								
 								<view className="form-group">
-									<text>Brand Description</text>
-									<textarea 
-										placeholder="Tell us about your brand and products" 
+									<text>Description</text>
+									<textarea
 										value={brandProfile.description}
+										placeholder="Tell us about your brand"
 										onChange={(e: any) => handleInputChange('description', e.target.value)}
-									></textarea>
+									/>
 								</view>
 								
 								<view className="form-group">
 									<text>Brand Logo</text>
-									<view className="logo-upload-placeholder" />
-									<view className="button secondary">
-										<text>Upload Logo</text>
+									<view className="logo-upload">
+										<text>+ Upload Logo</text>
 									</view>
 								</view>
 								
 								<view className="form-group">
 									<text>Product Categories</text>
-									<view className="category-checkboxes column gap-sm">
-										<view className="row gap-sm">
-											<input 
-												type="checkbox" 
-												id="cat-apparel" 
-												checked={brandProfile.categories.includes('Apparel')}
-												onChange={() => handleCategoryToggle('Apparel')}
-											/>
-											<text>Apparel</text>
+									<view className="categories">
+										<view className="category" bindtap={() => handleCategoryToggle('luxury')}>
+											<view className={`checkbox ${brandProfile.categories.luxury ? 'checked' : ''}`} />
+											<text>Luxury</text>
 										</view>
-										<view className="row gap-sm">
-											<input 
-												type="checkbox" 
-												id="cat-accessories" 
-												checked={brandProfile.categories.includes('Accessories')}
-												onChange={() => handleCategoryToggle('Accessories')}
-											/>
+										<view className="category" bindtap={() => handleCategoryToggle('streetwear')}>
+											<view className={`checkbox ${brandProfile.categories.streetwear ? 'checked' : ''}`} />
+											<text>Streetwear</text>
+										</view>
+										<view className="category" bindtap={() => handleCategoryToggle('athletics')}>
+											<view className={`checkbox ${brandProfile.categories.athletics ? 'checked' : ''}`} />
+											<text>Athletics</text>
+										</view>
+										<view className="category" bindtap={() => handleCategoryToggle('accessories')}>
+											<view className={`checkbox ${brandProfile.categories.accessories ? 'checked' : ''}`} />
 											<text>Accessories</text>
 										</view>
-										<view className="row gap-sm">
-											<input 
-												type="checkbox" 
-												id="cat-footwear" 
-												checked={brandProfile.categories.includes('Footwear')}
-												onChange={() => handleCategoryToggle('Footwear')}
-											/>
-											<text>Footwear</text>
+										<view className="category" bindtap={() => handleCategoryToggle('other')}>
+											<view className={`checkbox ${brandProfile.categories.other ? 'checked' : ''}`} />
+											<text>Other</text>
 										</view>
-										<view className="row gap-sm">
-											<input 
-												type="checkbox" 
-												id="cat-jewelry" 
-												checked={brandProfile.categories.includes('Jewelry')}
-												onChange={() => handleCategoryToggle('Jewelry')}
-											/>
-											<text>Jewelry</text>
-										</view>
-									</view>
-								</view>
-								
-								<view className="row gap-md" style={{ justifyContent: 'flex-end' }}>
-									<view className="button" bindtap={handleNext}>
-										<text>Next Step</text>
 									</view>
 								</view>
 							</view>
-						</Card>
+						</view>
 					)}
 					
+					{/* Step 2: Product Catalog Integration */}
 					{currentStep === 2 && (
-						<Card>
-							<view className="column gap-lg">
-								<h2>Integrate Your Product Catalog</h2>
-								<p>Connect your product data to enable digital passport creation for your products.</p>
-								
+						<view className="onboarding-step">
+							<text className="h2">Product Catalog</text>
+							<text className="p">Connect your product database so we can verify customer ownership.</text>
+							
+							<view className="form">
 								<view className="form-group">
-									<text>Product Catalog API</text>
-									<input 
-										type="text" 
-										placeholder="https://your-api.com/products" 
+									<text>Product API Endpoint</text>
+									<input
+										type="url"
 										value={brandProfile.productCatalogUrl}
+										placeholder="https://api.yourbrand.com/products"
 										onChange={(e: any) => handleInputChange('productCatalogUrl', e.target.value)}
 									/>
 								</view>
 								
-								<view className="form-group">
-									<text>Or upload a CSV file</text>
-									<view className="file-upload-placeholder" />
-									<view className="button secondary">
-										<text>Upload CSV</text>
+								<text className="p">We support the following integration methods:</text>
+								<view className="methods">
+									<view className="method">
+										<text className="h3">REST API Integration</text>
+										<text className="p">Connect your existing product catalog API</text>
+									</view>
+									
+									<view className="method">
+										<text className="h3">Batch Upload</text>
+										<text className="p">Upload your product database as JSON or CSV</text>
+									</view>
+									
+									<view className="method">
+										<text className="h3">Manual Entry</text>
+										<text className="p">Manually add products to the platform</text>
 									</view>
 								</view>
 								
-								<view className="form-group">
-									<text>Eligible Products for Loyalty Program</text>
-									<select>
-										<option value="all">All Products</option>
-										<option value="selected">Selected Products</option>
-										<option value="categories">By Category</option>
-									</select>
-									<p className="form-help">You can change this later in your dashboard</p>
-								</view>
-								
-								<view className="row gap-md" style={{ justifyContent: 'space-between' }}>
-									<view className="button secondary" bindtap={handleBack}>
-										<text>Back</text>
-									</view>
-									<view className="button" bindtap={handleNext}>
-										<text>Next Step</text>
-									</view>
-								</view>
+								<text className="p mt-md">Your product data is securely hashed and only used for zero-knowledge verification. We never store or share your customer data.</text>
 							</view>
-						</Card>
+						</view>
 					)}
 					
+					{/* Step 3: Verification Methods */}
 					{currentStep === 3 && (
-						<Card>
-							<view className="column gap-lg">
-								<h2>Set Verification Methods</h2>
-								<p>Establish how product authenticity will be verified for your brand.</p>
-								
-								<view className="verification-methods column gap-md">
-									<view className="row gap-sm">
-										<input type="checkbox" id="verify-qr" checked={true} />
-										<view className="column">
-											<text className="method-title">QR Codes</text>
-											<text className="method-description">Unique QR codes on physical products</text>
-										</view>
+						<view className="onboarding-step">
+							<text className="h2">Verification Methods</text>
+							<text className="p">Set up how customers can prove ownership of your products.</text>
+							
+							<view className="verification-types">
+								<view className="verification-type">
+									<view className="method-title">
+										<text className="h3">QR Code Verification</text>
+										<view className="toggle active" />
 									</view>
-									
-									<view className="row gap-sm">
-										<input type="checkbox" id="verify-nfc" checked={false} />
-										<view className="column">
-											<text className="method-title">NFC Tags</text>
-											<text className="method-description">Embedded NFC tags for tap verification</text>
-										</view>
-									</view>
-									
-									<view className="row gap-sm">
-										<input type="checkbox" id="verify-receipt" checked={true} />
-										<view className="column">
-											<text className="method-title">E-Receipt Verification</text>
-											<text className="method-description">Verify digital receipts from authorized retailers</text>
-										</view>
-									</view>
-									
-									<view className="row gap-sm">
-										<input type="checkbox" id="verify-serial" checked={true} />
-										<view className="column">
-											<text className="method-title">Serial Number</text>
-											<text className="method-description">Unique serial numbers on products or packaging</text>
-										</view>
-									</view>
+									<text className="p">Allow customers to scan QR codes on your products to claim ownership.</text>
 								</view>
 								
-								<view className="form-group">
-									<text>Additional Security Notes</text>
-									<textarea placeholder="Any specific verification instructions for your customers"></textarea>
+								<view className="verification-type">
+									<view className="method-title">
+										<text className="h3">Receipt Upload</text>
+										<view className="toggle active" />
+									</view>
+									<text className="p">Customers can upload purchase receipts to verify ownership.</text>
 								</view>
 								
-								<view className="row gap-md" style={{ justifyContent: 'space-between' }}>
-									<view className="button secondary" bindtap={handleBack}>
-										<text>Back</text>
+								<view className="verification-type">
+									<view className="method-title">
+										<text className="h3">NFC Tag Scanning</text>
+										<view className="toggle" />
 									</view>
-									<view className="button" bindtap={handleSubmit}>
-										<text>Complete Setup</text>
+									<text className="p">Enable NFC tag scanning for seamless verification (premium feature).</text>
+								</view>
+								
+								<view className="verification-type">
+									<view className="method-title">
+										<text className="h3">Blockchain Integration</text>
+										<view className="toggle" />
 									</view>
+									<text className="p">Connect to blockchain records for digital ownership verification.</text>
 								</view>
 							</view>
-						</Card>
+							
+							<text className="p mt-md">You can modify these settings later from your brand dashboard.</text>
+						</view>
 					)}
 					
+					{/* Step 4: Complete */}
 					{currentStep === 4 && (
-						<Card>
-							<view className="column gap-lg center text-center">
-								<view className="success-icon">✓</view>
-								<h2>Setup Complete!</h2>
-								<p>Your brand is now registered on our platform. You can start creating campaigns and offering exclusive rewards.</p>
-								
-								<view className="next-steps column gap-md">
-									<text className="next-step">1. Access your brand dashboard</text>
-									<text className="next-step">2. Create your first campaign</text>
-									<text className="next-step">3. Design reward experiences</text>
-									<text className="next-step">4. Track customer engagement</text>
+						<view className="onboarding-step">
+							<view className="success-icon">
+								<text>✓</text>
+							</view>
+							<text className="h2">Setup Complete!</text>
+							<text className="p">Your brand is now ready to offer exclusive rewards and experiences.</text>
+							
+							<text className="h3 mt-lg">Next Steps:</text>
+							<view className="next-steps">
+								<view className="step">
+									<text className="step-number">1</text>
+									<text className="p">Create your first reward in the brand dashboard</text>
 								</view>
-								
-								<view className="button" bindtap={() => console.log('Go to dashboard')}>
-									<text>Go to Brand Dashboard</text>
+								<view className="step">
+									<text className="step-number">2</text>
+									<text className="p">Set up verification for your product line</text>
+								</view>
+								<view className="step">
+									<text className="step-number">3</text>
+									<text className="p">Invite team members to help manage your brand</text>
 								</view>
 							</view>
-						</Card>
+							
+							<view className="button mt-lg" bindtap={() => {}}>
+								<text>Go to Brand Dashboard</text>
+							</view>
+						</view>
+					)}
+					
+					{/* Navigation buttons */}
+					{currentStep < 4 && (
+						<view className="row mt-lg">
+							{currentStep > 1 && (
+								<view className="button secondary" bindtap={handleBack}>
+									<text>Back</text>
+								</view>
+							)}
+							<view style={{ flex: 1 }} />
+							<view className="button" bindtap={handleNext}>
+								<text>Next Step</text>
+							</view>
+						</view>
 					)}
 				</view>
 			</view>
