@@ -1,55 +1,80 @@
-import { useCallback, useEffect, useState } from '@lynx-js/react';
+import { useState, useEffect } from '@lynx-js/react'
+import './App.css'
+import '$/shared/layout.css'
+import '$/shared/global.css'
 
-import './App.css';
-import arrow from './assets/arrow.png';
-import lynxLogo from './assets/lynx-logo.png';
-import reactLynxLogo from './assets/react-logo.png';
+// Import all pages
+import { HomePage } from './pages/HomePage.js'
+import { WalletSetupPage } from './pages/WalletSetupPage.js'
+import { ProductDashboardPage } from './pages/ProductDashboardPage.js'
+import { ZkVerificationPage } from './pages/ZkVerificationPage.js'
+import { RewardsPage } from './pages/RewardsPage.js'
+import { BrandOnboardingPage } from './pages/BrandOnboardingPage.js'
 
+// Simple route manager
 export function App() {
-	const [alterLogo, setAlterLogo] = useState(false);
-
+	const [currentRoute, setCurrentRoute] = useState('home')
+	
+	// Simple navigation function
+	const navigate = (route: string) => {
+		setCurrentRoute(route)
+	}
+	
+	// Make navigate globally available
 	useEffect(() => {
-		console.info('Hello, ReactLynx');
-	}, []);
-
-	const onTap = useCallback(() => {
-		'background only';
-		setAlterLogo(!alterLogo);
-	}, [alterLogo]);
-
+		// @ts-ignore
+		window.navigate = navigate
+	}, [])
+	
+	// Render the appropriate page based on route
+	const renderPage = () => {
+		switch (currentRoute) {
+			case 'home':
+				return <HomePage />
+			case 'wallet-setup':
+				return <WalletSetupPage />
+			case 'products':
+				return <ProductDashboardPage />
+			case 'zk-verification':
+				return <ZkVerificationPage />
+			case 'rewards':
+				return <RewardsPage />
+			case 'brand-onboarding':
+				return <BrandOnboardingPage />
+			default:
+				return <HomePage />
+		}
+	}
+	
 	return (
-		<view>
-			<view className="Background" />
-			<view className="App">
-				<view className="Banner">
-					<view className="Logo" bindtap={onTap}>
-						{alterLogo ? (
-							<image
-								src={reactLynxLogo}
-								className="Logo--react"
-							/>
-						) : (
-							<image src={lynxLogo} className="Logo--lynx" />
-						)}
+		<view className="app">
+			{renderPage()}
+			
+			{/* Simple navigation bar at the bottom for demo purposes */}
+			<view className="nav-bar">
+				<view className="container">
+					<view className="row">
+						<view className={`nav-item ${currentRoute === 'home' ? 'active' : ''}`} bindtap={() => navigate('home')}>
+							<text>Home</text>
+						</view>
+						<view className={`nav-item ${currentRoute === 'wallet-setup' ? 'active' : ''}`} bindtap={() => navigate('wallet-setup')}>
+							<text>Identity</text>
+						</view>
+						<view className={`nav-item ${currentRoute === 'products' ? 'active' : ''}`} bindtap={() => navigate('products')}>
+							<text>Products</text>
+						</view>
+						<view className={`nav-item ${currentRoute === 'zk-verification' ? 'active' : ''}`} bindtap={() => navigate('zk-verification')}>
+							<text>Verify</text>
+						</view>
+						<view className={`nav-item ${currentRoute === 'rewards' ? 'active' : ''}`} bindtap={() => navigate('rewards')}>
+							<text>Rewards</text>
+						</view>
+						<view className={`nav-item ${currentRoute === 'brand-onboarding' ? 'active' : ''}`} bindtap={() => navigate('brand-onboarding')}>
+							<text>Brands</text>
+						</view>
 					</view>
-					<text className="Title">React</text>
-					<text className="Subtitle">on Lynx</text>
 				</view>
-				<view className="Content">
-					<image src={arrow} className="Arrow" />
-					<text className="Description">
-						Tap the logo and have fun!
-					</text>
-					<text className="Hint">
-						Edit
-						<text style={{ fontStyle: 'italic' }}>
-							{' src/App.tsx '}
-						</text>
-						to see updates!
-					</text>
-				</view>
-				<view style={{ flex: 1 }}></view>
 			</view>
 		</view>
-	);
+	)
 }
