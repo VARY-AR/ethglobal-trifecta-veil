@@ -177,22 +177,15 @@ text {
 }
 
 /* Card variations */
-.reward-card {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-}
-
 .reward-image, .product-image, .profile-upload-placeholder, .qr-scanner-placeholder, .proof-visualization-placeholder {
 	width: 100%;
 	height: 150px;
-	background-color: #e5e7eb;
-	border-radius: var(--border-radius-sm);
-	margin-bottom: 0.75rem;
+	background-color: var(--color-border);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--color-text-light);
+	margin-bottom: 1rem;
+	border-radius: var(--border-radius-md);
 }
 
 .scanner-text {
