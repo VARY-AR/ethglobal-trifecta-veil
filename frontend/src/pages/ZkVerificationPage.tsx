@@ -47,15 +47,16 @@ export function ZkVerificationPage() {
 	}
 	
 	// Generate a ZK proof
-	const handleGenerateProof = () => {
+	const handleGenerateProof = async () => {
 		console.log('Generating proof for:', selectedOption.title)
 		setProofStatus('generating')
+
+		const { initialize } = await import('$/lib/prove.js')
 		
-		// Simulate proof generation
-		setTimeout(() => {
-			setProofStatus('ready')
-			setActiveStep(3)
-		}, 2000)
+		await initialize()
+
+		setProofStatus('ready')
+		setActiveStep(3)
 	}
 	
 	// Verify a proof

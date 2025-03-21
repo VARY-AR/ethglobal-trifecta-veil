@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"jsx": "preserve",
 
-		"module": "node16",
+		"module": "esnext",
 		"moduleResolution": "node16",
 
 		"strict": true,
@@ -11,6 +11,7 @@
 
 		"esModuleInterop": true,
 		"skipLibCheck": true,
+		"resolveJsonModule": true,
 
 		"paths": {
 			"$/*": [

@@ -13,6 +13,20 @@ export default defineConfig({
 			},
 		}),
 		pluginReactLynx(),
-		pluginNodePolyfill(),
+		pluginNodePolyfill({
+			include: [
+				'worker_threads',
+				'tty',
+				'crypto',
+				'stream',
+				'os',
+				'path',
+				'fs',
+				'vm',
+				'url',
+				// 'util',
+				// 'buffer',
+			]
+		}),
 	],
 });
