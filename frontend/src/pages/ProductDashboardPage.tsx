@@ -1,5 +1,6 @@
 import { useState } from '@lynx-js/react'
 import { Header } from '$/components/Header.js'
+import { ScrollView } from '$/components/ScrollView.js'
 import '$/shared/layout.css'
 import '$/shared/global.css'
 
@@ -69,7 +70,7 @@ export function ProductDashboardPage() {
 	})
 
 	return (
-		<view className="page">
+		<ScrollView>
 			<Header />
 			
 			<view className="container">
@@ -221,6 +222,6 @@ export function ProductDashboardPage() {
 					</view>
 				</view>
 			</view>
-		</view>
+		</ScrollView>
 	)
 } 
