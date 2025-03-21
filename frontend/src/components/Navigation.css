@@ -1,0 +1,28 @@
+.nav-bar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: var(--color-surface);
+	border-top: 1px solid var(--color-border);
+	padding: 0.5rem 0;
+	/* iOS safe area bottom inset */
+	padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+	z-index: 100;
+}
+
+.nav-item {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5rem;
+	color: var(--color-text-light);
+	text-align: center;
+	cursor: pointer;
+}
+
+.nav-item.active {
+	color: var(--color-primary);
+	font-weight: 500;
+}
