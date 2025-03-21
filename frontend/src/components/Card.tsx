@@ -1,5 +1,5 @@
 import type { ReactNode } from '@lynx-js/react'
-import '$/shared/layout.css'
+import './Card.css'
 
 export function Card({
 	children,

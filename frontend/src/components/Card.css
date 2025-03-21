@@ -1,0 +1,18 @@
+.card {
+	background-color: var(--color-surface);
+	border-radius: var(--border-radius-md);
+	padding: var(--gap-md);
+	margin-bottom: var(--gap-md);
+	border: 1px solid var(--color-border);
+}
+
+.card-title {
+	margin-bottom: var(--gap-md);
+}
+
+/* Card variations */
+.reward-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+} 
