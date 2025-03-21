@@ -1,6 +1,7 @@
 import { useState } from '@lynx-js/react'
 import '$/shared/layout.css'
 import '$/shared/global.css'
+import './Header.css'
 
 export function Header() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
