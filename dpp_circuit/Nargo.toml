@@ -1,0 +1,7 @@
+[package]
+name = "dpp_circuit"
+type = "bin"
+authors = [""]
+
+[dependencies]
+jwt = { tag = "v0.4.3", git = "https://github.com/zkemail/noir-jwt" }
