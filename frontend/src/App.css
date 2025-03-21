@@ -293,3 +293,83 @@ text {
 	font-size: 0.75rem;
 	font-weight: normal;
 }
+
+/* Categories grid */
+.categories-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+	gap: var(--gap-sm);
+	margin: var(--gap-sm) 0;
+}
+
+.category {
+	display: flex;
+	align-items: center;
+	gap: var(--gap-xs);
+	padding: var(--gap-xs);
+	border-radius: var(--border-radius-sm);
+	cursor: pointer;
+}
+
+.checkbox {
+	width: 18px;
+	height: 18px;
+	border: 1px solid var(--color-border);
+	border-radius: 3px;
+	background-color: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.checkbox.checked {
+	background-color: var(--color-primary);
+	border-color: var(--color-primary);
+}
+
+/* Filters grid */
+.filters-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: var(--gap-md);
+}
+
+@media (max-width: 768px) {
+	.filters-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Steps grid for progress indicators */
+.steps-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+	gap: var(--gap-sm);
+	margin: var(--gap-md) 0;
+}
+
+.progress-step {
+	padding: var(--gap-sm);
+	text-align: center;
+	border-radius: var(--border-radius-sm);
+	background-color: var(--color-background);
+	border: 1px solid var(--color-border);
+}
+
+.progress-step.active {
+	background-color: var(--color-primary-light);
+	color: white;
+	border-color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+	.steps-grid {
+		grid-template-columns: 1fr 1fr;
+		gap: var(--gap-xs);
+	}
+	
+	.progress-step {
+		font-size: 0.9rem;
+		padding: var(--gap-xs);
+	}
+}

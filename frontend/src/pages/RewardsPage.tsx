@@ -134,7 +134,7 @@ export function RewardsPage() {
 				{/* Filters (only shown on available tab) */}
 				{activeTab === 'available' && (
 					<view className="filters card p-md">
-						<view className="row gap-md">
+						<view className="filters-grid">
 							<view className="form-group">
 								<text>Reward Type:</text>
 								<select value={rewardFilters.type} onChange={handleTypeChange}>
@@ -161,7 +161,7 @@ export function RewardsPage() {
 				
 				{/* Available Rewards */}
 				{activeTab === 'available' && (
-					<view className="row-2 gap-md">
+					<view className="row-2">
 						{filteredAvailableRewards.length > 0 ? (
 							filteredAvailableRewards.map(reward => (
 								<view className="card reward-card" key={reward.id}>
@@ -189,7 +189,7 @@ export function RewardsPage() {
 				
 				{/* Redeemed Rewards */}
 				{activeTab === 'redeemed' && (
-					<view className="row-2 gap-md">
+					<view className="row-2">
 						{userClaimedRewards.length > 0 ? (
 							userClaimedRewards.map(reward => (
 								<view className="card reward-card" key={reward.id}>

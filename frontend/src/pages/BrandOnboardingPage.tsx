@@ -67,7 +67,7 @@ export function BrandOnboardingPage() {
 				
 				{/* Progress bar */}
 				<view className="progress-bar">
-					<view className="steps">
+					<view className="steps-grid">
 						<view className={`step ${currentStep >= 1 ? 'active' : ''}`}>
 							<view className="step-number"><text>1</text></view>
 							<text>Brand Profile</text>
@@ -136,7 +136,7 @@ export function BrandOnboardingPage() {
 								
 								<view className="form-group">
 									<text>Product Categories</text>
-									<view className="categories">
+									<view className="categories-grid">
 										<view className="category" bindtap={() => handleCategoryToggle('luxury')}>
 											<view className={`checkbox ${brandProfile.categories.luxury ? 'checked' : ''}`} />
 											<text>Luxury</text>

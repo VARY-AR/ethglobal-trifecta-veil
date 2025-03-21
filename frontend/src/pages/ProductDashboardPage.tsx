@@ -86,7 +86,7 @@ export function ProductDashboardPage() {
 				{/* Filters */}
 				{showFilters && (
 					<view className="filters-panel card p-md mb-md">
-						<view className="row gap-md">
+						<view className="filters-grid">
 							<view className="form-group">
 								<text>Sort by:</text>
 								<select value={sortBy} onChange={(e: any) => setSortBy(e.target.value)}>
@@ -140,7 +140,7 @@ export function ProductDashboardPage() {
 				
 				{/* Product grid */}
 				{activeTab === 'owned' && (
-					<view className="row-2 gap-md">
+					<view className="row-2">
 						{sortedProducts.map(product => (
 							<view className="card product-card" key={product.id}>
 								<view className="product-image">
@@ -195,7 +195,7 @@ export function ProductDashboardPage() {
 					<text className="h2">Add Products to Your Collection</text>
 					<text className="p">Register your physical product purchases to create digital ownership records.</text>
 					
-					<view className="row-3 gap-md mt-md">
+					<view className="row-3 mt-md">
 						<view className="card p-md text-center">
 							<text className="h3">Scan QR Code</text>
 							<text className="p">For products with QR verification</text>

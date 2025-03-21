@@ -20,7 +20,7 @@ export function HomePage() {
 								Collect rewards and access exclusive experiences.
 							</text>
 							
-							<view className="row gap-md justify-center">
+							<view className="row justify-center">
 								<view className="button" bindtap={() => console.log('Get Started')}>
 									<text>Get Started</text>
 								</view>
@@ -33,7 +33,7 @@ export function HomePage() {
 					
 					<view className="section">
 						<text className="h2 section-title text-center">How It Works</text>
-						<view className="row-3 gap-lg">
+						<view className="row-3">
 							<Card title="1. Create Your Digital Identity">
 								<text className="p">Establish a secure digital identity that puts you in control of your personal data.</text>
 							</Card>
@@ -50,7 +50,7 @@ export function HomePage() {
 					
 					<view className="section">
 						<text className="h2 section-title text-center">Featured Rewards</text>
-						<view className="row-3 gap-lg">
+						<view className="row-3">
 							<Card className="reward-card">
 								<view className="reward-image placeholder" />
 								<text className="h3">Limited Edition NFT</text>

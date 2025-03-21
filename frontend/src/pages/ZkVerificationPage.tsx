@@ -85,7 +85,7 @@ export function ZkVerificationPage() {
 				
 				{/* Progress indicator */}
 				<view className="progress-indicator">
-					<view className="row gap-sm">
+					<view className="steps-grid">
 						<view className={`progress-step ${activeStep >= 1 ? 'active' : ''}`}>
 							<text>1. Select Type</text>
 						</view>
@@ -114,7 +114,7 @@ export function ZkVerificationPage() {
 										<text className="h3">{option.title}</text>
 										<text className="p">{option.description}</text>
 										
-										<view className="row gap-md">
+										<view className="row">
 											<view className="column">
 												<text className="text-success">✓ Requirements:</text>
 												<text>{option.requiredAttributes}</text>
