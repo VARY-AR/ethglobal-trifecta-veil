@@ -1,0 +1,16 @@
+{
+  "name": "contracts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@aztec/accounts": "^0.81.0",
+    "@aztec/aztec.js": "^0.81.0",
+    "@aztec/noir-contracts.js": "^0.81.0"
+  },
+  "scripts": {
+    "compile": "aztec-nargo compile && aztec codegen -o src/artifacts target",
+    "deploy": "node src/deploy.mjs"
+  }
+}
