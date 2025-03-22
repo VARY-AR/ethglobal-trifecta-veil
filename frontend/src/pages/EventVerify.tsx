@@ -7,16 +7,20 @@ import { SectionTitle } from '$/components/SectionTitle.js'
 import { ProgressBar } from '$/components/ProgressBar.js'
 import { events } from '$/data/mockData.js'
 // import verifyCheck from '$/assets/verify-check.svg'
+import proofImage from '$/assets/proof.png'
+import proofGeneratingImage from '$/assets/proof-generating.png'
+import admissionRequestingImage from '$/assets/admission-requesting.png'
+import admissionGrantedImage from '$/assets/admission-granted.png'
 import '$/shared/layout.css'
 import '$/shared/global.css'
 import './EventVerify.css'
 
-// Placeholder images for verification visuals
-const PLACEHOLDER_VISUALS = {
-	sphere: 'https://via.placeholder.com/300x300?text=Sphere+Visual',
-	polyhedron: 'https://via.placeholder.com/300x300?text=Polyhedron+Visual',
-	grid: 'https://via.placeholder.com/300x300?text=Grid+Visual',
-	heart: 'https://via.placeholder.com/300x300?text=Heart+Visual'
+// Use the actual verification visuals
+const VERIFICATION_VISUALS = {
+	polyhedron: proofImage,
+	sphere: proofGeneratingImage,
+	grid: admissionRequestingImage,
+	heart: admissionGrantedImage
 }
 
 export function EventVerifyPage() {
@@ -99,16 +103,16 @@ export function EventVerifyPage() {
 				{/* Verification visualization */}
 				<view className="verify-visual">
 					{verificationStage === 0 && (
-						<image className="verify-image" src={PLACEHOLDER_VISUALS.polyhedron} />
+						<image className="verify-image" src={VERIFICATION_VISUALS.polyhedron} />
 					)}
 					{verificationStage === 1 && (
-						<image className="verify-image" src={PLACEHOLDER_VISUALS.sphere} />
+						<image className="verify-image" src={VERIFICATION_VISUALS.sphere} />
 					)}
 					{verificationStage === 2 && (
-						<image className="verify-image" src={PLACEHOLDER_VISUALS.grid} />
+						<image className="verify-image" src={VERIFICATION_VISUALS.grid} />
 					)}
 					{(verificationStage === 3 || verificationStage === 4) && (
-						<image className="verify-image" src={PLACEHOLDER_VISUALS.heart} />
+						<image className="verify-image" src={VERIFICATION_VISUALS.heart} />
 					)}
 				</view>
 				
@@ -230,19 +234,27 @@ export function EventVerifyPage() {
 					
 					<view className="proof-passports">
 						<view className="proof-passport-item">
-							<view className="proof-passport-placeholder" />
+							<view className="proof-passport-placeholder">
+								<image className="proof-passport-image" src={proofImage} />
+							</view>
 							<text className="proof-passport-label">PRODUCT PASSPORT</text>
 						</view>
 						<view className="proof-passport-item">
-							<view className="proof-passport-placeholder" />
+							<view className="proof-passport-placeholder">
+								<image className="proof-passport-image" src={proofGeneratingImage} />
+							</view>
 							<text className="proof-passport-label">PRODUCT PASSPORT</text>
 						</view>
 						<view className="proof-passport-item">
-							<view className="proof-passport-placeholder" />
+							<view className="proof-passport-placeholder">
+								<image className="proof-passport-image" src={admissionRequestingImage} />
+							</view>
 							<text className="proof-passport-label">PRODUCT PASSPORT</text>
 						</view>
 						<view className="proof-passport-item">
-							<view className="proof-passport-placeholder" />
+							<view className="proof-passport-placeholder">
+								<image className="proof-passport-image" src={admissionGrantedImage} />
+							</view>
 							<text className="proof-passport-label">PRODUCT PASSPORT</text>
 						</view>
 					</view>
