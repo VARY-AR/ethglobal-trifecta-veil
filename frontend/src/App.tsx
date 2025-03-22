@@ -7,7 +7,6 @@ import '$/shared/global.css'
 import { HomePage } from './pages/HomePage.js'
 import { WalletSetupPage } from './pages/WalletSetupPage.js'
 import { ProductDashboardPage } from './pages/ProductDashboardPage.js'
-import { ZkVerificationPage } from './pages/ZkVerificationPage.js'
 import { RewardsPage } from './pages/RewardsPage.js'
 import { BrandOnboardingPage } from './pages/BrandOnboardingPage.js'
 import { EventDetailPage } from './pages/EventDetail.js'
@@ -22,7 +21,6 @@ export function App() {
 				<Route path="/" element={<HomePage />} />
 				<Route path="/wallet-setup" element={<WalletSetupPage />} />
 				<Route path="/products" element={<ProductDashboardPage />} />
-				<Route path="/zk-verification" element={<ZkVerificationPage />} />
 				<Route path="/rewards" element={<RewardsPage />} />
 				<Route path="/brand-onboarding" element={<BrandOnboardingPage />} />
 				<Route path="/event/:id" element={<EventDetailPage />} />

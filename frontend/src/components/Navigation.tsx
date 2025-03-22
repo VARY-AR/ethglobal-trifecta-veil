@@ -19,9 +19,6 @@ export function Navigation() {
 					<view className={`nav-item ${currentRoute === '/products' ? 'active' : ''}`} bindtap={() => navigate('/products')}>
 						<text>Products</text>
 					</view>
-					<view className={`nav-item ${currentRoute === '/zk-verification' ? 'active' : ''}`} bindtap={() => navigate('/zk-verification')}>
-						<text>Verify</text>
-					</view>
 					<view className={`nav-item ${currentRoute === '/rewards' ? 'active' : ''}`} bindtap={() => navigate('/rewards')}>
 						<text>Rewards</text>
 					</view>
