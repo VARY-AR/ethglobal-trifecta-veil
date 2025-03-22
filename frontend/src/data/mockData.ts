@@ -85,3 +85,106 @@ export const events = [
 		location: 'Los Angeles'
 	}
 ] as const
+
+export const walletTokens = [
+	{
+		id: 1,
+		name: 'BALENCIAGA HOODIE BLACK XL',
+		brand: 'BALENCIAGA',
+		acquired: '2023-11-15',
+		tokenId: 'BAL-1234-5678-9012',
+		verified: true,
+		attributes: {
+			color: 'Black',
+			size: 'XL',
+			material: 'Cotton',
+			collection: 'Fall 2023'
+		}
+	},
+	{
+		id: 2,
+		name: 'PRADA NYLON BAG',
+		brand: 'PRADA',
+		acquired: '2024-01-24',
+		tokenId: 'PRA-2345-6789-0123',
+		verified: true,
+		attributes: {
+			color: 'Navy',
+			type: 'Shoulder bag',
+			material: 'Re-Nylon',
+			collection: 'Spring 2024'
+		}
+	},
+	{
+		id: 3,
+		name: 'FUJIFILM X-T5 CAMERA',
+		brand: 'FUJIFILM',
+		acquired: '2023-09-20',
+		tokenId: 'FUJ-3456-7890-1234',
+		verified: true,
+		attributes: {
+			color: 'Silver',
+			model: 'X-T5',
+			sensor: 'APS-C',
+			resolution: '40MP'
+		}
+	},
+	{
+		id: 4,
+		name: 'ARPA STUDIO CANDLE SET',
+		brand: 'ARPA STUDIO',
+		acquired: '2024-02-10',
+		tokenId: 'ARP-4567-8901-2345',
+		verified: true,
+		attributes: {
+			scent: 'Cedar & Vanilla',
+			size: '180g',
+			collection: 'Winter 2024'
+		}
+	}
+] as const
+
+export const transactionHistory = [
+	{
+		id: 1,
+		date: '2024-03-15',
+		type: 'Token Acquired',
+		detail: 'ARPA STUDIO CANDLE SET',
+		status: 'Completed'
+	},
+	{
+		id: 2,
+		date: '2024-03-01',
+		type: 'ZK Proof Generated',
+		detail: 'For ASAP ROCKY event',
+		status: 'Completed'
+	},
+	{
+		id: 3,
+		date: '2024-02-10',
+		type: 'Token Acquired',
+		detail: 'ARPA STUDIO CANDLE SET',
+		status: 'Completed'
+	},
+	{
+		id: 4,
+		date: '2024-01-24',
+		type: 'Token Acquired',
+		detail: 'PRADA NYLON BAG',
+		status: 'Completed'
+	},
+	{
+		id: 5,
+		date: '2023-11-15',
+		type: 'Token Acquired',
+		detail: 'BALENCIAGA HOODIE BLACK XL',
+		status: 'Completed'
+	},
+	{
+		id: 6,
+		date: '2023-09-20',
+		type: 'Token Acquired',
+		detail: 'FUJIFILM X-T5 CAMERA',
+		status: 'Completed'
+	}
+] as const
