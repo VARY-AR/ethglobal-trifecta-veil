@@ -26,7 +26,7 @@ document.getElementById("submit").addEventListener("click", async () => {
      const inputs = await generateInputs({
          jwt: jwt,
          pubkey: pubkey,
-         maxSignedDataLength: 512,
+         maxSignedDataLength: 1024,
      });
 
 

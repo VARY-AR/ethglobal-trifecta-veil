@@ -1,7 +1,7 @@
 use jwt::JWT;
 
 fn main(
-    data: BoundedVec<u8, 512>,
+    data: BoundedVec<u8, 1024>,
     base64_decode_offset: u32,
     pubkey_modulus_limbs: [Field; 18],
     redc_params_limbs: [Field; 18],
@@ -17,7 +17,9 @@ fn main(
 
     jwt.verify();
 
-    jwt.assert_claim_number("recyclabilityPercentage".as_bytes(), 85);
+    let recyclabilityPercentage: u64 = jwt.get_claim_number("recyclabilityPercentage".as_bytes());
+    let iat: u64 = jwt.get_claim_number("iat".as_bytes());
+    let today_year_ago: u64 = 1742666419 - 31556926;
 
-    true
+    (iat < today_year_ago) & (recyclabilityPercentage > 80)
 }

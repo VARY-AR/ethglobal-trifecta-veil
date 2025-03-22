@@ -59,16 +59,21 @@ export async function createKeyAndSignData() {
 
   // Sample payload
   const payload = {
-      "iss": "https://example.com",
-      "sub": "dpp-123456789",
-      "iat": 1710975000,
-      "exp": 1890384000,
-      "product": {
-          "name": "Smartphone Model X",
-          "serialNumber": "SN-987654321",
-          "productionDate": "2024-03-21T10:30:00Z",
-      },
+      "contractAddress": "0x090AE03364aBFB375998b4B043d7A789f57cFEca",
+      "tokenId": "1",
+      "count": 1,
+      "owner": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+      "iss": "https://veil.my",
+      "iat": 1711044019, // 21.03.2024
+      "exp": 1842656568,
+      "name": "Classic Trench Coat",
+      "language": "en",
+      "serialNumber": 21,
+      "energyClass": null,
       "recyclabilityPercentage": 85,
+      "recycledContent": true,
+      "waterConsumption": 7000,
+      "dangerousSubstance": false,
   };
 
   // Sign the payload
@@ -99,7 +104,7 @@ async function generateNoirTestData() {
   const inputs = await generateInputs({
     jwt: jwt,
     pubkey: pubkeyJwk as JsonWebKey,
-    maxSignedDataLength: 512,
+    maxSignedDataLength: 1024,
   });
 
   const x= `
