@@ -1,11 +1,17 @@
 import jwt from 'jsonwebtoken';
 import crypto from "crypto";
-import { Token } from './types';
-import { ethers } from 'ethers';
+import { Token, TokenOwnership } from './types';
+import { ethers, Contract } from 'ethers';
 
 const ERC1155_ABI = [
   'function balanceOf(address account, uint256 id) view returns (uint256)',
   'function uri(uint256 id) view returns (string)'
+];
+
+const KNOWN_CONTRACTS = [
+  { address: '0x7b96EAe24193302a31ce1FcF414aB76fF9D10D83', brand: 'Prada' },
+  { address: '0xEDBB9ea80cf07CEa5dEe7E135fCFd6ae50b1A2c8', brand: 'Gucci' },
+  { address: '0x2FF69e6d72a371eE03C77A0A62fed49A5b5480A8', brand: 'Burberry' }
 ];
 
 export const _getSigningString = (tokens: Token[]): string => {
@@ -90,3 +96,39 @@ export const generateTokenJWT = (token: Token, ownerAddress: string, metadata: a
   });
   return jwt.sign(payload, privateKey, {algorithm: "RS256"});
 };
+
+export async function retrieveOwnedTokens(provider: ethers.JsonRpcProvider, walletAddress: string): Promise<TokenOwnership[]> {
+  const ownedTokens: TokenOwnership[] = [];
+  for (const contract of KNOWN_CONTRACTS) {
+    const tokenContract = new Contract(contract.address, ERC1155_ABI, provider);
+    for (let tokenId = 1; tokenId <= 10; tokenId++) {
+      try {
+        const balance = await tokenContract.balanceOf(walletAddress, tokenId);
+
+        if (balance > 0) {
+          let metadata = null;
+          try {
+            const uri = await tokenContract.uri(tokenId);
+            if (uri.startsWith('data:application/json;base64,')) {
+              const base64Data = uri.replace('data:application/json;base64,', '');
+              const jsonString = Buffer.from(base64Data, 'base64').toString();
+              metadata = JSON.parse(jsonString);
+            }
+          } catch (error) {
+            console.error(`Error fetching metadata for token ${tokenId} at ${contract.address}:`, error);
+          }
+          ownedTokens.push({
+            contractAddress: contract.address,
+            tokenId: tokenId.toString(),
+            balance: balance.toString(),
+            metadata,
+            brand: contract.brand
+          });
+        }
+      } catch (error) {
+        console.error(`Error checking token ${tokenId} balance at ${contract.address}:`, error);
+      }
+    }
+  }
+  return ownedTokens;
+}

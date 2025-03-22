@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
-import { GetSigningStringRequest, GetSigningStringResponse, GenerateJWTsRequest, GenerateJWTsResponse } from './types';
+import { GetSigningStringRequest, GetSigningStringResponse, GenerateJWTsRequest, GenerateJWTsResponse, RetrieveTokensRequest, RetrieveTokensResponse } from './types';
 import { ethers } from 'ethers';
-import { _getSigningString, fetchTokenMetadata, generateTokenJWT, verifySignatureAndGetAddress, verifyTokenOwnership } from './util';
+import { _getSigningString, fetchTokenMetadata, generateTokenJWT, verifySignatureAndGetAddress, verifyTokenOwnership, retrieveOwnedTokens } from './util';
 import jwt from 'jsonwebtoken';
 
 const PORT = process.env.PORT || 3000;
@@ -88,6 +88,26 @@ app.post('/generate-jwts', async (req: Request<{}, {}, GenerateJWTsRequest>, res
   } catch (error) {
     console.error('Error processing JWT generation:', error);
     return res.status(500).json({ jwts: [], error: 'Server error during JWT generation' });
+  }
+});
+
+app.post('/retrieve-tokens', async (req: Request<{}, {}, RetrieveTokensRequest>, res: Response): Promise<Response<RetrieveTokensResponse>> => {
+  try {
+    const { walletAddress } = req.body;
+    if (!walletAddress || !ethers.isAddress(walletAddress)) {
+      return res.status(400).json({
+        tokens: [],
+        error: 'Invalid wallet address'
+      });
+    }
+    const ownedTokens = await retrieveOwnedTokens(web3Provider, walletAddress);
+    return res.json({ tokens: ownedTokens });
+  } catch (error) {
+    console.error('Error retrieving tokens:', error);
+    return res.status(500).json({
+      tokens: [],
+      error: 'Server error while retrieving tokens'
+    });
   }
 });
 

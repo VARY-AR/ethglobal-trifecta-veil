@@ -9,7 +9,7 @@ if (!PRIVATE_KEY) {
   process.exit(1);
 }
 
-// Token data to request JWTs for
+// Token data to request JWTs for (fallback if retrieval fails)
 const tokens = [
   {
     contractAddress: '0x2FF69e6d72a371eE03C77A0A62fed49A5b5480A8',
@@ -33,6 +33,45 @@ async function testJwtGenerator() {
   try {
     console.log('Testing JWT Generator API...');
     console.log(`Using wallet address: ${wallet.address}`);
+
+    // Step 0: Retrieve owned tokens
+    console.log('\n0. Retrieving tokens owned by wallet...');
+    const retrieveResponse = await axios.post(`${API_URL}/retrieve-tokens`, {
+      walletAddress: wallet.address
+    });
+
+    if (retrieveResponse.data.error) {
+      console.error(`Error retrieving tokens: ${retrieveResponse.data.error}`);
+    } else {
+      console.log(`Found ${retrieveResponse.data.tokens.length} tokens owned by wallet`);
+
+      if (retrieveResponse.data.tokens.length > 0) {
+        console.log('\nToken ownership details:');
+        retrieveResponse.data.tokens.forEach((token, index) => {
+          console.log(`\nToken #${index + 1}:`);
+          console.log(`  Contract: ${token.contractAddress} (${token.brand})`);
+          console.log(`  Token ID: ${token.tokenId}`);
+          console.log(`  Balance: ${token.balance}`);
+          if (token.metadata) {
+            console.log(`  Name: ${token.metadata.name || 'N/A'}`);
+          }
+        });
+
+        // Optionally use retrieved tokens instead of hardcoded ones
+        const retrievedTokens = retrieveResponse.data.tokens.map(token => ({
+          contractAddress: token.contractAddress,
+          tokenId: token.tokenId,
+          count: 1 // Assuming we want to use 1 of each token
+        }));
+
+        if (retrievedTokens.length > 0) {
+          console.log('\nUsing retrieved tokens for JWT generation');
+          // Use the retrieved tokens instead of hardcoded ones
+          tokens.length = 0; // Clear the array
+          tokens.push(...retrievedTokens);
+        }
+      }
+    }
 
     // Step 1: Get signing string
     console.log('\n1. Requesting signing string...');

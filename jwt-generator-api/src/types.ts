@@ -26,5 +26,20 @@ export interface TokenJWT {
 
 export interface GenerateJWTsResponse {
   jwts: TokenJWT[];
-  error?: string;
+}
+
+export interface RetrieveTokensRequest {
+  walletAddress: string;
+}
+
+export interface TokenOwnership {
+  contractAddress: string;
+  tokenId: string;
+  balance: string;
+  metadata: any;
+  brand: string;
+}
+
+export interface RetrieveTokensResponse {
+  tokens: TokenOwnership[];
 }
