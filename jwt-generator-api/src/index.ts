@@ -3,6 +3,7 @@ import cors from 'cors';
 import { GetSigningStringRequest, GetSigningStringResponse, GenerateJWTsRequest, GenerateJWTsResponse } from './types';
 import { ethers } from 'ethers';
 import { _getSigningString, fetchTokenMetadata, generateTokenJWT, verifySignatureAndGetAddress, verifyTokenOwnership } from './util';
+import jwt from 'jsonwebtoken';
 
 const PORT = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
@@ -44,7 +45,8 @@ app.post('/generate-jwts', async (req: Request<{}, {}, GenerateJWTsRequest>, res
     const results = await Promise.all(req.body.tokens.map(async (token) => {
       const metadata = await fetchTokenMetadata(web3Provider, token);
       const tokenJwt = generateTokenJWT(token, walletAddress, metadata, JWT_SECRET);
-      return { token, jwt: tokenJwt, metadata };
+      const jwtPayload = jwt.decode(tokenJwt);
+      return { token, jwt: tokenJwt, jwtPayload: jwtPayload };
    }));
     return res.json({ jwts: results });
   } catch (error) {

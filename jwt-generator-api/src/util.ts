@@ -71,7 +71,7 @@ export const generateTokenJWT = (token: Token, ownerAddress: string, metadata: a
     count: token.count,
     owner: ownerAddress,
     metadata,
-    iss: "https://veil.veil.veil",
+    iss: "https://veil.veil",
     iat: Math.floor(Date.now() / 1000),
     exp: Math.floor(Date.now() / 1000) + (60 * 3), // 3 minutes
     product: {
@@ -82,6 +82,5 @@ export const generateTokenJWT = (token: Token, ownerAddress: string, metadata: a
       "recyclabilityPercentage": null,
     },
   };
-
   return jwt.sign(payload, jwtSecret);
 };

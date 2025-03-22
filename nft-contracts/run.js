@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import hre from "hardhat";
-import { deployTokenContract, generateDataURI, createToken, mintToken } from "./run-util.js";
+import { deployTokenContract, createToken, mintToken } from "./run-util.js";
 import brandItems from "./brand-items.json" with { "type": "json" };
 
 async function getDeployment(brandName) {
@@ -50,19 +50,10 @@ async function main() {
       let existingToken = brandDeployment.tokens.find(t => t.id === tokenId);
       if (!existingToken) {
         console.log(`Creating token #${tokenId} - ${item.name}...`);
-        const metadataUri = await generateDataURI(
-          item.name,
-          item.description,
-          item.imageUri,
-          item.brand,
-          item.type
-        );
         await createToken(
           brandDeployment.contract,
           tokenId,
-          item.name,
-          item.supplyLimit,
-          metadataUri,
+          item,
         );
         const tokenData = {
           id: tokenId,
@@ -72,7 +63,6 @@ async function main() {
           type: item.type,
           supplyLimit: item.supplyLimit,
           unitPrice: item.unitPrice,
-          metadataUri: metadataUri,
           brand: brandDeployment.brandName,
           contractAddress: brandDeployment.address,
           network: brandDeployment.network || "baseSepolia",

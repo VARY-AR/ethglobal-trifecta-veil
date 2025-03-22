@@ -39,15 +39,16 @@ export async function deployTokenContract(brandName) {
   return deploymentInfo;
 }
 
-export async function generateDataURI(name, description, imageUri, brand, type) {
-  console.log(`Generating on-chain metadata for ${name}...`);
+export async function generateDataURI(item) {
+  console.log(`Generating on-chain metadata for ${item.name}...`);
   const metadata = {
-    name: name,
-    description: description,
-    image: imageUri,
+    name: item.name,
+    description: item.description,
+    image: item.imageUri,
     properties: {
-      brand: brand,
-      type: type,
+      brand: item.brand,
+      type: item.type,
+      unitPrice: item.unitPrice,
     }
   };
   const jsonString = JSON.stringify(metadata);
@@ -60,14 +61,14 @@ export async function generateDataURI(name, description, imageUri, brand, type) 
 export async function createToken(
   brandContract,
   id,
-  tokenName,
-  supplyLimit,
+  item,
   metadataUri
 ) {
-  console.log(`Creating token type "${tokenName}" with ID ${id}...`);
-  const tx = await brandContract.createToken(id, tokenName, supplyLimit, metadataUri);
+  console.log(`Creating token type "${item.name}" with ID ${id}...`);
+  const metadataUri = await generateDataURI(item);
+  const tx = await brandContract.createToken(id, item.name, item.supplyLimit, metadataUri);
   await tx.wait();
-  console.log(`Successfully created token type: ${tokenName} (ID: ${id})`);
+  console.log(`Successfully created token type: ${item.name} (ID: ${id})`);
   return id;
 }
 
