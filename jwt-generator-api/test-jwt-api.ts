@@ -24,7 +24,7 @@ const tokens = [
   {
     contractAddress: '0x14433bD6a97C09EB2759DF22CEC6bF0d216DF2f5',
     tokenId: '1',
-    count: 2
+    count: 1
   }
 ];
 
