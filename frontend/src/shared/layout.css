@@ -7,15 +7,15 @@
 	--gap-lg: 1.5rem;
 	--gap-xl: 2rem;
 	
-	--color-primary: #6d28d9;
-	--color-primary-dark: #5b21b6;
-	--color-primary-light: #8b5cf6;
+	--color-primary: #FFFFFF;
+	--color-primary-dark: #E0E0E0;
+	--color-primary-light: #FFFFFF;
 	
-	--color-background: #f9fafb;
-	--color-surface: #ffffff;
-	--color-text: #1f2937;
-	--color-text-light: #6b7280;
-	--color-border: #e5e7eb;
+	--color-background: #000000;
+	--color-surface: #333333;
+	--color-text: #FFFFFF;
+	--color-text-light: #AAAAAA;
+	--color-border: #444444;
 	
 	--color-error: #ef4444;
 	--color-success: #10b981;

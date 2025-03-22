@@ -1,83 +1,64 @@
-import { useState } from '@lynx-js/react'
 import { Header } from '$/components/Header.js'
 import { Card } from '$/components/Card.js'
 import { ScrollView } from '$/components/ScrollView.js'
+import { memberships, events } from '$/data/mockData.js'
 import '$/shared/layout.css'
 import '$/shared/global.css'
+import './HomePage.css'
 
 export function HomePage() {
 	return (
 		<ScrollView>
 			<Header />
 			
+			<view className="search-container">
+				<view className="search-input">
+					<text className="search-placeholder">Lorem Ipsum</text>
+				</view>
+			</view>
+			
 			<view className="container">
-				<view className="column gap-xl">
-					<view className="hero text-center">
-						<view className="container">
-							<text className="h1">Your Digital Identity, Your Control</text>
-							<text className="hero-subtitle">
-								Prove what you own without revealing private details using zero-knowledge verification.
-								Collect rewards and access exclusive experiences.
-							</text>
-							
-							<view className="row justify-center">
-								<view className="button" bindtap={() => console.log('Get Started')}>
-									<text>Get Started</text>
-								</view>
-								<view className="button secondary" bindtap={() => console.log('Learn More')}>
-									<text>Learn More</text>
-								</view>
-							</view>
-						</view>
+				<view className="section">
+					<view className="section-header">
+						<text className="section-title">AVAILABLE MEMBERSHIPS</text>
+						<text className="section-subtitle">EXCLUSIVE BRAND ACCESS</text>
 					</view>
 					
-					<view className="section">
-						<text className="h2 section-title text-center">How It Works</text>
-						<view className="row-3">
-							<Card title="1. Create Your Digital Identity">
-								<text className="p">Establish a secure digital identity that puts you in control of your personal data.</text>
-							</Card>
-							
-							<Card title="2. Import Your Products">
-								<text className="p">Scan QR codes or import digital passports to build your private collection.</text>
-							</Card>
-							
-							<Card title="3. Access Rewards">
-								<text className="p">Generate zero-knowledge proofs to verify eligibility without revealing product details.</text>
-							</Card>
-						</view>
+					<view className="membership-list">
+						{
+							memberships
+								.map(item => (
+									<Card key={item.id} className="membership-card">
+										<view className="card-content">
+											<text className="card-title">{item.title}</text>
+											<text className="card-description">{item.description}</text>
+										</view>
+										<text className="card-icon">{item.icon}</text>
+									</Card>
+								))
+						}
+					</view>
+				</view>
+				
+				<view className="section">
+					<view className="section-header">
+						<text className="section-title">AVAILABLE EVENTS</text>
+						<text className="section-subtitle">AROUND YOU</text>
 					</view>
 					
-					<view className="section">
-						<text className="h2 section-title text-center">Featured Rewards</text>
-						<view className="row-3">
-							<Card className="reward-card">
-								<view className="reward-image placeholder" />
-								<text className="h3">Limited Edition NFT</text>
-								<text className="p">For owners of luxury watches</text>
-								<view className="button" bindtap={() => console.log('Claim')}>
-									<text>Claim with ZK Proof</text>
-								</view>
-							</Card>
-							
-							<Card className="reward-card">
-								<view className="reward-image placeholder" />
-								<text className="h3">VIP Event Access</text>
-								<text className="p">For early adopters of our product line</text>
-								<view className="button" bindtap={() => console.log('Claim')}>
-									<text>Claim with ZK Proof</text>
-								</view>
-							</Card>
-							
-							<Card className="reward-card">
-								<view className="reward-image placeholder" />
-								<text className="h3">Exclusive Discount</text>
-								<text className="p">For owners of 3+ products</text>
-								<view className="button" bindtap={() => console.log('Claim')}>
-									<text>Claim with ZK Proof</text>
-								</view>
-							</Card>
-						</view>
+					<view className="events-list">
+						{
+							events
+								.map(item => (
+									<Card key={item.id} className="event-card">
+										<view className="card-content">
+											<text className="card-title">{item.title}</text>
+											<text className="card-description">{item.date}</text>
+										</view>
+										<text className="card-icon">{item.icon}</text>
+									</Card>
+								))
+						}
 					</view>
 				</view>
 			</view>

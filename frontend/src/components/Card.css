@@ -3,14 +3,36 @@
 	border-radius: var(--border-radius-md);
 	padding: var(--gap-md);
 	margin-bottom: var(--gap-md);
-	border: 1px solid var(--color-border);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .card-title {
-	margin-bottom: var(--gap-md);
+	margin-bottom: var(--gap-sm);
+	font-weight: 500;
+}
+
+.card-description {
+	color: var(--color-text-light);
+	font-size: 0.9rem;
+}
+
+.card-content {
+	flex: 1;
+}
+
+.card-icon {
+	font-size: 1.2rem;
+	color: var(--color-text-light);
 }
 
 /* Card variations */
+.membership-card, .event-card {
+	cursor: pointer;
+}
+
 .reward-card {
 	display: flex;
 	flex-direction: column;
