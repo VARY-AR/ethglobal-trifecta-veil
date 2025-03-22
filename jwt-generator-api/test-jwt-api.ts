@@ -12,17 +12,17 @@ if (!PRIVATE_KEY) {
 // Token data to request JWTs for
 const tokens = [
   {
-    contractAddress: '0x090AE03364aBFB375998b4B043d7A789f57cFEca',
+    contractAddress: '0x2FF69e6d72a371eE03C77A0A62fed49A5b5480A8',
     tokenId: '1',
     count: 1
   },
   {
-    contractAddress: '0x77BD077fFFe51EdFC4913Ee50506a3e59063bbEa',
+    contractAddress: '0xEDBB9ea80cf07CEa5dEe7E135fCFd6ae50b1A2c8',
     tokenId: '1',
     count: 1
   },
   {
-    contractAddress: '0x14433bD6a97C09EB2759DF22CEC6bF0d216DF2f5',
+    contractAddress: '0x7b96EAe24193302a31ce1FcF414aB76fF9D10D83',
     tokenId: '1',
     count: 1
   }
