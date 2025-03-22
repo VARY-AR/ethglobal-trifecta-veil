@@ -1,10 +1,10 @@
 {
   "brandName": "Prada",
   "signer": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
-  "deployedAt": "2025-03-22T11:47:13.052Z",
-  "address": "0x14433bD6a97C09EB2759DF22CEC6bF0d216DF2f5",
+  "deployedAt": "2025-03-22T16:41:56.878Z",
+  "address": "0x7b96EAe24193302a31ce1FcF414aB76fF9D10D83",
   "network": "baseSepolia",
-  "basescanUrl": "https://sepolia.basescan.com/address/0x14433bD6a97C09EB2759DF22CEC6bF0d216DF2f5",
+  "basescanUrl": "https://sepolia.basescan.com/address/0x7b96EAe24193302a31ce1FcF414aB76fF9D10D83",
   "tokens": [
     {
       "id": 1,
@@ -14,17 +14,16 @@
       "type": "Handbag",
       "supplyLimit": 100,
       "unitPrice": 11000,
-      "metadataUri": "data:application/json;base64,eyJuYW1lIjoiTGVhdGhlciBIYW5kYmFnIiwiZGVzY3JpcHRpb24iOiJQcmVtaXVtIEl0YWxpYW4gbGVhdGhlciBoYW5kYmFnIiwiaW1hZ2UiOiJodHRwczovL2ltZy5zdHlsZW1pLmNvL3Vuc2FmZS9maXQtaW4vNTIweDY1MC9maWx0ZXJzOmZpbGwoZmZmKS9wcm9kdWN0cy9mYXJmZXRjaC8zNjA1MTg2OS1wcmFkYS1tZWRpdW0tZ2FsbGVyaWEtc2FmZmlhbm8tbGVhdGhlci10b3RlLWJhZy5qcGciLCJwcm9wZXJ0aWVzIjp7InR5cGUiOiJIYW5kYmFnIn19",
       "brand": "Prada",
-      "contractAddress": "0x14433bD6a97C09EB2759DF22CEC6bF0d216DF2f5",
+      "contractAddress": "0x7b96EAe24193302a31ce1FcF414aB76fF9D10D83",
       "network": "baseSepolia",
-      "createdAt": "2025-03-22T11:50:23.096Z",
+      "createdAt": "2025-03-22T16:43:59.598Z",
       "minting": {
         "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
         "amount": 1,
-        "mintedAt": "2025-03-22T11:50:30.143Z"
+        "mintedAt": "2025-03-22T16:44:06.625Z"
       },
-      "lastUpdated": "2025-03-22T11:50:30.143Z"
+      "lastUpdated": "2025-03-22T16:44:06.625Z"
     }
   ]
 }

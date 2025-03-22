@@ -54,7 +54,7 @@ export async function generateDataURI(item) {
   const jsonString = JSON.stringify(metadata);
   const base64EncodedJson = Buffer.from(jsonString).toString('base64');
   const dataUri = `data:application/json;base64,${base64EncodedJson}`;
-  console.log(`Generated on-chain metadata successfully for ${name}`);
+  console.log(`Generated on-chain metadata successfully for ${item.name}`);
   return dataUri;
 }
 
@@ -62,7 +62,6 @@ export async function createToken(
   brandContract,
   id,
   item,
-  metadataUri
 ) {
   console.log(`Creating token type "${item.name}" with ID ${id}...`);
   const metadataUri = await generateDataURI(item);

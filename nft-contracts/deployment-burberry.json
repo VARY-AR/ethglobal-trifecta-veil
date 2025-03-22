@@ -1,10 +1,10 @@
 {
   "brandName": "Burberry",
   "signer": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
-  "deployedAt": "2025-03-22T11:48:22.625Z",
-  "address": "0x090AE03364aBFB375998b4B043d7A789f57cFEca",
+  "deployedAt": "2025-03-22T16:43:06.620Z",
+  "address": "0x2FF69e6d72a371eE03C77A0A62fed49A5b5480A8",
   "network": "baseSepolia",
-  "basescanUrl": "https://sepolia.basescan.com/address/0x090AE03364aBFB375998b4B043d7A789f57cFEca",
+  "basescanUrl": "https://sepolia.basescan.com/address/0x2FF69e6d72a371eE03C77A0A62fed49A5b5480A8",
   "tokens": [
     {
       "id": 1,
@@ -14,17 +14,16 @@
       "type": "Coat",
       "supplyLimit": 50,
       "unitPrice": 20000,
-      "metadataUri": "data:application/json;base64,eyJuYW1lIjoiQ2xhc3NpYyBUcmVuY2ggQ29hdCIsImRlc2NyaXB0aW9uIjoiSWNvbmljIEJ1cmJlcnJ5IHRyZW5jaCBjb2F0IiwiaW1hZ2UiOiJodHRwczovL2ltZ3Muc2VhcmNoLmJyYXZlLmNvbS9RcnZkMi1DR2JQd3FpTmN3NzBYQ2gwY09JbG5PQzdTcmVVc0JZSEpfaEJBL3JzOmZpdDo4NjA6MDowOjAvZzpjZS9hSFIwY0hNNkx5OWpaRzR1L2JXOXpMbU50Y3k1bWRYUjEvY21WalpHNHVibVYwTDNkby9iM2RvWVhSM1pXRnlMM0J2L2MzUnpMekk0TVRnMU5pOWkvWlhOMExXSjFjbUpsY25KNS9MWFJ5Wlc1amFDMWpiMkYwL0xYZHZiV1Z1TFRJNE1UZzEvTmkweE5qYzVOamMzTkRBMC9NVFl6TFcxaGFXNHRNekl3L0xUZ3dMbXB3WnciLCJwcm9wZXJ0aWVzIjp7InR5cGUiOiJDb2F0In19",
       "brand": "Burberry",
-      "contractAddress": "0x090AE03364aBFB375998b4B043d7A789f57cFEca",
+      "contractAddress": "0x2FF69e6d72a371eE03C77A0A62fed49A5b5480A8",
       "network": "baseSepolia",
-      "createdAt": "2025-03-22T11:50:41.609Z",
+      "createdAt": "2025-03-22T16:44:18.016Z",
       "minting": {
         "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
         "amount": 1,
-        "mintedAt": "2025-03-22T11:50:48.494Z"
+        "mintedAt": "2025-03-22T16:44:24.485Z"
       },
-      "lastUpdated": "2025-03-22T11:50:48.495Z"
+      "lastUpdated": "2025-03-22T16:44:24.485Z"
     }
   ]
 }

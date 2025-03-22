@@ -1,10 +1,10 @@
 {
   "brandName": "Gucci",
   "signer": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
-  "deployedAt": "2025-03-22T11:47:45.740Z",
-  "address": "0x77BD077fFFe51EdFC4913Ee50506a3e59063bbEa",
+  "deployedAt": "2025-03-22T16:42:29.691Z",
+  "address": "0xEDBB9ea80cf07CEa5dEe7E135fCFd6ae50b1A2c8",
   "network": "baseSepolia",
-  "basescanUrl": "https://sepolia.basescan.com/address/0x77BD077fFFe51EdFC4913Ee50506a3e59063bbEa",
+  "basescanUrl": "https://sepolia.basescan.com/address/0xEDBB9ea80cf07CEa5dEe7E135fCFd6ae50b1A2c8",
   "tokens": [
     {
       "id": 1,
@@ -14,17 +14,16 @@
       "type": "Belt",
       "supplyLimit": 150,
       "unitPrice": 1300,
-      "metadataUri": "data:application/json;base64,eyJuYW1lIjoiRGVzaWduZXIgQmVsdCIsImRlc2NyaXB0aW9uIjoiU2lnbmF0dXJlIEdHIGJ1Y2tsZSBiZWx0IiwiaW1hZ2UiOiJodHRwczovL2ltZ3Muc2VhcmNoLmJyYXZlLmNvbS9EMmhvNEFGeEVoeWVSb1R1bl8zWEhiM21fV1dPNHB3U1E2ZnVIX25zZElVL3JzOmZpdDo4NjA6MDowOjAvZzpjZS9hSFIwY0hNNkx5OXBOUzUzL1lXeHRZWEowYVcxaFoyVnovTG1OdmJTOXpaVzh2UjNWai9ZMmt0VTNSMVpHUmxaQzFzL1pXRjBhR1Z5TFdKbGJIUXQvYldWMFlXd3RZbTkzTFdocC9ZbWx6WTNWekxYSmxaQzFpL2JHRmpheTFDWld4MExVMXYvYjI0dFVHVmhjbXd0U1hSaC9iSGt0VG1WM1h6a3daV1l6L05UUTVMVEE1WkRVdE5ESmovWlMxaE1HWXdMVEUxTkdNei9PV1k1TjJVMVpWOHhMbVUzL1lqaGhNRFJoTnpFd01UQTIvTUdGbE9XUmpOakU0TURBMi9aREl4T1RrNExtcHdaV2NfL2IyUnVTR1ZwWjJoMFBUYzQvTkNadlpHNVhhV1IwYUQwMS9PREFtYjJSdVFtYzlSa1pHL1JrWkciLCJwcm9wZXJ0aWVzIjp7InR5cGUiOiJCZWx0In19",
       "brand": "Gucci",
-      "contractAddress": "0x77BD077fFFe51EdFC4913Ee50506a3e59063bbEa",
+      "contractAddress": "0xEDBB9ea80cf07CEa5dEe7E135fCFd6ae50b1A2c8",
       "network": "baseSepolia",
-      "createdAt": "2025-03-22T11:50:36.702Z",
+      "createdAt": "2025-03-22T16:44:09.106Z",
       "minting": {
         "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
         "amount": 1,
-        "mintedAt": "2025-03-22T11:50:39.030Z"
+        "mintedAt": "2025-03-22T16:44:11.516Z"
       },
-      "lastUpdated": "2025-03-22T11:50:39.030Z"
+      "lastUpdated": "2025-03-22T16:44:11.516Z"
     }
   ]
 }
