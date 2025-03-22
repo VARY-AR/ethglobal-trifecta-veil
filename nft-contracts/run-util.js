@@ -13,7 +13,7 @@ export async function verifyContract(contractAddress, brandName) {
       constructorArguments: [brandName],
       contract: "contracts/VeilBrand.sol:VeilBrand"
     });
-    console.log("Contract successfully verified on Basescan!");
+    console.log("Contract successfully verified.");
   } catch (error) {
     console.error("Error verifying contract:", error.message);
     console.log("You can try manual verification with:");
@@ -38,7 +38,7 @@ export async function deployTokenContract(brandName) {
     network: hre.network.name,
     basescanUrl: `https://sepolia.basescan.com/address/${contractAddress}`,
   };
-  const deploymentFilePath = `${brandName.toLowerCase()}-deployment.json`;
+  const deploymentFilePath = `deployment-${brandName.toLowerCase()}.json`;
   fs.writeFileSync(deploymentFilePath, JSON.stringify(deploymentInfo, null, 2));
   console.log(`Deployment information saved to ${deploymentFilePath}`);
   console.log(`Waiting 30s before verification...`);
@@ -69,6 +69,24 @@ export async function uploadMetadataToIPFS(
   const metadataUri = `ipfs://${cid}`;
   console.log(`Metadata uploaded successfully: ${metadataUri}`);
   return metadataUri;
+}
+
+export async function generateDataURI(name, description, imageUri, brand, type) {
+  console.log(`Generating on-chain metadata for ${name}...`);
+  const metadata = {
+    name: name,
+    description: description,
+    image: imageUri,
+    properties: {
+      brand: brand,
+      type: type,
+    }
+  };
+  const jsonString = JSON.stringify(metadata);
+  const base64EncodedJson = Buffer.from(jsonString).toString('base64');
+  const dataUri = `data:application/json;base64,${base64EncodedJson}`;
+  console.log(`Generated on-chain metadata successfully for ${name}`);
+  return dataUri;
 }
 
 export async function createToken(
