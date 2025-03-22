@@ -1,12 +1,15 @@
-import './App.css';
+import '@lynx-js/web-core'
+import '@lynx-js/web-elements/all'
 
-const App = () => {
-  return (
-    <div className="content">
-      <h1>Rsbuild with React</h1>
-      <p>Start building amazing things with Rsbuild.</p>
-    </div>
-  );
-};
+import '@lynx-js/web-core/index.css'
+import '@lynx-js/web-elements/index.css'
+import './App.css'
 
-export default App;
+const App = () => (
+	<lynx-view
+		style={{ height: '100vh', width: '100vw' }}
+		url="/main.web.bundle"
+	></lynx-view>
+)
+
+export default App
