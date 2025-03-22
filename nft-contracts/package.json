@@ -1,0 +1,16 @@
+{
+  "name": "veil-brand-contracts",
+  "version": "0.1.0",
+  "description": "NFT contracts for ethglobal-trifecta-veil",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "deploy:baseSepolia": "hardhat run run.js --network baseSepolia"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@openzeppelin/contracts": "^5.0.0",
+    "hardhat": "^2.18.0",
+    "nft.storage": "^7.2.0"
+  }
+}
