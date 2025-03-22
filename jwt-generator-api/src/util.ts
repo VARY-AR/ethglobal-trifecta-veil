@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import crypto from "crypto";
 import { Token } from './types';
 import { ethers } from 'ethers';
 
@@ -64,7 +65,7 @@ export const fetchTokenMetadata = async (web3Provider: ethers.JsonRpcProvider, t
   }
 };
 
-export const generateTokenJWT = (token: Token, ownerAddress: string, metadata: any, jwtSecret: string): string => {
+export const generateTokenJWT = (token: Token, ownerAddress: string, metadata: any, privateKeyPem: string): string => {
   const payload = {
     contractAddress: token.contractAddress,
     tokenId: token.tokenId,
@@ -82,5 +83,10 @@ export const generateTokenJWT = (token: Token, ownerAddress: string, metadata: a
       "recyclabilityPercentage": null,
     },
   };
-  return jwt.sign(payload, jwtSecret);
+  const privateKey = crypto.createPrivateKey({
+    key: privateKeyPem,
+    type: "pkcs8",
+    format: "pem",
+  });
+  return jwt.sign(payload, privateKey, {algorithm: "RS256"});
 };
