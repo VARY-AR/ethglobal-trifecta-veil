@@ -67,8 +67,8 @@ export async function createKeyAndSignData() {
           "name": "Smartphone Model X",
           "serialNumber": "SN-987654321",
           "productionDate": "2024-03-21T10:30:00Z",
-          "recyclabilityPercentage": 85
-      }
+      },
+      "recyclabilityPercentage": 85,
   };
 
   // Sign the payload
@@ -81,6 +81,9 @@ export async function createKeyAndSignData() {
 
   // Convert public key to JWK
   const pubkeyJwk = publicKey.export({ format: "jwk" });
+
+  console.log(jwt);
+  console.log(pubkeyJwk);
 
   return {
     pubkeyJwk,
@@ -116,7 +119,6 @@ async function generateNoirTestData() {
 
       jwt.verify();
     `
-    console.log(x);
     return x;
 }
 

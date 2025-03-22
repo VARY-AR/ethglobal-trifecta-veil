@@ -1,0 +1,6 @@
+[package]
+name = "circuit"
+type = "bin"
+
+[dependencies]
+jwt = { tag = "v0.4.3", git = "https://github.com/zkemail/noir-jwt" }
