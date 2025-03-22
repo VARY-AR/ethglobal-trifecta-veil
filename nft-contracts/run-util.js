@@ -1,9 +1,4 @@
-import fs from "node:fs";
 import hre from "hardhat";
-import { NFTStorage } from "nft.storage";
-
-const NFT_STORAGE_API_KEY = process.env.NFT_STORAGE_API_KEY;
-const nftStorage = new NFTStorage({ token: NFT_STORAGE_API_KEY });
 
 export async function verifyContract(contractAddress, brandName) {
   console.log("Verifying contract...");
@@ -38,37 +33,10 @@ export async function deployTokenContract(brandName) {
     network: hre.network.name,
     basescanUrl: `https://sepolia.basescan.com/address/${contractAddress}`,
   };
-  const deploymentFilePath = `deployment-${brandName.toLowerCase()}.json`;
-  fs.writeFileSync(deploymentFilePath, JSON.stringify(deploymentInfo, null, 2));
-  console.log(`Deployment information saved to ${deploymentFilePath}`);
   console.log(`Waiting 30s before verification...`);
   await new Promise(resolve => setTimeout(resolve, 30000));
   verifyContract(contractAddress, brandName);
   return deploymentInfo;
-}
-
-export async function uploadMetadataToIPFS(
-  name,
-  description,
-  imageUri,
-  brand,
-  type,
-) {
-  console.log(`Uploading metadata for ${name} to IPFS...`);
-  const metadata = {
-    name: name,
-    description: description,
-    image: imageUri,
-    properties: {
-      brand: brand,
-      type: type || 'Luxury Item'
-    }
-  };
-  const metadataBlob = new Blob([JSON.stringify(metadata)], { type: 'application/json' });
-  const cid = await nftStorage.storeBlob(metadataBlob);
-  const metadataUri = `ipfs://${cid}`;
-  console.log(`Metadata uploaded successfully: ${metadataUri}`);
-  return metadataUri;
 }
 
 export async function generateDataURI(name, description, imageUri, brand, type) {

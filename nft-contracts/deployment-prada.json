@@ -1,8 +1,30 @@
 {
   "brandName": "Prada",
   "signer": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
-  "deployedAt": "2025-03-22T01:23:40.693Z",
-  "address": "0xCc6A9B2f25844f6da0Ab22a5f7dCbCf7D4C5B400",
+  "deployedAt": "2025-03-22T11:47:13.052Z",
+  "address": "0x14433bD6a97C09EB2759DF22CEC6bF0d216DF2f5",
   "network": "baseSepolia",
-  "basescanUrl": "https://sepolia.basescan.com/address/0xCc6A9B2f25844f6da0Ab22a5f7dCbCf7D4C5B400"
+  "basescanUrl": "https://sepolia.basescan.com/address/0x14433bD6a97C09EB2759DF22CEC6bF0d216DF2f5",
+  "tokens": [
+    {
+      "id": 1,
+      "name": "Leather Handbag",
+      "description": "Premium Italian leather handbag",
+      "imageUri": "https://img.stylemi.co/unsafe/fit-in/520x650/filters:fill(fff)/products/farfetch/36051869-prada-medium-galleria-saffiano-leather-tote-bag.jpg",
+      "type": "Handbag",
+      "supplyLimit": 100,
+      "unitPrice": 11000,
+      "metadataUri": "data:application/json;base64,eyJuYW1lIjoiTGVhdGhlciBIYW5kYmFnIiwiZGVzY3JpcHRpb24iOiJQcmVtaXVtIEl0YWxpYW4gbGVhdGhlciBoYW5kYmFnIiwiaW1hZ2UiOiJodHRwczovL2ltZy5zdHlsZW1pLmNvL3Vuc2FmZS9maXQtaW4vNTIweDY1MC9maWx0ZXJzOmZpbGwoZmZmKS9wcm9kdWN0cy9mYXJmZXRjaC8zNjA1MTg2OS1wcmFkYS1tZWRpdW0tZ2FsbGVyaWEtc2FmZmlhbm8tbGVhdGhlci10b3RlLWJhZy5qcGciLCJwcm9wZXJ0aWVzIjp7InR5cGUiOiJIYW5kYmFnIn19",
+      "brand": "Prada",
+      "contractAddress": "0x14433bD6a97C09EB2759DF22CEC6bF0d216DF2f5",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-22T11:50:23.096Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-22T11:50:30.143Z"
+      },
+      "lastUpdated": "2025-03-22T11:50:30.143Z"
+    }
+  ]
 }
