@@ -10,8 +10,8 @@ import { ProductDashboardPage } from './pages/ProductDashboardPage.js'
 import { ZkVerificationPage } from './pages/ZkVerificationPage.js'
 import { RewardsPage } from './pages/RewardsPage.js'
 import { BrandOnboardingPage } from './pages/BrandOnboardingPage.js'
-import { EventDetailPage } from './pages/EventDetail/index.js'
-import { EventVerifyPage } from './pages/EventVerify/index.js'
+import { EventDetailPage } from './pages/EventDetail.js'
+import { EventVerifyPage } from './pages/EventVerify.js'
 import { Navigation } from './components/Navigation.js'
 
 // App entry point

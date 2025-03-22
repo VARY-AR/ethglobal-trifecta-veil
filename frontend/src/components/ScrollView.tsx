@@ -1,12 +1,13 @@
 import type { ReactNode } from 'react'
 import './ScrollView.css'
 
-interface ScrollViewProps {
+export function ScrollView({
+	children,
+	className = '',
+}: {
 	children: ReactNode
 	className?: string
-}
-
-export function ScrollView({ children, className = '' }: ScrollViewProps) {
+}) {
 	return (
 		<scroll-view
 			className={`scroll-container ${className}`}
@@ -15,4 +16,4 @@ export function ScrollView({ children, className = '' }: ScrollViewProps) {
 			{children}
 		</scroll-view>
 	)
-} 
+}

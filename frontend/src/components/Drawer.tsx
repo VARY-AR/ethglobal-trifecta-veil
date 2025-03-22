@@ -1,5 +1,5 @@
 import { useState, useEffect, type ReactNode } from '@lynx-js/react'
-import './styles.css'
+import './Drawer.css'
 
 interface DrawerProps {
 	isOpen: boolean

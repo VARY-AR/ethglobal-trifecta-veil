@@ -1,15 +1,15 @@
 import { useState, useEffect } from '@lynx-js/react'
 import { useNavigate, useParams } from 'react-router'
 import { Header } from '$/components/Header.js'
-import { Button } from '$/components/Button/index.js'
-import { Drawer } from '$/components/Drawer/index.js'
-import { SectionTitle } from '$/components/SectionTitle/index.js'
-import { ProgressBar } from '$/components/ProgressBar/index.js'
+import { Button } from '$/components/Button.js'
+import { Drawer } from '$/components/Drawer.js'
+import { SectionTitle } from '$/components/SectionTitle.js'
+import { ProgressBar } from '$/components/ProgressBar.js'
 import { events } from '$/data/mockData.js'
 // import verifyCheck from '$/assets/verify-check.svg'
 import '$/shared/layout.css'
 import '$/shared/global.css'
-import './styles.css'
+import './EventVerify.css'
 
 // Placeholder images for verification visuals
 const PLACEHOLDER_VISUALS = {
@@ -180,17 +180,17 @@ export function EventVerifyPage() {
 						<view className="verification-progress">
 							<view className="verification-status">
 								<view className={`verification-step ${verificationStage >= 1 ? 'active' : ''}`}>
-									<image 
+									{/* <image 
 										className="verify-step-icon" 
 										src={verifyCheck} 
-									/>
+									/> */}
 									<text className="verify-step-text">Generating ZK Proof</text>
 								</view>
 								<view className={`verification-step ${verificationStage >= 2 ? 'active' : ''}`}>
-									<image 
+									{/* <image 
 										className="verify-step-icon" 
 										src={verifyCheck} 
-									/>
+									/> */}
 									<text className="verify-step-text">Requesting Admission</text>
 								</view>
 							</view>

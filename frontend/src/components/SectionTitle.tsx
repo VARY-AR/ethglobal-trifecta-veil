@@ -1,5 +1,5 @@
 import type { ReactNode } from '@lynx-js/react'
-import './styles.css'
+import './SectionTitle.css'
 
 interface SectionTitleProps {
 	title: ReactNode

@@ -2,12 +2,12 @@ import { useState } from '@lynx-js/react'
 import { useNavigate, useParams } from 'react-router'
 import { Header } from '$/components/Header.js'
 import { ScrollView } from '$/components/ScrollView.js'
-import { Button } from '$/components/Button/index.js'
-import { SectionTitle } from '$/components/SectionTitle/index.js'
+import { Button } from '$/components/Button.js'
+import { SectionTitle } from '$/components/SectionTitle.js'
 import { events } from '$/data/mockData.js'
 import '$/shared/layout.css'
 import '$/shared/global.css'
-import './styles.css'
+import './EventDetail.css'
 
 export function EventDetailPage() {
 	const navigate = useNavigate()
