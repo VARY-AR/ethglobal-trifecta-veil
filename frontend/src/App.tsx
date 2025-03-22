@@ -10,6 +10,8 @@ import { ProductDashboardPage } from './pages/ProductDashboardPage.js'
 import { ZkVerificationPage } from './pages/ZkVerificationPage.js'
 import { RewardsPage } from './pages/RewardsPage.js'
 import { BrandOnboardingPage } from './pages/BrandOnboardingPage.js'
+import { EventDetailPage } from './pages/EventDetail/index.js'
+import { EventVerifyPage } from './pages/EventVerify/index.js'
 import { Navigation } from './components/Navigation.js'
 
 // App entry point
@@ -23,6 +25,8 @@ export function App() {
 				<Route path="/zk-verification" element={<ZkVerificationPage />} />
 				<Route path="/rewards" element={<RewardsPage />} />
 				<Route path="/brand-onboarding" element={<BrandOnboardingPage />} />
+				<Route path="/event/:id" element={<EventDetailPage />} />
+				<Route path="/event/:id/verify" element={<EventVerifyPage />} />
 			</Routes>
 			<Navigation />
 		</MemoryRouter>

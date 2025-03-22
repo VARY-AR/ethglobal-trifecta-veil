@@ -1,0 +1,36 @@
+.section-title-container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	margin: 1.5rem 0;
+	width: 100%;
+}
+
+.section-title-container.centered {
+	align-items: center;
+	text-align: center;
+}
+
+.section-title-text {
+	font-size: 0.875rem;
+	font-weight: 500;
+	letter-spacing: 0.1rem;
+	/* text-transform: uppercase; */
+	color: #FFFFFF;
+	margin: 0 0.75rem;
+}
+
+.section-subtitle-text {
+	font-size: 0.75rem;
+	color: rgba(255, 255, 255, 0.7);
+	letter-spacing: 0.05rem;
+	/* text-transform: uppercase; */
+}
+
+.section-title-divider {
+	width: 2rem;
+	height: 1px;
+	background-color: rgba(255, 255, 255, 0.3);
+	margin: 0.5rem 0;
+	/* display: inline-block; */
+} 

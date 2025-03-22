@@ -6,11 +6,13 @@ export function Card({
 	title,
 	padding = 'md',
 	className = '',
+	bindtap
 }: {
 	children: ReactNode
 	title?: string
 	padding?: 'sm' | 'md' | 'lg'
 	className?: string
+	bindtap?: () => void
 }) {
 	const paddingClass = padding === 'sm' 
 		? 'p-sm' 
@@ -19,7 +21,7 @@ export function Card({
 		: 'p-md'
 	
 	return (
-		<view className={`card ${paddingClass} ${className}`}>
+		<view className={`card ${paddingClass} ${className}`} bindtap={bindtap}>
 			{title && <text className="h3 card-title">{title}</text>}
 			{children}
 		</view>

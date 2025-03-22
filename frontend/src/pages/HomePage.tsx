@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router'
 import { Header } from '$/components/Header.js'
 import { Card } from '$/components/Card.js'
 import { ScrollView } from '$/components/ScrollView.js'
@@ -8,6 +9,12 @@ import '$/shared/global.css'
 import './HomePage.css'
 
 export function HomePage() {
+	const navigate = useNavigate()
+	
+	const goToEventDetail = (eventId: number) => {
+		navigate(`/event/${eventId}`)
+	}
+	
 	return (
 		<ScrollView>
 			<Header />
@@ -46,7 +53,11 @@ export function HomePage() {
 					
 					<view className="events-list">
 						{events.map(item => (
-							<Card key={item.id} className="event-card">
+							<Card 
+								key={item.id} 
+								className="event-card"
+								bindtap={() => goToEventDetail(item.id)}
+							>
 								<view className="card-content">
 									<text className="card-title">{item.title}</text>
 									<text className="card-description">{item.date}</text>

@@ -1,0 +1,60 @@
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	border-radius: 0.25rem;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.button.full-width {
+	width: 100%;
+}
+
+.button.disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.button-text {
+	font-size: 0.875rem;
+	font-weight: 500;
+	letter-spacing: 0.05rem;
+	/* text-transform: uppercase; */
+}
+
+/* Button variants */
+.button.primary {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.button.secondary {
+	background-color: #333333;
+	color: #FFFFFF;
+}
+
+.button.outline {
+	background-color: transparent;
+	border: 1px solid #FFFFFF;
+	color: #FFFFFF;
+}
+
+.button.text {
+	background-color: transparent;
+	color: #FFFFFF;
+	padding: 0.5rem;
+}
+
+.button.link {
+	background-color: transparent;
+	color: #FFFFFF;
+	text-decoration: underline;
+	padding: 0.25rem;
+}
+
+.button.danger {
+	background-color: #FF4D4D;
+	color: #FFFFFF;
+} 
