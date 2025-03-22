@@ -14,6 +14,11 @@ body {
 	line-height: 1.5;
 }
 
+page {
+	--safeInset-top: 4rem;
+	--safeInset-bottom: 8rem;
+}
+
 /* Heading classes */
 .h1 {
 	font-size: 2rem;

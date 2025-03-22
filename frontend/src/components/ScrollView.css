@@ -3,5 +3,5 @@
 
 	background: var(--color-background);
 
-	padding: 4rem 0 8rem 0;
+	padding: var(--safeInset-top) 0 var(--safeInset-bottom) 0;
 }

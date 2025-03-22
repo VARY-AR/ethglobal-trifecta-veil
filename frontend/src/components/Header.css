@@ -1,9 +1,12 @@
 .header {
-	background-color: #000000;
+	background-color: rgba(0, 0, 0, 0.9);
 	padding: 1rem 0;
 	position: sticky;
 	top: 0;
-	z-index: 10;
+	z-index: 1;
+
+	margin-top: calc(-1 * var(--safeInset-top));
+	padding-top: var(--safeInset-top);
 }
 
 .header-logo {
