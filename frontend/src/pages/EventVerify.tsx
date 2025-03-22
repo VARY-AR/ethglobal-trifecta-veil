@@ -5,6 +5,7 @@ import { Button } from '$/components/Button.js'
 import { Drawer } from '$/components/Drawer.js'
 import { SectionTitle } from '$/components/SectionTitle.js'
 import { ProgressBar } from '$/components/ProgressBar.js'
+import { ScrollView } from '$/components/ScrollView.js'
 import { events } from '$/data/mockData.js'
 // import verifyCheck from '$/assets/verify-check.svg'
 import proofImage from '$/assets/proof.png'
@@ -96,7 +97,7 @@ export function EventVerifyPage() {
 	if (!event) return null
 	
 	return (
-		<view className="verify-container">
+		<ScrollView>
 			<Header />
 			
 			<view className="verify-content">
@@ -260,6 +261,6 @@ export function EventVerifyPage() {
 					</view>
 				</view>
 			</Drawer>
-		</view>
+		</ScrollView>
 	)
-} 
+}
