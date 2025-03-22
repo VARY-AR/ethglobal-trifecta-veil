@@ -1,9 +1,11 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
-import { GetSigningStringRequest, GetSigningStringResponse, GenerateJWTsRequest, GenerateJWTsResponse, RetrieveTokensRequest, RetrieveTokensResponse } from './types';
+import { GetSigningStringRequest, GetSigningStringResponse, GenerateJWTsRequest, GenerateJWTsResponse, RetrieveTokensRequest, RetrieveTokensResponse, Bounty } from './types';
 import { ethers } from 'ethers';
 import { _getSigningString, fetchTokenMetadata, generateTokenJWT, verifySignatureAndGetAddress, verifyTokenOwnership, retrieveOwnedTokens } from './util';
 import jwt from 'jsonwebtoken';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const PORT = process.env.PORT || 3000;
 const PRIVATE_KEY_PEM = `-----BEGIN PRIVATE KEY-----
@@ -49,6 +51,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 const web3Provider = new ethers.JsonRpcProvider(BASE_SEPOLIA_RPC_URL);
+
+// Load bounties from JSON file
+const bountiesFilePath = path.join(__dirname, 'bounties.json');
+const BOUNTIES: Bounty[] = JSON.parse(fs.readFileSync(bountiesFilePath, 'utf8'));
 
 app.post('/generate-signing-string', (req: Request<{}, {}, GetSigningStringRequest>, res: Response): Response<GetSigningStringResponse> => {
   try {
@@ -107,6 +113,18 @@ app.post('/retrieve-tokens', async (req: Request<{}, {}, RetrieveTokensRequest>,
     return res.status(500).json({
       tokens: [],
       error: 'Server error while retrieving tokens'
+    });
+  }
+});
+
+app.get('/retrieve-bounties', (_req: Request, res: Response): Response => {
+  try {
+    return res.json({ bounties: BOUNTIES });
+  } catch (error) {
+    console.error('Error retrieving bounties:', error);
+    return res.status(500).json({
+      bounties: [],
+      error: 'Server error while retrieving bounties'
     });
   }
 });

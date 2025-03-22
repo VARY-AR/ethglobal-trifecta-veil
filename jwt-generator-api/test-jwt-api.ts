@@ -41,8 +41,34 @@ async function testJwtGenerator(): Promise<void> {
     console.log('Testing JWT Generator API...');
     console.log(`Using wallet address: ${wallet.address}`);
 
-    // Step 0: Retrieve owned tokens
-    console.log('\n0. Retrieving tokens owned by wallet...');
+    // Step 0: Get available bounties
+    console.log('\n0. Retrieving available bounties...');
+    const bountiesResponse = await axios.get(`${API_URL}/retrieve-bounties`);
+
+    if ('error' in bountiesResponse.data) {
+      console.error(`Error retrieving bounties: ${(bountiesResponse.data as any).error}`);
+    } else {
+      console.log(`Found ${bountiesResponse.data.bounties.length} available bounties`);
+
+      if (bountiesResponse.data.bounties.length > 0) {
+        console.log('\nBounties details:');
+        bountiesResponse.data.bounties.forEach((bounty: any, index: number) => {
+          console.log(`\nBounty #${index + 1}: ${bounty.name}`);
+          console.log(`  Description: ${bounty.description}`);
+          console.log(`  Period: ${new Date(bounty.startDate).toLocaleDateString()} to ${new Date(bounty.endDate).toLocaleDateString()}`);
+          console.log(`  Requirements:`);
+          bounty.requirements.forEach((req: any, reqIndex: number) => {
+            console.log(`    ${reqIndex + 1}. ${req.description}`);
+          });
+          if (bounty.reward) {
+            console.log(`  Reward: ${bounty.reward}`);
+          }
+        });
+      }
+    }
+
+    // Step 1: Retrieve owned tokens
+    console.log('\n1. Retrieving tokens owned by wallet...');
     const retrieveResponse: AxiosResponse<RetrieveTokensResponse> = await axios.post(`${API_URL}/retrieve-tokens`, {
       walletAddress: wallet.address
     });
@@ -80,8 +106,8 @@ async function testJwtGenerator(): Promise<void> {
       }
     }
 
-    // Step 1: Get signing string
-    console.log('\n1. Requesting signing string...');
+    // Step 2: Get signing string
+    console.log('\n2. Requesting signing string...');
     const signingResponse: AxiosResponse<GetSigningStringResponse> = await axios.post(`${API_URL}/generate-signing-string`, {
       tokens
     });
@@ -89,20 +115,20 @@ async function testJwtGenerator(): Promise<void> {
     const { signingString } = signingResponse.data;
     console.log(`Signing string received: ${signingString}`);
 
-    // Step 2: Sign the string
-    console.log('\n2. Signing the string with wallet...');
+    // Step 3: Sign the string
+    console.log('\n3. Signing the string with wallet...');
     const signature: string = await wallet.signMessage(signingString);
     console.log(`Signature: ${signature}`);
 
-    // Step 3: Request JWTs
-    console.log('\n3. Requesting JWTs with signature...');
+    // Step 4: Request JWTs
+    console.log('\n4. Requesting JWTs with signature...');
     const jwtResponse: AxiosResponse<GenerateJWTsResponse> = await axios.post(`${API_URL}/generate-jwts`, {
       tokens,
       signature
     });
 
-    // Step 4: Display results
-    console.log('\n4. Results:');
+    // Step 5: Display results
+    console.log('\n5. Results:');
 
     if ('error' in jwtResponse.data) {
       console.error(`Error: ${(jwtResponse.data as any).error}`);

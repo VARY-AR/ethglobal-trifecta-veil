@@ -43,3 +43,26 @@ export interface TokenOwnership {
 export interface RetrieveTokensResponse {
   tokens: TokenOwnership[];
 }
+
+// Bounty-related types
+export interface BountyRequirement {
+  type: string;     // Type of requirement (e.g., "ownership", "price", "date")
+  description: string; // Human-readable description
+  parameters: {
+    [key: string]: any;  // Parameters specific to the requirement type
+  };
+}
+
+export interface Bounty {
+  id: string;       // Unique identifier for the bounty
+  name: string;     // Name of the bounty
+  description: string; // Description of what the bounty is about
+  startDate: string;   // ISO date string for start date
+  endDate: string;     // ISO date string for end date
+  requirements: BountyRequirement[]; // List of requirements to fulfill this bounty
+  reward?: string;     // Optional description of the reward
+}
+
+export interface RetrieveBountiesResponse {
+  bounties: Bounty[];
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "id": "luxury-collection-2023",
+    "name": "Luxury Collection 2023",
+    "description": "Collect premium fashion NFTs from top luxury brands to unlock exclusive benefits",
+    "startDate": "2023-10-01T00:00:00Z",
+    "endDate": "2024-05-31T23:59:59Z",
+    "requirements": [
+      {
+        "type": "ownership",
+        "description": "Own at least 4 NFTs from Prada or Gucci",
+        "parameters": {
+          "contractAddresses": [
+            "0x7b96EAe24193302a31ce1FcF414aB76fF9D10D83",
+            "0xEDBB9ea80cf07CEa5dEe7E135fCFd6ae50b1A2c8"
+          ],
+          "minCount": 4
+        }
+      },
+      {
+        "type": "price",
+        "description": "Each NFT must have a minimum value of 100 units",
+        "parameters": {
+          "minUnitPrice": 100
+        }
+      },
+      {
+        "type": "date",
+        "description": "NFTs must be created within the last year",
+        "parameters": {
+          "maxAgeInDays": 365
+        }
+      }
+    ],
+    "reward": "Exclusive access to upcoming fashion drops and virtual showroom experiences"
+  },
+  {
+    "id": "sustainable-fashion-pioneer",
+    "name": "Sustainable Fashion Pioneer",
+    "description": "Support sustainable fashion by collecting eco-friendly certified luxury items",
+    "startDate": "2023-11-15T00:00:00Z",
+    "endDate": "2024-06-30T23:59:59Z",
+    "requirements": [
+      {
+        "type": "ownership",
+        "description": "Own at least 4 NFTs from any luxury brand",
+        "parameters": {
+          "contractAddresses": [
+            "0x7b96EAe24193302a31ce1FcF414aB76fF9D10D83",
+            "0xEDBB9ea80cf07CEa5dEe7E135fCFd6ae50b1A2c8",
+            "0x2FF69e6d72a371eE03C77A0A62fed49A5b5480A8"
+          ],
+          "minCount": 4
+        }
+      },
+      {
+        "type": "price",
+        "description": "Each NFT must have a minimum value of 100 units",
+        "parameters": {
+          "minUnitPrice": 100
+        }
+      },
+      {
+        "type": "date",
+        "description": "NFTs must be created within the last year",
+        "parameters": {
+          "maxAgeInDays": 365
+        }
+      }
+    ],
+    "reward": "Participation in exclusive sustainability-focused fashion events and early access to limited edition collections"
+  }
+]
