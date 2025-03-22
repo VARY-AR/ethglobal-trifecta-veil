@@ -2,7 +2,7 @@
 	background-color: rgba(0, 0, 0, 0.9);
 	padding: 1rem 0;
 	position: sticky;
-	top: 0;
+	top: calc(-1 * var(--safeInset-top));
 	z-index: 1;
 
 	margin-top: calc(-1 * var(--safeInset-top));
