@@ -1,6 +1,13 @@
 import { ethers } from 'ethers';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import fs from 'fs';
+import {
+  Token,
+  TokenOwnership,
+  GetSigningStringResponse,
+  GenerateJWTsResponse,
+  RetrieveTokensResponse
+} from './src/types';
 
 const API_URL = 'http://localhost:3000';
 const PRIVATE_KEY = process.env.DEPLOYER_PRIVATE_KEY;
@@ -10,7 +17,7 @@ if (!PRIVATE_KEY) {
 }
 
 // Token data to request JWTs for (fallback if retrieval fails)
-const tokens = [
+const tokens: Token[] = [
   {
     contractAddress: '0x2FF69e6d72a371eE03C77A0A62fed49A5b5480A8',
     tokenId: '1',
@@ -29,25 +36,25 @@ const tokens = [
 ];
 
 const wallet = new ethers.Wallet(PRIVATE_KEY);
-async function testJwtGenerator() {
+async function testJwtGenerator(): Promise<void> {
   try {
     console.log('Testing JWT Generator API...');
     console.log(`Using wallet address: ${wallet.address}`);
 
     // Step 0: Retrieve owned tokens
     console.log('\n0. Retrieving tokens owned by wallet...');
-    const retrieveResponse = await axios.post(`${API_URL}/retrieve-tokens`, {
+    const retrieveResponse: AxiosResponse<RetrieveTokensResponse> = await axios.post(`${API_URL}/retrieve-tokens`, {
       walletAddress: wallet.address
     });
 
-    if (retrieveResponse.data.error) {
-      console.error(`Error retrieving tokens: ${retrieveResponse.data.error}`);
+    if ('error' in retrieveResponse.data) {
+      console.error(`Error retrieving tokens: ${(retrieveResponse.data as any).error}`);
     } else {
       console.log(`Found ${retrieveResponse.data.tokens.length} tokens owned by wallet`);
 
       if (retrieveResponse.data.tokens.length > 0) {
         console.log('\nToken ownership details:');
-        retrieveResponse.data.tokens.forEach((token, index) => {
+        retrieveResponse.data.tokens.forEach((token: TokenOwnership, index: number) => {
           console.log(`\nToken #${index + 1}:`);
           console.log(`  Contract: ${token.contractAddress} (${token.brand})`);
           console.log(`  Token ID: ${token.tokenId}`);
@@ -58,7 +65,7 @@ async function testJwtGenerator() {
         });
 
         // Optionally use retrieved tokens instead of hardcoded ones
-        const retrievedTokens = retrieveResponse.data.tokens.map(token => ({
+        const retrievedTokens: Token[] = retrieveResponse.data.tokens.map((token: TokenOwnership) => ({
           contractAddress: token.contractAddress,
           tokenId: token.tokenId,
           count: 1 // Assuming we want to use 1 of each token
@@ -75,7 +82,7 @@ async function testJwtGenerator() {
 
     // Step 1: Get signing string
     console.log('\n1. Requesting signing string...');
-    const signingResponse = await axios.post(`${API_URL}/generate-signing-string`, {
+    const signingResponse: AxiosResponse<GetSigningStringResponse> = await axios.post(`${API_URL}/generate-signing-string`, {
       tokens
     });
 
@@ -84,12 +91,12 @@ async function testJwtGenerator() {
 
     // Step 2: Sign the string
     console.log('\n2. Signing the string with wallet...');
-    const signature = await wallet.signMessage(signingString);
+    const signature: string = await wallet.signMessage(signingString);
     console.log(`Signature: ${signature}`);
 
     // Step 3: Request JWTs
     console.log('\n3. Requesting JWTs with signature...');
-    const jwtResponse = await axios.post(`${API_URL}/generate-jwts`, {
+    const jwtResponse: AxiosResponse<GenerateJWTsResponse> = await axios.post(`${API_URL}/generate-jwts`, {
       tokens,
       signature
     });
@@ -97,13 +104,13 @@ async function testJwtGenerator() {
     // Step 4: Display results
     console.log('\n4. Results:');
 
-    if (jwtResponse.data.error) {
-      console.error(`Error: ${jwtResponse.data.error}`);
+    if ('error' in jwtResponse.data) {
+      console.error(`Error: ${(jwtResponse.data as any).error}`);
     } else {
       console.log(`Received ${jwtResponse.data.jwts.length} JWTs`);
 
       // Save JWTs to file for inspection
-      const outputFile = './jwt-results.json';
+      const outputFile: string = './jwt-results.json';
       fs.writeFileSync(outputFile, JSON.stringify(jwtResponse.data, null, 2));
       console.log(`Results saved to ${outputFile}`);
 
