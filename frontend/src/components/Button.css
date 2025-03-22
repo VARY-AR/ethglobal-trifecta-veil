@@ -27,34 +27,34 @@
 /* Button variants */
 .button.primary {
 	background-color: #FFFFFF;
-	color: #000000;
+	--color-text: #000000;
 }
 
 .button.secondary {
 	background-color: #333333;
-	color: #FFFFFF;
+	--color-text: #FFFFFF;
 }
 
 .button.outline {
 	background-color: transparent;
 	border: 1px solid #FFFFFF;
-	color: #FFFFFF;
+	--color-text: #FFFFFF;
 }
 
 .button.text {
 	background-color: transparent;
-	color: #FFFFFF;
+	--color-text: #FFFFFF;
 	padding: 0.5rem;
 }
 
 .button.link {
 	background-color: transparent;
-	color: #FFFFFF;
+	--color-text: #FFFFFF;
 	text-decoration: underline;
 	padding: 0.25rem;
 }
 
 .button.danger {
 	background-color: #FF4D4D;
-	color: #FFFFFF;
-} 
+	--color-text: #FFFFFF;
+}
