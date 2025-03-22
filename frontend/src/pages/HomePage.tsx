@@ -2,6 +2,7 @@ import { Header } from '$/components/Header.js'
 import { Card } from '$/components/Card.js'
 import { ScrollView } from '$/components/ScrollView.js'
 import { memberships, events } from '$/data/mockData.js'
+import chevronIcon from '$/assets/chevron-right.png'
 import '$/shared/layout.css'
 import '$/shared/global.css'
 import './HomePage.css'
@@ -25,18 +26,15 @@ export function HomePage() {
 					</view>
 					
 					<view className="membership-list">
-						{
-							memberships
-								.map(item => (
-									<Card key={item.id} className="membership-card">
-										<view className="card-content">
-											<text className="card-title">{item.title}</text>
-											<text className="card-description">{item.description}</text>
-										</view>
-										<text className="card-icon">{item.icon}</text>
-									</Card>
-								))
-						}
+						{memberships.map(item => (
+							<Card key={item.id} className="membership-card">
+								<view className="card-content">
+									<text className="card-title">{item.title}</text>
+									<text className="card-description">{item.description}</text>
+								</view>
+								<image className="card-icon" src={chevronIcon} />
+							</Card>
+						))}
 					</view>
 				</view>
 				
@@ -47,18 +45,15 @@ export function HomePage() {
 					</view>
 					
 					<view className="events-list">
-						{
-							events
-								.map(item => (
-									<Card key={item.id} className="event-card">
-										<view className="card-content">
-											<text className="card-title">{item.title}</text>
-											<text className="card-description">{item.date}</text>
-										</view>
-										<text className="card-icon">{item.icon}</text>
-									</Card>
-								))
-						}
+						{events.map(item => (
+							<Card key={item.id} className="event-card">
+								<view className="card-content">
+									<text className="card-title">{item.title}</text>
+									<text className="card-description">{item.date}</text>
+								</view>
+								<image className="card-icon" src={chevronIcon} />
+							</Card>
+						))}
 					</view>
 				</view>
 			</view>
