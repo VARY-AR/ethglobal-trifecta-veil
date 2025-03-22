@@ -5,7 +5,7 @@ import '$/shared/global.css'
 
 // Import all pages
 import { HomePage } from './pages/HomePage.js'
-import { WalletSetupPage } from './pages/WalletSetupPage.js'
+import { WalletPage } from './pages/WalletPage.js'
 import { ProductDashboardPage } from './pages/ProductDashboardPage.js'
 import { RewardsPage } from './pages/RewardsPage.js'
 import { BrandOnboardingPage } from './pages/BrandOnboardingPage.js'
@@ -19,10 +19,10 @@ export function App() {
 		<MemoryRouter>
 			<Routes>
 				<Route path="/" element={<HomePage />} />
-				<Route path="/wallet-setup" element={<WalletSetupPage />} />
+				<Route path="/wallet" element={<WalletPage />} />
 				<Route path="/products" element={<ProductDashboardPage />} />
 				<Route path="/rewards" element={<RewardsPage />} />
-				<Route path="/brand-onboarding" element={<BrandOnboardingPage />} />
+				<Route path="/profile" element={<BrandOnboardingPage />} />
 				<Route path="/event/:id" element={<EventDetailPage />} />
 				<Route path="/event/:id/verify" element={<EventVerifyPage />} />
 			</Routes>
