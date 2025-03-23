@@ -7,222 +7,256 @@ import { SectionTitle } from '$/components/SectionTitle.js'
 import { ProgressBar } from '$/components/ProgressBar.js'
 import { ScrollView } from '$/components/ScrollView.js'
 import { events } from '$/data/mockData.js'
+// import verifyCheck from '$/assets/verify-check.svg'
 import proofImage from '$/assets/proof.png'
+import proofGeneratingImage from '$/assets/proof-generating.png'
+import admissionRequestingImage from '$/assets/admission-requesting.png'
+import admissionGrantedImage from '$/assets/admission-granted.png'
 import '$/shared/layout.css'
 import '$/shared/global.css'
 import './RewardVerify.css'
 
+// Use the actual verification visuals
+const VERIFICATION_VISUALS = {
+	polyhedron: proofImage,
+	sphere: proofGeneratingImage,
+	grid: admissionRequestingImage,
+	heart: admissionGrantedImage
+}
+
 export default () => {
 	const navigate = useNavigate()
 	const { id } = useParams()
-	const eventId = Number(id || 1)
-	
-	// Verification states
-	const [verificationStep, setVerificationStep] = useState(0)
-	const [isVerifying, setIsVerifying] = useState(false)
-	const [isEligible, setIsEligible] = useState(true)
-	const [verificationComplete, setVerificationComplete] = useState(false)
-	const [showProofbaseDrawer, setShowProofbaseDrawer] = useState(false)
+	const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+	const [verificationStage, setVerificationStage] = useState(0)
+	const [verificationProgress, setVerificationProgress] = useState(0)
 	
 	// Find event by ID
-	const event = events.find(e => e.id === eventId)
+	const event = events.find(e => e.id === Number(id))
 	
-	if (!event) {
-		return (
-			<view className="event-not-found">
-				<Header />
-				<view className="container">
-					<text className="error-message">Event not found</text>
-					<Button bindtap={() => navigate('/')}>Back to Home</Button>
-				</view>
-			</view>
-		)
-	}
-	
-	// Handle verification steps
+	// If event not found, redirect to events page
 	useEffect(() => {
-		if (isVerifying) {
-			const stepInterval = setInterval(() => {
-				if (verificationStep < 100) {
-					setVerificationStep(prevStep => {
-						const increment = Math.floor(Math.random() * 10) + 5
-						const newStep = prevStep + increment
-						return Math.min(newStep, 100)
-					})
-				} else {
-					clearInterval(stepInterval)
-					setIsVerifying(false)
-					setVerificationComplete(true)
-				}
-			}, 500)
-			
-			return () => clearInterval(stepInterval)
+		if (!event) {
+			navigate('/')
 		}
-	}, [isVerifying, verificationStep])
+	}, [event, navigate])
 	
+	useEffect(() => {
+		if (verificationStage === 1) {
+			// Simulate verification process
+			const interval = setInterval(() => {
+				setVerificationProgress(prev => {
+					if (prev >= 100) {
+						clearInterval(interval)
+						setTimeout(() => {
+							setVerificationStage(2)
+						}, 500)
+						return 100
+					}
+					return prev + 5
+				})
+			}, 300)
+			
+			return () => clearInterval(interval)
+		}
+	}, [verificationStage])
+	
+	// When verification is complete, simulate request admission
+	useEffect(() => {
+		if (verificationStage === 2) {
+			setTimeout(() => {
+				setVerificationStage(3)
+			}, 2000)
+		}
+	}, [verificationStage])
+	
+	// For the final success stage
+	useEffect(() => {
+		if (verificationStage === 3) {
+			setTimeout(() => {
+				setVerificationStage(4)
+			}, 2000)
+		}
+	}, [verificationStage])
+	
+	// Handle starting verification
 	const startVerification = () => {
-		setIsVerifying(true)
-		setVerificationStep(0)
+		setVerificationStage(1)
 	}
 	
+	// Handle minting reward
 	const mintReward = () => {
-		navigate('/profile')
+		navigate('/')
 	}
 	
+	// Handle opening proof base drawer
 	const openProofBaseDrawer = () => {
-		setShowProofbaseDrawer(true)
+		setIsDrawerOpen(true)
 	}
+	
+	if (!event) return null
 	
 	return (
 		<ScrollView>
-			<Header backButton />
+			<Header />
 			
-			<view className="event-verify-container">
-				<view className="event-verify-header">
-					<view className="event-verify-image">
-						<text className="event-verify-title">{event.title}</text>
-					</view>
-				</view>
-				
-				<view className="container event-verify-content">
-					<SectionTitle 
-						title="VERIFY ELIGIBILITY"
-					/>
-					
-					{!isVerifying && !verificationComplete && (
-						<view className="verify-intro">
-							<text className="verify-intro-text">
-								To verify your eligibility for this event, we'll check your ownership records against the requirements.
-							</text>
-							
-							<view className="requirements-section">
-								<text className="requirements-title">REQUIREMENTS</text>
-								<view className="requirements-list">
-									{event.requirements.map((requirement, index) => (
-										<view key={index} className="requirement-item">
-											<text className="requirement-bullet">•</text>
-											<text className="requirement-text">{requirement}</text>
-										</view>
-									))}
-								</view>
-							</view>
-							
-							<text className="privacy-note">
-								Your data will remain private. We use zero-knowledge proofs to verify eligibility without revealing your specific product ownership details.
-							</text>
-							
-							<view className="verify-button-container">
-								<Button
-									title="Start Verification"
-									onPress={startVerification}
-									primary
-									fullWidth
-								/>
-							</view>
-						</view>
-					)}
-					
-					{isVerifying && (
-						<view className="verify-progress">
-							<text className="verify-progress-title">Verifying...</text>
-							<ProgressBar progress={verificationStep} />
-							<text className="verify-progress-text">
-								{verificationStep < 30
-									? 'Generating zero-knowledge proof...'
-									: verificationStep < 60
-									? 'Checking product ownership records...'
-									: verificationStep < 90
-									? 'Validating requirements...'
-									: 'Finalizing verification...'}
-							</text>
-						</view>
-					)}
-					
-					{verificationComplete && (
-						<view className="verify-result">
-							{isEligible ? (
-								<view className="eligible-result">
-									<view className="result-icon-successful">
-										<text className="result-icon-text">✓</text>
-									</view>
-									<text className="result-title">You're Eligible!</text>
-									<text className="result-description">
-										Congratulations! You meet all the requirements for this event.
-									</text>
-									
-									<view className="proof-section">
-										<text className="proof-title">PROOF OF ELIGIBILITY</text>
-										<view className="proof-card" bindtap={openProofBaseDrawer}>
-											<image src={proofImage} className="proof-image" />
-											<view className="proof-details">
-												<text className="proof-id">Proof #{Math.floor(Math.random() * 10000)}</text>
-												<text className="proof-date">Generated on {new Date().toLocaleDateString()}</text>
-											</view>
-										</view>
-									</view>
-									
-									<view className="proof-note">
-										<text className="proof-note-text">
-											This zero-knowledge proof confirms your eligibility without revealing your specific ownership details.
-										</text>
-									</view>
-									
-									<Button
-										title="Return to Profile"
-										onPress={mintReward}
-										primary
-										fullWidth
-									/>
-								</view>
-							) : (
-								<view className="ineligible-result">
-									<view className="result-icon-failed">
-										<text className="result-icon-text">✗</text>
-									</view>
-									<text className="result-title">Not Eligible</text>
-									<text className="result-description">
-										Unfortunately, you don't meet all the requirements for this event.
-									</text>
-									
-									<view className="missing-requirements">
-										<text className="missing-title">MISSING REQUIREMENTS</text>
-										<view className="missing-list">
-											<view className="missing-item">
-												<text className="missing-bullet">•</text>
-												<text className="missing-text">You don't own enough products from the required brands</text>
-											</view>
-										</view>
-									</view>
-									
-									<Button
-										title="Back to Event"
-										onPress={() => navigate(`/reward/${eventId}`)}
-										fullWidth
-									/>
-								</view>
-							)}
-						</view>
-					)}
-				</view>
+			{/* Verification visualization */}
+			<view className="verify-visual">
+				{verificationStage === 0 && (
+					<image className="verify-image" src={VERIFICATION_VISUALS.polyhedron} />
+				)}
+				{verificationStage === 1 && (
+					<image className="verify-image" src={VERIFICATION_VISUALS.sphere} />
+				)}
+				{verificationStage === 2 && (
+					<image className="verify-image" src={VERIFICATION_VISUALS.grid} />
+				)}
+				{(verificationStage === 3 || verificationStage === 4) && (
+					<image className="verify-image" src={VERIFICATION_VISUALS.heart} />
+				)}
 			</view>
 			
-			{/* ProofBase drawer */}
+			{/* Verification steps */}
+			<view className="verify-steps">
+				{verificationStage === 0 && (
+					<>
+						<SectionTitle
+							title="YOUR PROOF"
+						/>
+						<view className="verify-requirements">
+							{event.requirements.map((requirement, index) => (
+								<view key={index} className="verify-requirement-item">
+									<view className="verify-check">
+										{/* <image 
+											className="verify-check-icon" 
+											src={verifyCheck} 
+										/> */}
+									</view>
+									<text className="verify-requirement-text">{requirement}</text>
+								</view>
+							))}
+						</view>
+						
+						<Button 
+							fullWidth 
+							variant="secondary" 
+							className="verify-button" 
+							bindtap={openProofBaseDrawer}
+						>
+							SEE PROOF BASE
+						</Button>
+						
+						<SectionTitle
+							title="YOUR ANONYMITY"
+						/>
+						
+						<view className="anonymity-info">
+							<text className="anonymity-title">The brand won't know</text>
+							<view className="anonymity-items">
+								<text className="anonymity-item">• your identity</text>
+								<text className="anonymity-item">• the product brands</text>
+								<text className="anonymity-item">• the product individual prices</text>
+							</view>
+						</view>
+						
+						<view className="verify-actions">
+							<Button 
+								variant="outline" 
+								className="verify-action-button"
+								bindtap={() => navigate(`/event/${id}`)}
+							>
+								CANCEL
+							</Button>
+							<Button 
+								variant="primary" 
+								className="verify-action-button"
+								bindtap={startVerification}
+							>
+								REQUEST
+							</Button>
+						</view>
+					</>
+				)}
+				
+				{verificationStage >= 1 && verificationStage < 4 && (
+					<view className="verification-progress">
+						<view className="verification-status">
+							<view className={`verification-step ${verificationStage >= 1 ? 'active' : ''}`}>
+								{/* <image 
+									className="verify-step-icon" 
+									src={verifyCheck} 
+								/> */}
+								<text className="verify-step-text">Generating ZK Proof</text>
+							</view>
+							<view className={`verification-step ${verificationStage >= 2 ? 'active' : ''}`}>
+								{/* <image 
+									className="verify-step-icon" 
+									src={verifyCheck} 
+								/> */}
+								<text className="verify-step-text">Requesting Admission</text>
+							</view>
+						</view>
+						
+						{verificationStage === 1 && (
+							<ProgressBar progress={verificationProgress} />
+						)}
+						
+						<text className="verification-message">VEILING IN PROGRESS</text>
+					</view>
+				)}
+				
+				{verificationStage === 4 && (
+					<view className="verification-success">
+						<text className="verification-success-title">ADMISSION GRANTED</text>
+						<Button 
+							fullWidth 
+							bindtap={mintReward}
+						>
+							MINT REWARD
+						</Button>
+					</view>
+				)}
+			</view>
+			
+			{/* Proof Base Drawer */}
 			<Drawer
-				isOpen={showProofbaseDrawer}
-				onClose={() => setShowProofbaseDrawer(false)}
-				title="Zero-Knowledge Proof"
+				isOpen={isDrawerOpen}
+				onClose={() => setIsDrawerOpen(false)}
+				height="80%"
 			>
-				<view className="proof-drawer-content">
-					<text className="proof-drawer-title">Privacy-Preserving Proof</text>
-					<text className="proof-drawer-description">
-						This cryptographic proof confirms your eligibility without revealing specific details about which products you own.
-					</text>
-					<text className="proof-drawer-code">
-						zk-SNARKs verification hash:
-						0x7f9e8d7c6b5a493827361554e3a2f1d0c9b8a7d6e5f4c3b2a1918273645
-					</text>
+				<view className="proof-base-drawer">
+					<text className="proof-base-title">CLOSE</text>
+					
+					<text className="proof-base-subtitle">YOUR PROOF IS BASED ON</text>
+					
+					<view className="proof-passports">
+						<view className="proof-passport-item">
+							<view className="proof-passport-placeholder">
+								<image className="proof-passport-image" src={proofImage} />
+							</view>
+							<text className="proof-passport-label">PRODUCT PASSPORT</text>
+						</view>
+						<view className="proof-passport-item">
+							<view className="proof-passport-placeholder">
+								<image className="proof-passport-image" src={proofGeneratingImage} />
+							</view>
+							<text className="proof-passport-label">PRODUCT PASSPORT</text>
+						</view>
+						<view className="proof-passport-item">
+							<view className="proof-passport-placeholder">
+								<image className="proof-passport-image" src={admissionRequestingImage} />
+							</view>
+							<text className="proof-passport-label">PRODUCT PASSPORT</text>
+						</view>
+						<view className="proof-passport-item">
+							<view className="proof-passport-placeholder">
+								<image className="proof-passport-image" src={admissionGrantedImage} />
+							</view>
+							<text className="proof-passport-label">PRODUCT PASSPORT</text>
+						</view>
+					</view>
 				</view>
 			</Drawer>
 		</ScrollView>
 	)
-} 
+}
