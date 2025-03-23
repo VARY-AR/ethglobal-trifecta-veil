@@ -100,122 +100,130 @@ export default () => {
 		<ScrollView>
 			<Header />
 			
-			{/* Verification visualization */}
-			<view className="verify-visual">
-				{verificationStage === 0 && (
-					<image className="verify-image" src={VERIFICATION_VISUALS.polyhedron} />
-				)}
-				{verificationStage === 1 && (
-					<image className="verify-image" src={VERIFICATION_VISUALS.sphere} />
-				)}
-				{verificationStage === 2 && (
-					<image className="verify-image" src={VERIFICATION_VISUALS.grid} />
-				)}
-				{(verificationStage === 3 || verificationStage === 4) && (
-					<image className="verify-image" src={VERIFICATION_VISUALS.heart} />
-				)}
-			</view>
-			
-			{/* Verification steps */}
-			<view className="verify-steps">
-				{verificationStage === 0 && (
-					<>
-						<SectionTitle
-							title="YOUR PROOF"
-						/>
-						<view className="verify-requirements">
-							{event.requirements.map((requirement, index) => (
-								<view key={index} className="verify-requirement-item">
-									<view className="verify-check">
-										{/* <image 
-											className="verify-check-icon" 
-											src={verifyCheck} 
-										/> */}
-									</view>
-									<text className="verify-requirement-text">{requirement}</text>
+			<view class="column gap-lg">
+				{/* Verification visualization */}
+				<view className="verify-visual">
+					{verificationStage === 0 && (
+						<image className="verify-image" src={VERIFICATION_VISUALS.polyhedron} />
+					)}
+					{verificationStage === 1 && (
+						<image className="verify-image" src={VERIFICATION_VISUALS.sphere} />
+					)}
+					{verificationStage === 2 && (
+						<image className="verify-image" src={VERIFICATION_VISUALS.grid} />
+					)}
+					{(verificationStage === 3 || verificationStage === 4) && (
+						<image className="verify-image" src={VERIFICATION_VISUALS.heart} />
+					)}
+				</view>
+				
+				{/* Verification steps */}
+				<view className="verify-steps">
+					{verificationStage === 0 && (
+						<>
+							<view className="verify-section">
+								<SectionTitle
+									title="YOUR PROOF"
+								/>
+								<view className="verify-requirements">
+									{event.requirements.map((requirement, index) => (
+										<view key={index} className="verify-requirement-item">
+											<view className="verify-check">
+												{/* <image 
+													className="verify-check-icon" 
+													src={verifyCheck} 
+												/> */}
+											</view>
+											<text className="verify-requirement-text">{requirement}</text>
+										</view>
+									))}
 								</view>
-							))}
-						</view>
-						
-						<Button 
-							fullWidth 
-							variant="secondary" 
-							className="verify-button" 
-							bindtap={openProofBaseDrawer}
-						>
-							SEE PROOF BASE
-						</Button>
-						
-						<SectionTitle
-							title="YOUR ANONYMITY"
-						/>
-						
-						<view className="anonymity-info">
-							<text className="anonymity-title">The brand won't know</text>
-							<view className="anonymity-items">
-								<text className="anonymity-item">• your identity</text>
-								<text className="anonymity-item">• the product brands</text>
-								<text className="anonymity-item">• the product individual prices</text>
+								
+								<Button 
+									fullWidth 
+									variant="secondary" 
+									className="verify-button" 
+									bindtap={openProofBaseDrawer}
+								>
+									SEE PROOF BASE
+								</Button>
 							</view>
+
+							<view className="verify-section">
+								<SectionTitle
+									title="YOUR ANONYMITY"
+								/>
+								
+								<view className="anonymity-info">
+									<text className="anonymity-title">The brand won't know</text>
+									<view className="anonymity-items">
+										<text className="anonymity-item">• your identity</text>
+										<text className="anonymity-item">• the product brands</text>
+										<text className="anonymity-item">• the product individual prices</text>
+									</view>
+								</view>
+								
+								<view className="verify-actions">
+									<Button 
+										variant="outline" 
+										className="verify-action-button"
+										bindtap={() => navigate(`/event/${id}`)}
+									>
+										CANCEL
+									</Button>
+									<Button 
+										variant="primary" 
+										className="verify-action-button"
+										bindtap={startVerification}
+									>
+										REQUEST
+									</Button>
+								</view>
+							</view>
+						</>
+					)}
+					
+					{verificationStage >= 1 && verificationStage < 4 && (
+						<view className="verification-progress">
+							<view className="verification-status">
+								<view className={`verification-step ${verificationStage >= 1 ? 'active' : ''}`}>
+									{/* <image 
+										className="verify-step-icon" 
+										src={verifyCheck} 
+									/> */}
+									<text className="verify-step-text">Generating ZK Proof</text>
+								</view>
+								<view className={`verification-step ${verificationStage >= 2 ? 'active' : ''}`}>
+									{/* <image 
+										className="verify-step-icon" 
+										src={verifyCheck} 
+									/> */}
+									<text className="verify-step-text">Requesting Admission</text>
+								</view>
+							</view>
+							
+							{verificationStage === 1 && (
+								<ProgressBar progress={verificationProgress} />
+							)}
+							
+							<text className="verification-message">VEILING IN PROGRESS</text>
 						</view>
-						
-						<view className="verify-actions">
+					)}
+					
+					{verificationStage === 4 && (
+						<view className="verification-success">
+							<text className="verification-success-title">ADMISSION GRANTED</text>
 							<Button 
-								variant="outline" 
-								className="verify-action-button"
-								bindtap={() => navigate(`/event/${id}`)}
+								fullWidth 
+								bindtap={mintReward}
 							>
-								CANCEL
-							</Button>
-							<Button 
-								variant="primary" 
-								className="verify-action-button"
-								bindtap={startVerification}
-							>
-								REQUEST
+								MINT REWARD
 							</Button>
 						</view>
-					</>
-				)}
-				
-				{verificationStage >= 1 && verificationStage < 4 && (
-					<view className="verification-progress">
-						<view className="verification-status">
-							<view className={`verification-step ${verificationStage >= 1 ? 'active' : ''}`}>
-								{/* <image 
-									className="verify-step-icon" 
-									src={verifyCheck} 
-								/> */}
-								<text className="verify-step-text">Generating ZK Proof</text>
-							</view>
-							<view className={`verification-step ${verificationStage >= 2 ? 'active' : ''}`}>
-								{/* <image 
-									className="verify-step-icon" 
-									src={verifyCheck} 
-								/> */}
-								<text className="verify-step-text">Requesting Admission</text>
-							</view>
-						</view>
-						
-						{verificationStage === 1 && (
-							<ProgressBar progress={verificationProgress} />
-						)}
-						
-						<text className="verification-message">VEILING IN PROGRESS</text>
-					</view>
-				)}
-				
-				{verificationStage === 4 && (
-					<view className="verification-success">
-						<text className="verification-success-title">ADMISSION GRANTED</text>
-						<Button 
-							fullWidth 
-							bindtap={mintReward}
-						>
-							MINT REWARD
-						</Button>
-					</view>
-				)}
+					)}
+
+					<view></view>
+				</view>
 			</view>
 			
 			{/* Proof Base Drawer */}

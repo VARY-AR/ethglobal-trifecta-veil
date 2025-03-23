@@ -37,9 +37,12 @@
 }
 
 .column {
-	display: flex;
-	flex-direction: column;
+	display: grid;
 	gap: var(--gap-sm);
+	padding-bottom: 5rem;
+}
+.column > * + * {
+	margin-top: var(--gap-sm);
 }
 
 /* Gap utilities */

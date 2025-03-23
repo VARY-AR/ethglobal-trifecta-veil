@@ -4,8 +4,9 @@
 	margin-bottom: 16px;
 }
 
-.reward-image {
+.reward-item-image {
 	aspect-ratio: 1;
+	min-height: 12rem;
 	position: relative;
 	background: linear-gradient(135deg, #444444 0%, #555555 100%);
 	border-radius: 8px;
@@ -35,8 +36,8 @@
 	text-align: center;
 }
 
-.reward-title {
-	font-size: 14px;
+.reward-item-title {
+	font-size: 1em;
 	font-weight: 600;
 	color: #ffffff;
 	text-align: center;

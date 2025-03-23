@@ -3,5 +3,6 @@
 
 	background: var(--color-background);
 
+	margin-bottom: var(--safeInset-bottom);
 	padding: var(--safeInset-top) 0 calc(var(--safeInset-bottom) + 4rem) 0;
 }
