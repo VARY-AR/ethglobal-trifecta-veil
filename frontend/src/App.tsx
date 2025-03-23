@@ -5,13 +5,13 @@ import '$/shared/global.css'
 import { PrivyProvider } from './lib/PrivyProvider.jsx'
 
 // Import all pages
-import ExplorePage from './pages/Explore.jsx'
-import WalletsPage from './pages/Wallets.jsx'
-import { ProductsPage } from './pages/ProductsPage.js'
-import { ProfilePage } from './pages/ProfilePage.js'
-import { EventDetailPage } from './pages/EventDetail.js'
-import { EventVerifyPage } from './pages/EventVerify.js'
-import { Navigation } from './components/Navigation.js'
+import Explore from './pages/Explore.jsx'
+import Wallets from './pages/Wallets.jsx'
+import Products from './pages/Products.jsx'
+import Profile from './pages/Profile.jsx'
+import Event from './pages/RewardEvent.jsx'
+import Verify from './pages/RewardVerify.jsx'
+import { Navigation } from './components/Navigation.jsx'
 
 // App entry point
 export function App() {
@@ -21,13 +21,13 @@ export function App() {
 				initialEntries={['/profile']}
 			>
 				<Routes>
-					<Route path="/" element={<ProfilePage />} />
-					<Route path="/profile" element={<ProfilePage />} />
-					<Route path="/explore" element={<ExplorePage />} />
-					<Route path="/wallets" element={<WalletsPage />} />
-					<Route path="/products" element={<ProductsPage />} />
-					<Route path="/event/:id" element={<EventDetailPage />} />
-					<Route path="/event/:id/verify" element={<EventVerifyPage />} />
+					<Route path="/" element={<Profile />} />
+					<Route path="/profile" element={<Profile />} />
+					<Route path="/explore" element={<Explore />} />
+					<Route path="/wallets" element={<Wallets />} />
+					<Route path="/products" element={<Products />} />
+					<Route path="/reward/:id" element={<Event />} />
+					<Route path="/reward/:id/verify" element={<Verify />} />
 				</Routes>
 				<Navigation />
 			</MemoryRouter>

@@ -16,75 +16,77 @@ export default () => {
 		<ScrollView>
 			<Header />
 			
-			<view className="container">
-				<text className="h1">My Wallet</text>
-				
-				<view className="wallet-summary">
-					<view className="card p-md">
-						<view className="wallet-data">
-							<view className="wallet-data-item">
-								<text className="wallet-data-label">Total Items</text>
-								<text className="wallet-data-value">{walletTokens.length}</text>
-							</view>
-							<view className="wallet-data-item">
-								<text className="wallet-data-label">Brands</text>
-								<text className="wallet-data-value">4</text>
-							</view>
-							<view className="wallet-data-item">
-								<text className="wallet-data-label">Value (USD)</text>
-								<text className="wallet-data-value">$5,280</text>
-							</view>
-						</view>
-					</view>
-				</view>
-				
-				<view className="tab-navigation">
+			<view className="container wallets-container">
+				<view className="tabs">
 					<view 
-						className={`tab-item ${activeTab === 'tokens' ? 'active' : ''}`}
+						className={`tab ${activeTab === 'tokens' ? 'active' : ''}`}
 						bindtap={() => setActiveTab('tokens')}
 					>
-						<text>Product Tokens</text>
+						<text>Your Tokens</text>
 					</view>
 					<view 
-						className={`tab-item ${activeTab === 'history' ? 'active' : ''}`}
+						className={`tab ${activeTab === 'history' ? 'active' : ''}`}
 						bindtap={() => setActiveTab('history')}
 					>
-						<text>History</text>
+						<text>Transaction History</text>
 					</view>
 				</view>
 				
 				{activeTab === 'tokens' && (
-					<view className="tokens-list">
+					<view className="wallet-tokens">
 						{walletTokens.map(token => (
 							<Card key={token.id} className="token-card">
-								<view className="token-content">
-									<view className="token-header">
-										<text className="token-name">{token.name}</text>
-										{token.verified && (
-											<image src={verifyIcon} className="verify-icon" />
-										)}
-									</view>
-									<text className="token-brand">{token.brand}</text>
-									<text className="token-detail">Acquired: {token.acquired}</text>
-									<text className="token-detail">Token ID: {token.tokenId}</text>
+								<view className="token-header">
+									<text className="token-name">{token.name}</text>
+									{token.verified && (
+										<image src={verifyIcon} className="verified-icon" />
+									)}
 								</view>
-								<image className="card-icon" src={chevronIcon} />
+								
+								<view className="token-details">
+									<view className="token-detail">
+										<text className="detail-label">Brand</text>
+										<text className="detail-value">{token.brand}</text>
+									</view>
+									
+									<view className="token-detail">
+										<text className="detail-label">Acquired</text>
+										<text className="detail-value">{new Date(token.acquired).toLocaleDateString()}</text>
+									</view>
+									
+									<view className="token-detail">
+										<text className="detail-label">Token ID</text>
+										<text className="detail-value token-id">{token.tokenId}</text>
+									</view>
+								</view>
+								
+								<view className="token-attributes">
+									{Object.entries(token.attributes).map(([key, value], index) => (
+										<view key={index} className="attribute">
+											<text className="attribute-key">{key}</text>
+											<text className="attribute-value">{value}</text>
+										</view>
+									))}
+								</view>
 							</Card>
 						))}
 					</view>
 				)}
 				
 				{activeTab === 'history' && (
-					<view className="history-list">
-						{transactionHistory.map(transaction => (
-							<Card key={transaction.id} className="history-card">
-								<view className="history-content">
-									<text className="history-date">{transaction.date}</text>
-									<text className="history-type">{transaction.type}</text>
-									<text className="history-detail">{transaction.detail}</text>
-								</view>
-								<view className={`status-badge ${transaction.status.toLowerCase()}`}>
-									<text>{transaction.status}</text>
+					<view className="transaction-history">
+						{transactionHistory.map(tx => (
+							<Card key={tx.id} className="transaction-card">
+								<view className="transaction-content">
+									<view className="transaction-details">
+										<text className="transaction-type">{tx.type}</text>
+										<text className="transaction-detail">{tx.detail}</text>
+										<text className="transaction-date">{new Date(tx.date).toLocaleDateString()}</text>
+									</view>
+									<view className="transaction-status">
+										<text className={`status ${tx.status.toLowerCase()}`}>{tx.status}</text>
+										<image src={chevronIcon} className="chevron-icon" />
+									</view>
 								</view>
 							</Card>
 						))}

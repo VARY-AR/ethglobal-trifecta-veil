@@ -7,9 +7,9 @@ import { SectionTitle } from '$/components/SectionTitle.js'
 import { events } from '$/data/mockData.js'
 import '$/shared/layout.css'
 import '$/shared/global.css'
-import './EventDetail.css'
+import './RewardEvent.css'
 
-export function EventDetailPage() {
+export default () => {
 	const navigate = useNavigate()
 	const { id } = useParams()
 	const [readMore, setReadMore] = useState(false)
@@ -30,7 +30,7 @@ export function EventDetailPage() {
 	}
 	
 	const verifyEligibility = () => {
-		navigate(`/event/${id}/verify`)
+		navigate(`/reward/${id}/verify`)
 	}
 	
 	return (

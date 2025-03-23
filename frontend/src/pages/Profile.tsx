@@ -4,12 +4,12 @@ import { ScrollView } from '$/components/ScrollView.js'
 import { useNavigate } from 'react-router'
 import '$/shared/layout.css'
 import '$/shared/global.css'
-import './ProfilePage.css'
+import './Profile.css'
 import { memberships, events } from '../data/mockData.js'
 import { RewardItem } from '../components/RewardItem.js'
 import { SectionTitle } from '../components/SectionTitle.js'
 
-export function ProfilePage() {
+export default () => {
 	const navigate = useNavigate()
 	const username = '@SIMON'
 	

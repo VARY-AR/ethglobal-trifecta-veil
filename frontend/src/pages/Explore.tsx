@@ -13,7 +13,7 @@ export default () => {
 	const navigate = useNavigate()
 	
 	const goToEventDetail = (eventId: number) => {
-		navigate(`/event/${eventId}`)
+		navigate(`/reward/${eventId}`)
 	}
 	
 	return (

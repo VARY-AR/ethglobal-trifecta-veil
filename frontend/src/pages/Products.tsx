@@ -4,7 +4,7 @@ import { ScrollView } from '$/components/ScrollView.js'
 import { useNavigate } from 'react-router'
 import '$/shared/layout.css'
 import '$/shared/global.css'
-import './ProductsPage.css'
+import './Products.css'
 import { walletTokens } from '../data/mockData.js'
 import { SectionTitle } from '../components/SectionTitle.js'
 
@@ -14,16 +14,14 @@ interface ProductCategoryProps {
 }
 
 // Product category component
-function ProductCategory({ title, onPress }: ProductCategoryProps) {
-	return (
-		<view className="product-category" bindtap={onPress}>
-			<view className="product-image" />
-			<text className="product-title">{title}</text>
-		</view>
-	)
-}
+const ProductCategory = ({ title, onPress }: ProductCategoryProps) => (
+	<view className="product-category" bindtap={onPress}>
+		<view className="product-image" />
+		<text className="product-title">{title}</text>
+	</view>
+)
 
-export function ProductsPage() {
+export default () => {
 	const navigate = useNavigate()
 	
 	// Extract unique product categories from wallet tokens
