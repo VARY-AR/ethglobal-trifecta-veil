@@ -5,5 +5,44 @@
   "address": "0xeE8aA4b09E598006891eB35BCd86e15632aC3334",
   "network": "baseSepolia",
   "basescanUrl": "https://sepolia.basescan.com/address/0xeE8aA4b09E598006891eB35BCd86e15632aC3334",
-  "tokens": []
+  "tokens": [
+    {
+      "id": 1,
+      "name": "GG Marmont Small Shoulder Bag",
+      "description": "Matelassé chevron leather bag with antique gold-toned hardware.",
+      "imageUri": "https://www.gucci.com/us/en/pr/gg-marmont-small-shoulder-bag-p-447632DTDHT1000",
+      "type": "Handbag",
+      "supplyLimit": 120,
+      "unitPrice": 1980,
+      "brand": "Gucci",
+      "contractAddress": "0xeE8aA4b09E598006891eB35BCd86e15632aC3334",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-23T12:34:00.803Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-23T12:34:03.582Z"
+      },
+      "lastUpdated": "2025-03-23T12:34:03.582Z"
+    },
+    {
+      "id": 2,
+      "name": "Men's Wool Coat",
+      "description": "Double-breasted wool coat with peak lapel and enamel buttons.",
+      "imageUri": "https://www.gucci.com/us/en/pr/mens-ready-to-wear/mens-outerwear/mens-coats/mens-wool-coat-p-634875ZACAT1000",
+      "type": "Garment",
+      "supplyLimit": 80,
+      "unitPrice": 3200,
+      "brand": "Gucci",
+      "contractAddress": "0xeE8aA4b09E598006891eB35BCd86e15632aC3334",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-23T12:34:09.949Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-23T12:34:16.493Z"
+      },
+      "lastUpdated": "2025-03-23T12:34:16.493Z"
+    }
+  ]
 }

@@ -5,5 +5,44 @@
   "address": "0xaBA661FA1D46B03298E13862ec5e03111586BcFE",
   "network": "baseSepolia",
   "basescanUrl": "https://sepolia.basescan.com/address/0xaBA661FA1D46B03298E13862ec5e03111586BcFE",
-  "tokens": []
+  "tokens": [
+    {
+      "id": 1,
+      "name": "Birkin 30",
+      "description": "Iconic handbag crafted from Togo leather with palladium hardware.",
+      "imageUri": "https://www.hermes.com/us/en/product/birkin-30-bag-H075037CK89/",
+      "type": "Handbag",
+      "supplyLimit": 50,
+      "unitPrice": 12000,
+      "brand": "Hermès",
+      "contractAddress": "0xaBA661FA1D46B03298E13862ec5e03111586BcFE",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-23T12:33:43.059Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-23T12:33:45.485Z"
+      },
+      "lastUpdated": "2025-03-23T12:33:45.485Z"
+    },
+    {
+      "id": 2,
+      "name": "Carré 90 Scarf",
+      "description": "Silk twill scarf featuring the 'Brides de Gala' design.",
+      "imageUri": "https://www.hermes.com/us/en/product/carre-90-scarf-H003122S06/",
+      "type": "Garment",
+      "supplyLimit": 200,
+      "unitPrice": 430,
+      "brand": "Hermès",
+      "contractAddress": "0xaBA661FA1D46B03298E13862ec5e03111586BcFE",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-23T12:33:52.239Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-23T12:33:58.607Z"
+      },
+      "lastUpdated": "2025-03-23T12:33:58.607Z"
+    }
+  ]
 }
