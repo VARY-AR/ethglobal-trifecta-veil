@@ -43,6 +43,28 @@
 	justify-content: flex-end;
 }
 
+.wallet-button {
+	background: transparent;
+	border: none;
+	padding: 8px;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	opacity: 0.8;
+	transition: opacity 0.2s ease;
+}
+
+.wallet-button:hover {
+	opacity: 1;
+}
+
+.wallet-icon {
+	width: 24px;
+	height: 24px;
+}
+
 .kebab-menu {
 	background: transparent;
 	border: none;

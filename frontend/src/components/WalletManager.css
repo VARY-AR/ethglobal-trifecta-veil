@@ -1,0 +1,91 @@
+.wallet-manager {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	color: white;
+	gap: 20px;
+}
+
+.wallet-manager-header {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	padding-bottom: 10px;
+}
+
+.close-button {
+	text-align: center;
+	font-size: 14px;
+	opacity: 0.7;
+	cursor: pointer;
+	letter-spacing: 0.05em;
+}
+
+.wallet-title {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.wallet-title .h2 {
+	font-size: 18px;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+}
+
+.wallet-list {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	width: 100%;
+}
+
+.wallet-option {
+	display: flex;
+	align-items: center;
+	background-color: #222222;
+	border-radius: 10px;
+	padding: 16px;
+	gap: 12px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.wallet-option:hover {
+	background-color: #333333;
+}
+
+.wallet-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 8px;
+	background-color: #444444;
+	font-size: 20px;
+}
+
+.wallet-details {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.wallet-name {
+	font-weight: 600;
+	font-size: 16px;
+	letter-spacing: 0.05em;
+}
+
+.wallet-description {
+	font-size: 14px;
+	opacity: 0.7;
+}
+
+.wallet-items {
+	font-size: 14px;
+	opacity: 0.7;
+} 

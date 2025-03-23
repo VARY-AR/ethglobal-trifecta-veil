@@ -3,7 +3,7 @@ import './App.css'
 import '$/shared/layout.css'
 import '$/shared/global.css'
 import { PrivyProvider } from './lib/PrivyProvider.jsx'
-import { WalletDrawer } from './components/WalletDrawer.js'
+import { WalletManager } from './components/WalletManager.js'
 
 // Import all pages
 import Explore from './pages/Explore.jsx'
@@ -31,7 +31,7 @@ export function App() {
 					<Route path="/reward/:id/verify" element={<Verify />} />
 				</Routes>
 				<Navigation />
-				<WalletDrawer />
+				<WalletManager />
 			</MemoryRouter>
 		</PrivyProvider>
 	)

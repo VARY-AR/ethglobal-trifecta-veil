@@ -1,8 +1,6 @@
 import { useNavigate, useLocation } from 'react-router'
-import './Wallet.css'
+import './WalletManager.css'
 import { Drawer } from './Drawer.js'
-import { useState } from '@lynx-js/react'
-import { ScrollView } from './ScrollView.js'
 import { Button } from './Button.js'
 
 // Import custom Privy hooks
@@ -13,7 +11,7 @@ import {
 } from '../lib/privy.js'
 import type { Wallet } from '../lib/privy.js'
 
-export function WalletDrawer() {
+export function WalletManager() {
 	const navigate = useNavigate()
 	const location = useLocation()
 	const isOpen = location.hash === '#wallet'
@@ -54,8 +52,8 @@ export function WalletDrawer() {
 			onClose={closeDrawer}
 			height="90%"
 		>
-			<view className="wallet-drawer">
-				<view className="wallet-drawer-header">
+			<view className="wallet-manager">
+				<view className="wallet-manager-header">
 					<text className="close-button" bindtap={closeDrawer}>CLOSE</text>
 				</view>
 				
@@ -63,7 +61,9 @@ export function WalletDrawer() {
 					<text className="h2">YOUR WALLETS</text>
 				</view>
 				
-				<ScrollView>
+				<scroll-view
+					scroll-orientation="vertical"
+				>
 					<view className="wallet-list">
 						{/* Embedded wallet button */}
 						<view className="wallet-option" bindtap={() => navigate('/wallets')}>
@@ -102,7 +102,7 @@ export function WalletDrawer() {
 							</Button>
 						)}
 					</view>
-				</ScrollView>
+				</scroll-view>
 			</view>
 		</Drawer>
 	)
