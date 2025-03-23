@@ -7,9 +7,9 @@ import chevronIcon from '$/assets/chevron-right.webp'
 import verifyIcon from '$/assets/verify-check.svg'
 import '$/shared/layout.css'
 import '$/shared/global.css'
-import './WalletPage.css'
+import './Wallets.css'
 
-export function WalletPage() {
+export default () => {
 	const [activeTab, setActiveTab] = useState('tokens')
 	
 	return (
@@ -93,4 +93,4 @@ export function WalletPage() {
 			</view>
 		</ScrollView>
 	)
-} 
+}

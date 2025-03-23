@@ -7,9 +7,9 @@ import { memberships, events } from '$/data/mockData.js'
 import chevronIcon from '$/assets/chevron-right.png'
 import '$/shared/layout.css'
 import '$/shared/global.css'
-import './HomePage.css'
+import './Explore.css'
 
-export function HomePage() {
+export default () => {
 	const navigate = useNavigate()
 	
 	const goToEventDetail = (eventId: number) => {
@@ -75,4 +75,4 @@ export function HomePage() {
 			</view>
 		</ScrollView>
 	)
-} 
+}

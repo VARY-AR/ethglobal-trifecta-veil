@@ -5,8 +5,8 @@ import '$/shared/global.css'
 import { PrivyProvider } from './lib/PrivyProvider.jsx'
 
 // Import all pages
-import { HomePage } from './pages/HomePage.js'
-import { WalletPage } from './pages/WalletPage.js'
+import ExplorePage from './pages/Explore.jsx'
+import WalletsPage from './pages/Wallets.jsx'
 import { ProductDashboardPage } from './pages/ProductDashboardPage.js'
 import { RewardsPage } from './pages/RewardsPage.js'
 import { BrandOnboardingPage } from './pages/BrandOnboardingPage.js'
@@ -18,10 +18,12 @@ import { Navigation } from './components/Navigation.js'
 export function App() {
 	return (
 		<PrivyProvider>
-			<MemoryRouter>
+			<MemoryRouter
+				initialEntries={['/explore']}
+			>
 				<Routes>
-					<Route path="/" element={<HomePage />} />
-					<Route path="/wallet" element={<WalletPage />} />
+					<Route path="/explore" element={<ExplorePage />} />
+					<Route path="/wallets" element={<WalletsPage />} />
 					<Route path="/products" element={<ProductDashboardPage />} />
 					<Route path="/rewards" element={<RewardsPage />} />
 					<Route path="/profile" element={<BrandOnboardingPage />} />
@@ -33,4 +35,3 @@ export function App() {
 		</PrivyProvider>
 	)
 }
-
