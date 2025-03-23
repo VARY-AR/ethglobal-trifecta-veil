@@ -8,6 +8,7 @@
 	border-top-right-radius: 1em;
 	overflow: hidden;
 	padding-bottom: var(--safeInset-bottom);
+	margin-bottom: calc(-1 * var(--safeInset-bottom));
 
 	display: flex;
 
@@ -16,15 +17,17 @@
 }
 
 .Navigation__item {
+	z-index: 10000;
+
 	flex: 1;
 
 	display: grid;
 	justify-items: center;
 	justify-content: center;
 	align-content: center;
+
 	padding: 0.5rem;
 	padding-bottom: calc(0.5rem + var(--safeInset-bottom));
-	margin-bottom: calc(-1 * var(--safeInset-bottom));
 	gap: 0.15em;
 
 	color: var(--color-text-light);
@@ -35,11 +38,13 @@
 .Navigation__item--active {
 	color: var(--color-primary);
 	font-weight: 700;
-	background: linear-gradient(
+	background-image: linear-gradient(
 		to top,
 		rgba(255, 255, 255, 0.005),
 		rgba(255, 255, 255, 0.2)
 	);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .Navigation__icon {
