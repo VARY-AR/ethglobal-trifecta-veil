@@ -34,4 +34,11 @@
 	grid-template-columns: 1fr 1fr;
 	gap: 16px;
 	margin-bottom: 16px;
-} 
+}
+
+.Profile__no-rewards {
+	text-align: center;
+	opacity: 0.6;
+	padding: 24px 0;
+	width: 100%;
+}

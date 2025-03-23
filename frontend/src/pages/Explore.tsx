@@ -38,21 +38,31 @@ export default () => {
 					/>
 					
 					<view className="Explore__rewards-list">
-						{memberships.map((membership) => (
-							<view 
-								key={membership.id}
-								className="Explore__reward-card"
-								bindtap={() => goToMembershipDetail(membership.id)}
-							>
-								<view className="Explore__reward-card__layout">
-									<view className="Explore__reward-card__content">
-										<text className="Explore__reward-card__title">{membership.title}</text>
-										<text className="Explore__reward-card__description">{membership.description}</text>
+						{memberships.map((membership) => {
+							const isClaimed = isRewardClaimed(membership.id, 'membership')
+							return (
+								<view 
+									key={membership.id}
+									className={`Explore__reward-card ${isClaimed ? 'Explore__reward-card--claimed' : ''}`}
+									bindtap={() => goToMembershipDetail(membership.id)}
+								>
+									<view className="Explore__reward-card__layout">
+										<view className="Explore__reward-card__content">
+											<text className="Explore__reward-card__title">{membership.title}</text>
+											<text className="Explore__reward-card__description">{membership.description}</text>
+										</view>
+										<view className="Explore__reward-card__right">
+											{isClaimed && (
+												<view className="Explore__reward-card__claimed-badge">
+													<text>CLAIMED</text>
+												</view>
+											)}
+											<image src={chevronIcon} className="Explore__reward-card__icon" />
+										</view>
 									</view>
-									<image src={chevronIcon} className="Explore__reward-card__icon" />
 								</view>
-							</view>
-						))}
+							)
+						})}
 					</view>
 				</view>
 				
@@ -63,21 +73,31 @@ export default () => {
 					/>
 					
 					<view className="Explore__rewards-list">
-						{events.map((event) => (
-							<view 
-								key={event.id}
-								className="Explore__reward-card"
-								bindtap={() => goToEventDetail(event.id)}
-							>
-								<view className="Explore__reward-card__layout">
-									<view className="Explore__reward-card__content">
-										<text className="Explore__reward-card__title">{event.title}</text>
-										<text className="Explore__reward-card__description">{event.date}</text>
+						{events.map((event) => {
+							const isClaimed = isRewardClaimed(event.id, 'event')
+							return (
+								<view 
+									key={event.id}
+									className={`Explore__reward-card ${isClaimed ? 'Explore__reward-card--claimed' : ''}`}
+									bindtap={() => goToEventDetail(event.id)}
+								>
+									<view className="Explore__reward-card__layout">
+										<view className="Explore__reward-card__content">
+											<text className="Explore__reward-card__title">{event.title}</text>
+											<text className="Explore__reward-card__description">{event.date}</text>
+										</view>
+										<view className="Explore__reward-card__right">
+											{isClaimed && (
+												<view className="Explore__reward-card__claimed-badge">
+													<text>CLAIMED</text>
+												</view>
+											)}
+											<image src={chevronIcon} className="Explore__reward-card__icon" />
+										</view>
 									</view>
-									<image src={chevronIcon} className="Explore__reward-card__icon" />
 								</view>
-							</view>
-						))}
+							)
+						})}
 					</view>
 				</view>
 			</view>

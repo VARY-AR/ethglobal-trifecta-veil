@@ -25,76 +25,73 @@ export default () => {
 	const navigate = useNavigate()
 	const { events, memberships, isRewardClaimed } = useAppState()
 	const username = '@SIMON'
-	
-	// Fixed data to match the screenshot
-	const userMemberships: Membership[] = [
-		{ id: '1', title: 'VIC STATUS' },
-		{ id: '2', title: 'VIC STATUS' },
-		{ id: '3', title: 'VIC STATUS' },
-		{ id: '4', title: 'VIC STATUS', loading: true }
-	]
-	
-	const userEvents: Event[] = [
-		{ id: '1', title: 'STORMZY GUEST LIST' },
-		{ id: '2', title: 'BALENCIAGA EVENT' },
-		{ id: '3', title: 'ARTSY SHOW' },
-		{ id: '4', title: 'LOADING...' }
-	]
-	
+
+	// Filter to only claimed memberships and events
+	const claimedMemberships = memberships.filter(item => isRewardClaimed(item.id, 'membership'))
+	const claimedEvents = events.filter(item => isRewardClaimed(item.id, 'event'))
+
 	const handleMembershipPress = (id: number) => {
 		navigate(`/reward/${id}`)
 	}
-	
+
 	const handleEventPress = (id: number) => {
 		navigate(`/reward/${id}`)
 	}
-	
+
 	return (
 		<ScrollView>
 			<Header />
-			
+
 			<view className="Profile">
 				<view className="Profile__header">
 					<view className="Profile__avatar"></view>
 					<text className="Profile__username">{username}</text>
 				</view>
-				
+
 				<view className="Profile__section">
 					<SectionTitle
 						title="YOUR MEMBERSHIPS"
-						subtitle="Brand Memberships"
+						subtitle="Claimed Brand Memberships"
 					/>
-					
-					<view className="Profile__rewards-grid">
-						{memberships.map((item) => (
-							<RewardItem 
-								key={item.id}
-								title={item.title}
-								subtitle={item.description}
-								claimed={isRewardClaimed(item.id, 'membership')}
-								onPress={() => handleMembershipPress(item.id)}
-							/>
-						))}
-					</view>
+
+					{claimedMemberships.length > 0 ? (
+						<view className="Profile__rewards-grid">{
+							claimedMemberships.map((item) => (
+								<RewardItem
+									key={item.id}
+									title={item.title}
+									subtitle={item.description}
+									claimed={true}
+									onPress={() => handleMembershipPress(item.id)}
+								/>
+							))}
+						</view>
+					) : (
+						<text className="Profile__no-rewards">No memberships claimed yet.</text>
+					)}
 				</view>
-				
+
 				<view className="Profile__section">
 					<SectionTitle
 						title="YOUR EVENTS"
-						subtitle="Event Rewards"
+						subtitle="Claimed Event Rewards"
 					/>
-					
-					<view className="Profile__rewards-grid">
-						{events.map((item) => (
-							<RewardItem 
-								key={item.id}
-								title={item.title}
-								subtitle={item.date}
-								claimed={isRewardClaimed(item.id, 'event')}
-								onPress={() => handleEventPress(item.id)}
-							/>
-						))}
-					</view>
+
+					{claimedEvents.length > 0 ? (
+						<view className="Profile__rewards-grid">
+							{claimedEvents.map((item) => (
+								<RewardItem
+									key={item.id}
+									title={item.title}
+									subtitle={item.date}
+									claimed={true}
+									onPress={() => handleEventPress(item.id)}
+								/>
+							))}
+						</view>
+					) : (
+						<text className="Profile__no-rewards">No events claimed yet.</text>
+					)}
 				</view>
 			</view>
 		</ScrollView>
