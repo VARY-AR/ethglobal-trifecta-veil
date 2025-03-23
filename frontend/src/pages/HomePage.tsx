@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router'
 import { Header } from '$/components/Header.js'
 import { Card } from '$/components/Card.js'
 import { ScrollView } from '$/components/ScrollView.js'
+import { SectionTitle } from '$/components/SectionTitle.js'
 import { memberships, events } from '$/data/mockData.js'
 import chevronIcon from '$/assets/chevron-right.png'
 import '$/shared/layout.css'
@@ -27,14 +28,10 @@ export function HomePage() {
 			
 			<view className="container">
 				<view className="section">
-					<view className="section-header">
-						<text className="section-title">AVAILABLE MEMBERSHIPS</text>
-						<view class="section-subtitle-container row">
-							<view className="section-subtitle-flair"></view>
-							<text className="section-subtitle">EXCLUSIVE BRAND ACCESS</text>
-							<view className="section-subtitle-flair"></view>
-						</view>
-					</view>
+					<SectionTitle
+						title="AVAILABLE MEMBERSHIPS"
+						subtitle="EXCLUSIVE BRAND ACCESS"
+					/>
 					
 					<view className="membership-list">
 						{memberships.map(item => (
@@ -52,14 +49,10 @@ export function HomePage() {
 				</view>
 				
 				<view className="section">
-					<view className="section-header">
-						<text className="section-title">AVAILABLE EVENTS</text>
-						<view class="section-subtitle-container row">
-							<view className="section-subtitle-flair"></view>
-							<text className="section-subtitle">AROUND YOU</text>
-							<view className="section-subtitle-flair"></view>
-						</view>
-					</view>
+					<SectionTitle
+						title="AVAILABLE EVENTS"
+						subtitle="AROUND YOU"
+					/>
 					
 					<view className="events-list">
 						{events.map(item => (

@@ -52,7 +52,6 @@ export function EventDetailPage() {
 				<view className="container event-content">
 					<SectionTitle 
 						title="DESCRIPTION"
-						centered
 					/>
 					
 					<view className="event-description">
@@ -78,7 +77,6 @@ export function EventDetailPage() {
 					
 					<SectionTitle 
 						title="REQUIREMENTS"
-						centered
 					/>
 					
 					<view className="requirements-list">

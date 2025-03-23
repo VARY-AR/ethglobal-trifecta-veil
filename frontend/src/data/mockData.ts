@@ -4,17 +4,17 @@ export const memberships = [
 	{
 		id: 1,
 		title: 'FUJIFILM EARLY ADOPTER',
-		description: 'Exclusive Access to Camera Gear Testing and Presale'
+		description: 'Exclusive access to camera gear testing and presale'
 	},
 	{
 		id: 2,
 		title: 'BALENCIAGA DEGEN',
-		description: 'Exclusive Access to Design Collaboration Platform'
+		description: 'Exclusive access to design collaboration platform'
 	},
 	{
 		id: 3,
 		title: 'ARPA STUDIO NOSE',
-		description: 'Exclusive Access to Worldwide Presale Events'
+		description: 'Exclusive access to worldwide presale events'
 	}
 ] as const
 

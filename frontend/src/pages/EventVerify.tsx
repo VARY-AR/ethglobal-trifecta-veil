@@ -122,7 +122,6 @@ export function EventVerifyPage() {
 					<>
 						<SectionTitle
 							title="YOUR PROOF"
-							centered
 						/>
 						<view className="verify-requirements">
 							{event.requirements.map((requirement, index) => (
@@ -149,7 +148,6 @@ export function EventVerifyPage() {
 						
 						<SectionTitle
 							title="YOUR ANONYMITY"
-							centered
 						/>
 						
 						<view className="anonymity-info">
