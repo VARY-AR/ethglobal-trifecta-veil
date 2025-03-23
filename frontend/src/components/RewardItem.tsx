@@ -1,12 +1,14 @@
 import React from 'react'
 import './RewardItem.css'
+import { Badge } from './Badge.js'
+import type { BadgeStatus } from './Badge.js'
 
 interface RewardItemProps {
 	title: string
 	subtitle?: string
 	loading?: boolean
 	onPress?: () => void
-	claimed?: boolean
+	status?: BadgeStatus
 	image?: string | null
 }
 
@@ -15,14 +17,16 @@ export function RewardItem({
 	subtitle, 
 	loading = false, 
 	onPress, 
-	claimed = false,
+	status = 'eligible',
 	image = null 
 }: RewardItemProps) {
 	return (
-		<view className={`RewardItem ${loading ? 'RewardItem--loading' : ''} ${claimed ? 'RewardItem--claimed' : ''}`} bindtap={onPress}>
+		<view className={`RewardItem ${loading ? 'RewardItem--loading' : ''}`} bindtap={onPress}>
 			<view className="RewardItem__image">
 				{loading && <view className="RewardItem__loading-indicator" />}
-				{claimed && <view className="RewardItem__claimed-badge"><text>CLAIMED</text></view>}
+				<view className="RewardItem__badge-container">
+					<Badge status={status} />
+				</view>
 				{image && <image className="RewardItem__img" src={image} />}
 			</view>
 			<text className="RewardItem__title">{title}</text>

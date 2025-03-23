@@ -27,56 +27,66 @@ const VERIFICATION_VISUALS = {
 export default () => {
 	const navigate = useNavigate()
 	const { id } = useParams()
-	const { events, claimReward } = useAppState()
+	const { events, bounties, updateRewardStatus } = useAppState()
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 	const [verificationStage, setVerificationStage] = useState(0)
 	const [verificationProgress, setVerificationProgress] = useState(0)
 	
-	// Find event by ID
+	// Find event or bounty by ID
 	const event = events.find(e => e.id === Number(id))
+	const bounty = bounties.find(b => b.id === id)
 	
-	// If event not found, redirect to events page
+	const rewardType = event ? 'event' : bounty ? 'bounty' : null
+	const reward = event || bounty
+	
+	// If reward not found, redirect to explore page
 	useEffect(() => {
-		if (!event) {
+		if (!reward) {
 			navigate('/')
 		}
-	}, [event, navigate])
+	}, [reward, navigate])
 	
+	// Mock proving steps to simulate verification process
+	const PROVING_STEPS = [
+		'Generating zero-knowledge proving circuit...',
+		'Collecting verification parameters...',
+		'Building proof...',
+		'Verifying proof validity...',
+		'Connecting to the verification server...',
+		'Submitting zero-knowledge proof...',
+		'Confirming user eligibility...',
+		'Verification successful!'
+	]
+	
+	// Update verification stage and progress
 	useEffect(() => {
+		let timer: any
+		
 		if (verificationStage === 1) {
-			// Simulate verification process
-			const interval = setInterval(() => {
-				setVerificationProgress(prev => {
-					if (prev >= 100) {
-						clearInterval(interval)
-						setTimeout(() => {
-							setVerificationStage(2)
-						}, 500)
-						return 100
-					}
-					return prev + 5
-				})
-			}, 300)
-			
-			return () => clearInterval(interval)
-		}
-	}, [verificationStage])
-	
-	// When verification is complete, simulate request admission
-	useEffect(() => {
-		if (verificationStage === 2) {
-			setTimeout(() => {
+			let currentStep = 0
+			timer = setInterval(() => {
+				if (currentStep < PROVING_STEPS.length - 1) {
+					currentStep++
+					setVerificationProgress(
+						(currentStep / (PROVING_STEPS.length - 1)) * 100
+					)
+				} else {
+					clearInterval(timer)
+					setVerificationStage(2)
+				}
+			}, 500)
+		} else if (verificationStage === 2) {
+			// Add a delay before moving to admission granted stage
+			timer = setTimeout(() => {
 				setVerificationStage(3)
 			}, 2000)
 		}
-	}, [verificationStage])
-	
-	// For the final success stage
-	useEffect(() => {
-		if (verificationStage === 3) {
-			setTimeout(() => {
-				setVerificationStage(4)
-			}, 2000)
+		
+		return () => {
+			if (timer) {
+				if (verificationStage === 1) clearInterval(timer)
+				else clearTimeout(timer)
+			}
 		}
 	}, [verificationStage])
 	
@@ -87,9 +97,13 @@ export default () => {
 	
 	// Handle minting reward
 	const mintReward = () => {
-		// Claim the reward in app state
-		claimReward(Number(id), 'event')
-		// Navigate back to the event page to see the ticket
+		// Update the reward status to claimed in app state
+		if (rewardType === 'event') {
+			updateRewardStatus(Number(id), 'event', 'claimed')
+		} else if (rewardType === 'bounty') {
+			updateRewardStatus(id as string, 'bounty', 'claimed')
+		}
+		// Navigate back to the reward page to see the ticket
 		navigate(`/reward/${id}`)
 	}
 	
@@ -98,12 +112,22 @@ export default () => {
 		setIsDrawerOpen(true)
 	}
 	
-	if (!event) return null
+	// Get reward requirements based on type
+	const getRequirements = () => {
+		if (rewardType === 'event') {
+			return event!.requirements
+		} else if (rewardType === 'bounty') {
+			return bounty!.requirements.map(req => req.description)
+		}
+		return []
+	}
+	
+	if (!reward) return null
 	
 	return (
 		<ScrollView>
 			<Header />
-			
+
 			<view class="column gap-lg">
 				{/* Verification visualization */}
 				<view className="RewardVerify__visual">
@@ -130,7 +154,7 @@ export default () => {
 									title="YOUR PROOF"
 								/>
 								<view className="RewardVerify__requirements">
-									{event.requirements.map((requirement, index) => (
+									{getRequirements().map((requirement, index) => (
 										<view key={index} className="RewardVerify__requirement-item">
 											<view className="RewardVerify__check">
 												{/* <image 
@@ -214,7 +238,7 @@ export default () => {
 						</view>
 					)}
 					
-					{verificationStage === 4 && (
+					{verificationStage === 3 && (
 						<view className="RewardVerify__verification-success">
 							<text className="RewardVerify__verification-success-title">ADMISSION GRANTED</text>
 							<Button 
@@ -250,21 +274,9 @@ export default () => {
 						</view>
 						<view className="RewardVerify__proof-passport-item">
 							<view className="RewardVerify__proof-passport-placeholder">
-								<image className="RewardVerify__proof-passport-image" src={proofGeneratingImage} />
+								<image className="RewardVerify__proof-passport-image" src={proofImage} />
 							</view>
-							<text className="RewardVerify__proof-passport-label">PRODUCT PASSPORT</text>
-						</view>
-						<view className="RewardVerify__proof-passport-item">
-							<view className="RewardVerify__proof-passport-placeholder">
-								<image className="RewardVerify__proof-passport-image" src={admissionRequestingImage} />
-							</view>
-							<text className="RewardVerify__proof-passport-label">PRODUCT PASSPORT</text>
-						</view>
-						<view className="RewardVerify__proof-passport-item">
-							<view className="RewardVerify__proof-passport-placeholder">
-								<image className="RewardVerify__proof-passport-image" src={admissionGrantedImage} />
-							</view>
-							<text className="RewardVerify__proof-passport-label">PRODUCT PASSPORT</text>
+							<text className="RewardVerify__proof-passport-label">PURCHASE TIME STAMP</text>
 						</view>
 					</view>
 				</view>

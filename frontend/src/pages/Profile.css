@@ -1,44 +1,57 @@
 .Profile {
 	padding: 16px;
-	padding-bottom: 48px;
 }
 
 .Profile__header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	margin-bottom: 32px;
 }
 
 .Profile__avatar {
-	width: 100px;
-	height: 100px;
+	width: 90px;
+	height: 90px;
 	border-radius: 50%;
-	background: radial-gradient(circle, #e0e0e0 0%, #c0c0c0 100%);
+	background: linear-gradient(135deg, #444444 0%, #666666 100%);
 	margin-bottom: 16px;
 }
 
+.Profile__avatar-image {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
 .Profile__username {
-	font-size: 16px;
-	font-weight: 500;
+	font-size: 18px;
+	font-weight: 600;
 	color: #ffffff;
 	letter-spacing: 0.05em;
 }
 
 .Profile__section {
-	margin-bottom: 48px;
+	margin-bottom: 32px;
 }
 
 .Profile__rewards-grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 	gap: 16px;
-	margin-bottom: 16px;
+	margin-top: 16px;
 }
 
 .Profile__no-rewards {
+	color: rgba(255, 255, 255, 0.5);
+	margin-top: 16px;
 	text-align: center;
-	opacity: 0.6;
-	padding: 24px 0;
-	width: 100%;
+	font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+	.Profile__rewards-grid {
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	}
 }

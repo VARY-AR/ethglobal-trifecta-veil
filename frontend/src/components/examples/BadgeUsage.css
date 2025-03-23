@@ -1,0 +1,13 @@
+.BadgeUsage {
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+.BadgeUsage__rewards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 16px;
+	margin-top: 8px;
+}

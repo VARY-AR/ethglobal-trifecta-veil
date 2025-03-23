@@ -18,7 +18,7 @@
 	flex-direction: column;
 	min-height: 100vh;
 	background-color: #000000;
-	color: #FFFFFF;
+	--color-text: #FFFFFF;
 }
 
 .RewardEvent__hero {
@@ -43,7 +43,7 @@
 	justify-content: end;
 	padding: 2rem;
 	background: linear-gradient(135deg, #333 0%, #222 100%);
-	color: white;
+	--color-text: white;
 }
 
 .RewardEvent__title {
@@ -52,11 +52,12 @@
 	text-align: right;
 	margin-bottom: 0.5rem;
 	letter-spacing: 0.1rem;
+	--color-text: white;
 }
 
 .RewardEvent__subtitle {
 	font-size: 1rem;
-	color: rgba(255, 255, 255, 0.8);
+	--color-text: rgba(255, 255, 255, 0.8);
 	text-align: right;
 	letter-spacing: 0.05rem;
 }
@@ -67,24 +68,26 @@
 
 .RewardEvent__description {
 	margin-bottom: 2rem;
+	--color-text: white;
 }
 
 .RewardEvent__description-title {
 	font-size: 1.25rem;
 	font-weight: 600;
 	margin-bottom: 0.75rem;
+	--color-text: white;
 }
 
 .RewardEvent__description-text {
 	font-size: 1rem;
 	line-height: 1.6;
 	margin-bottom: 1rem;
-	color: rgba(255, 255, 255, 0.9);
+	--color-text: rgba(181, 103, 103, 0.9);
 	/* white-space: pre-wrap; */
 }
 
 .RewardEvent__read-more-link {
-	color: #4A90E2;
+	--color-text: #4A90E2;
 	font-size: 0.9rem;
 	cursor: pointer;
 }
@@ -111,7 +114,7 @@
 
 .RewardEvent__link-arrow {
 	font-size: 1.25rem;
-	color: rgba(255, 255, 255, 0.7);
+	--color-text: rgba(255, 255, 255, 0.7);
 }
 
 .RewardEvent__requirements-list {
@@ -126,7 +129,7 @@
 .RewardEvent__requirement-bullet {
 	margin-right: 0.75rem;
 	font-size: 1.25rem;
-	color: rgba(255, 255, 255, 0.7);
+	--color-text: rgba(255, 255, 255, 0.7);
 }
 
 .RewardEvent__requirement-text {

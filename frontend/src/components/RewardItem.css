@@ -77,6 +77,13 @@
 	letter-spacing: 1px;
 }
 
+.RewardItem__badge-container {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	z-index: 1;
+}
+
 .RewardItem__img {
 	width: 100%;
 	height: 100%;
