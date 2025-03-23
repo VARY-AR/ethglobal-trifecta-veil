@@ -18,6 +18,12 @@
 	margin-bottom: 16px;
 }
 
+.Profile__avatar-image {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
 .Profile__username {
 	font-size: 18px;
 	font-weight: 600;

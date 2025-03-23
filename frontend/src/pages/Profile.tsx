@@ -9,6 +9,7 @@ import './Profile.css'
 import { RewardItem } from '../components/RewardItem.js'
 import { SectionTitle } from '../components/SectionTitle.js'
 import type { BadgeStatus } from '../components/Badge.js'
+import avatar from '$/assets/user.jpg'
 
 export default () => {
 	const navigate = useNavigate()
@@ -41,7 +42,9 @@ export default () => {
 
 			<view className="Profile">
 				<view className="Profile__header">
-					<view className="Profile__avatar"></view>
+					<view className="Profile__avatar">
+						<image src={avatar} className="Profile__avatar-image" />
+					</view>
 					<text className="Profile__username">{username}</text>
 				</view>
 
