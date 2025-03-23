@@ -3,9 +3,8 @@ import './Navigation.css'
 
 // Import navigation icons
 import homeIcon from '../assets/nav-home.png'
-import walletIcon from '../assets/nav-wallet.png'
-import passportIcon from '../assets/nav-passport.png'
 import exploreIcon from '../assets/nav-explore.png'
+import passportIcon from '../assets/nav-passport.png'
 import profileIcon from '../assets/nav-profile.png'
 
 export function Navigation() {
@@ -16,9 +15,7 @@ export function Navigation() {
 	const navItems = [
 		{ path: '/profile', label: 'Profile', icon: profileIcon },
 		{ path: '/explore', label: 'Explore', icon: exploreIcon },
-		// { path: '/wallets', label: 'Wallets', icon: walletIcon },
 		{ path: '/products', label: 'Products', icon: passportIcon },
-		// { path: '/', label: 'Home', icon: homeIcon }
 	]
 	
 	return (
