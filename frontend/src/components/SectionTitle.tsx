@@ -13,13 +13,13 @@ export function SectionTitle({
 	className = ''
 }: SectionTitleProps) {
 	return (
-		<view className={`section-header ${className}`}>
-			<text className="section-title">{title}</text>
+		<view className={`SectionTitle ${className}`}>
+			<text className="SectionTitle__title">{title}</text>
 			{subtitle && (
-				<view className="section-subtitle-container row">
-					<view className="section-subtitle-flair"></view>
-					<text className="section-subtitle">{subtitle}</text>
-					<view className="section-subtitle-flair"></view>
+				<view className="SectionTitle__subtitle-container SectionTitle--row">
+					<view className="SectionTitle__subtitle-flair"></view>
+					<text className="SectionTitle__subtitle">{subtitle}</text>
+					<view className="SectionTitle__subtitle-flair"></view>
 				</view>
 			)}
 		</view>

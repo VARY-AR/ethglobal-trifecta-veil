@@ -13,7 +13,7 @@ export function ScrollView({
 }) {
 	return (
 		<scroll-view
-			className={`scroll-container ${className}`}
+			className={`ScrollView ${className}`}
 			style={style}
 			scroll-orientation="vertical"
 		>

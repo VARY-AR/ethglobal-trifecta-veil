@@ -1,4 +1,4 @@
-.nav-bar {
+.Navigation {
 	z-index: 1000;
 	position: fixed;
 	bottom: 0;
@@ -15,7 +15,7 @@
 	box-shadow: 0 -1px var(--color-border);
 }
 
-.nav-item {
+.Navigation__item {
 	flex: 1;
 
 	display: grid;
@@ -31,7 +31,7 @@
 	cursor: pointer;
 }
 
-.nav-item.active {
+.Navigation__item--active {
 	color: var(--color-primary);
 	font-weight: 700;
 	background: linear-gradient(
@@ -41,17 +41,17 @@
 	);
 }
 
-.nav-icon {
+.Navigation__icon {
 	width: 24px;
 	height: 24px;
 	margin-bottom: 4px;
 	opacity: 0.7;
 }
 
-.nav-item.active .nav-icon {
+.Navigation__item--active .Navigation__icon {
 	opacity: 1;
 }
 
-.nav-text {
+.Navigation__text {
 	font-size: 0.8em;
 }

@@ -15,14 +15,14 @@ export function Card({
 	bindtap?: () => void
 }) {
 	const paddingClass = padding === 'sm' 
-		? 'p-sm' 
+		? 'Card--p-sm' 
 		: padding === 'lg' 
-		? 'p-lg' 
-		: 'p-md'
+		? 'Card--p-lg' 
+		: 'Card--p-md'
 	
 	return (
-		<view className={`card ${paddingClass} ${className}`} bindtap={bindtap}>
-			{title && <text className="h3 card-title">{title}</text>}
+		<view className={`Card ${paddingClass} ${className}`} bindtap={bindtap}>
+			{title && <text className="h3 Card__title">{title}</text>}
 			{children}
 		</view>
 	)

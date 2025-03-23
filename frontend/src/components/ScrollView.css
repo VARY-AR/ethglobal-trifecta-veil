@@ -1,4 +1,4 @@
-.scroll-container {
+.ScrollView {
 	height: calc(100% - 4rem);
 
 	background: var(--color-background);

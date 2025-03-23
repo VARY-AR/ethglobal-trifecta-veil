@@ -20,10 +20,10 @@ export function Button({
 }: ButtonProps) {
 	return (
 		<view 
-			className={`button ${variant} ${fullWidth ? 'full-width' : ''} ${disabled ? 'disabled' : ''} ${className}`} 
+			className={`Button Button--${variant} ${fullWidth ? 'Button--full-width' : ''} ${disabled ? 'Button--disabled' : ''} ${className}`} 
 			bindtap={disabled ? undefined : bindtap}
 		>
-			<text className="button-text">{children}</text>
+			<text className="Button__text">{children}</text>
 		</view>
 	)
 } 

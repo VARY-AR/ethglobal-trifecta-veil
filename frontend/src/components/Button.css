@@ -1,4 +1,4 @@
-.button {
+.Button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -8,16 +8,16 @@
 	transition: all 0.2s ease;
 }
 
-.button.full-width {
+.Button--full-width {
 	width: 100%;
 }
 
-.button.disabled {
+.Button--disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
 }
 
-.button-text {
+.Button__text {
 	font-size: 0.875rem;
 	font-weight: 500;
 	letter-spacing: 0.05rem;
@@ -25,41 +25,41 @@
 }
 
 /* Button variants */
-.button.primary {
+.Button--primary {
 	background-color: #FFFFFF;
 	--color-text: #000000;
 }
 
-.button.secondary {
+.Button--secondary {
 	background-color: #333333;
 	--color-text: #FFFFFF;
 }
 
-.button.outline {
+.Button--outline {
 	background-color: transparent;
 	border: 1px solid #FFFFFF;
 	--color-text: #FFFFFF;
 }
 
-.button.text {
+.Button--text {
 	background-color: transparent;
 	--color-text: #FFFFFF;
 	padding: 0.5rem;
 }
 
-.button.link {
+.Button--link {
 	background-color: transparent;
 	--color-text: #FFFFFF;
 	text-decoration: underline;
 	padding: 0.25rem;
 }
 
-.button.danger {
+.Button--danger {
 	background-color: #FF4D4D;
 	--color-text: #FFFFFF;
 }
 
-.button.transparent {
+.Button--transparent {
 	background-color: transparent;
 	--color-text: #FFFFFF;
 	border-radius: 0;

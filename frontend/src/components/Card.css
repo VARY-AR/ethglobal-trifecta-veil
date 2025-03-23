@@ -1,4 +1,4 @@
-.card {
+.Card {
 	background-color: #333333;
 	border-radius: 0.75rem;
 	padding: 1.5rem;
@@ -9,31 +9,30 @@
 	align-items: center;
 }
 
-.card-content {
+.Card__content {
 	flex: 1;
 	display: grid;
 	gap: 0.33em;
 }
 
-.card-title {
+.Card__title {
 	font-size: 1rem;
 	font-weight: 600;
 	letter-spacing: 0.05rem;
 }
 
-.card-description {
+.Card__description {
 	color: #999999;
 	font-size: 0.75rem;
 }
 
-
-.card-icon {
+.Card__icon {
 	width: 1.5em;
 	height: 1.5em;
 	opacity: 0.8;
 }
 
-.reward-card {
+.Card--reward {
 	display: flex;
 	flex-direction: column;
 	height: 100%;

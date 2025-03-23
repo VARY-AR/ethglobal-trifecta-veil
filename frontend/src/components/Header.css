@@ -1,4 +1,4 @@
-.header {
+.Header {
 	z-index: 1;
 	position: sticky;
 	top: calc(-1 * var(--safeInset-top));
@@ -11,13 +11,13 @@
 	box-shadow: 0 0 2rem #000, 0 0 1rem #000;
 }
 
-.header-logo {
+.Header__logo {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.logo {
+.Header__logo-text {
 	font-size: 1.33rem;
 	font-weight: 700;
 	color: #FFFFFF;
@@ -25,27 +25,27 @@
 	margin-right: -0.66em;
 }
 
-.header-nav {
+.Header__nav {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.header .container {
+.Header .container {
 	display: grid;
 	grid-template-columns: 1fr auto 1fr;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.header-actions {
+.Header__actions {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	max-height: 1px;
 }
 
-.wallet-button-icon {
+.Header__wallet-icon {
 	width: 1.5em;
 	height: 1.5em;
 }

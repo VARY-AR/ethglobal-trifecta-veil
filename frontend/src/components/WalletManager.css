@@ -1,4 +1,4 @@
-.wallet-manager {
+.WalletManager {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -8,14 +8,14 @@
 	gap: 20px;
 }
 
-.wallet-manager-header {
+.WalletManager__header {
 	display: flex;
 	justify-content: center;
 	position: relative;
 	padding-bottom: 10px;
 }
 
-.close-button {
+.WalletManager__close-button {
 	text-align: center;
 	font-size: 14px;
 	opacity: 0.7;
@@ -23,69 +23,66 @@
 	letter-spacing: 0.05em;
 }
 
-.wallet-title {
+.WalletManager__title {
 	text-align: center;
 	margin-bottom: 20px;
 }
 
-.wallet-title .h2 {
-	font-size: 18px;
-	font-weight: 600;
-	letter-spacing: 0.1em;
+.WalletManager__title .h2 {
+	font-size: 1.5em;
+	letter-spacing: 0.05em;
 }
 
-.wallet-list {
+.WalletManager__list {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
-	width: 100%;
+	gap: 15px;
+	margin-bottom: 30px;
 }
 
-.wallet-option {
+.WalletManager__option {
 	display: flex;
 	align-items: center;
-	background-color: #222222;
-	border-radius: 10px;
-	padding: 16px;
-	gap: 12px;
+	padding: 15px;
+	background-color: rgba(255, 255, 255, 0.07);
+	border-radius: 8px;
 	cursor: pointer;
 	transition: background-color 0.2s ease;
 }
 
-.wallet-option:hover {
-	background-color: #333333;
+.WalletManager__option:hover {
+	background-color: rgba(255, 255, 255, 0.12);
 }
 
-.wallet-icon {
+.WalletManager__icon {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 40px;
 	height: 40px;
-	border-radius: 8px;
-	background-color: #444444;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 50%;
+	margin-right: 15px;
 	font-size: 20px;
 }
 
-.wallet-details {
+.WalletManager__details {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
 }
 
-.wallet-name {
+.WalletManager__wallet-name {
 	font-weight: 600;
-	font-size: 16px;
-	letter-spacing: 0.05em;
+	font-size: 0.9em;
 }
 
-.wallet-description {
-	font-size: 14px;
+.WalletManager__wallet-description {
+	font-size: 0.75em;
 	opacity: 0.7;
 }
 
-.wallet-items {
-	font-size: 14px;
-	opacity: 0.7;
+.WalletManager__items {
+	font-size: 0.8em;
+	opacity: 0.6;
 } 

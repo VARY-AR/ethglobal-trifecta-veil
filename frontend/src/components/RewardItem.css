@@ -1,10 +1,10 @@
-.reward-item {
+.RewardItem {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 16px;
 }
 
-.reward-item-image {
+.RewardItem__image {
 	aspect-ratio: 1;
 	min-height: 12rem;
 	position: relative;
@@ -15,28 +15,28 @@
 }
 
 /* Different gradient variations for items */
-.reward-item:nth-of-type(1) .reward-image {
+.RewardItem:nth-of-type(1) .RewardItem__image {
 	background: linear-gradient(135deg, #444444 0%, #555555 100%);
 }
 
-.reward-item:nth-of-type(2) .reward-image {
+.RewardItem:nth-of-type(2) .RewardItem__image {
 	background: linear-gradient(135deg, #555555 0%, #444444 100%);
 }
 
-.reward-item:nth-of-type(3) .reward-image {
+.RewardItem:nth-of-type(3) .RewardItem__image {
 	background: linear-gradient(135deg, #555555 0%, #777777 100%);
 }
 
-.reward-item:nth-of-type(4) .reward-image {
+.RewardItem:nth-of-type(4) .RewardItem__image {
 	background: linear-gradient(135deg, #444444 0%, #666666 100%);
 }
 
-.reward-details {
+.RewardItem__details {
 	padding: 12px;
 	text-align: center;
 }
 
-.reward-item-title {
+.RewardItem__title {
 	font-size: 1em;
 	font-weight: 600;
 	color: #ffffff;
@@ -44,18 +44,18 @@
 	letter-spacing: 0.05em;
 }
 
-.reward-subtitle {
+.RewardItem__subtitle {
 	font-size: 11px;
 	color: rgba(255, 255, 255, 0.5);
 	margin-top: 4px;
 	text-align: center;
 }
 
-.loading .reward-image {
+.RewardItem--loading .RewardItem__image {
 	position: relative;
 }
 
-.loading-indicator {
+.RewardItem__loading-indicator {
 	position: absolute;
 	bottom: 0;
 	right: 0;

@@ -52,41 +52,41 @@ export function WalletManager() {
 			onClose={closeDrawer}
 			height="90%"
 		>
-			<view className="wallet-manager">
-				<view className="wallet-manager-header">
-					<text className="close-button" bindtap={closeDrawer}>CLOSE</text>
+			<view className="WalletManager">
+				<view className="WalletManager__header">
+					<text className="WalletManager__close-button" bindtap={closeDrawer}>CLOSE</text>
 				</view>
 				
-				<view className="wallet-title">
+				<view className="WalletManager__title">
 					<text className="h2">YOUR WALLETS</text>
 				</view>
 				
 				<scroll-view
 					scroll-orientation="vertical"
 				>
-					<view className="wallet-list">
+					<view className="WalletManager__list">
 						{/* Embedded wallet button */}
-						<view className="wallet-option" bindtap={() => navigate('/wallets')}>
-							<view className="wallet-icon">
+						<view className="WalletManager__option" bindtap={() => navigate('/wallets')}>
+							<view className="WalletManager__icon">
 								<text>🔒</text>
 							</view>
-							<view className="wallet-details">
-								<text className="wallet-name">{embeddedWallet.name}</text>
-								<text className="wallet-description">{embeddedWallet.description}</text>
+							<view className="WalletManager__details">
+								<text className="WalletManager__wallet-name">{embeddedWallet.name}</text>
+								<text className="WalletManager__wallet-description">{embeddedWallet.description}</text>
 							</view>
-							<view className="wallet-items">
+							<view className="WalletManager__items">
 								<text>{embeddedWallet.items} items</text>
 							</view>
 						</view>
 						
 						{/* Connect external wallet button */}
-						<view className="wallet-option" bindtap={handleConnectExternalWallet}>
-							<view className="wallet-icon">
+						<view className="WalletManager__option" bindtap={handleConnectExternalWallet}>
+							<view className="WalletManager__icon">
 								<text>🔗</text>
 							</view>
-							<view className="wallet-details">
-								<text className="wallet-name">CONNECT EXT WALLET</text>
-								<text className="wallet-description">via Privy</text>
+							<view className="WalletManager__details">
+								<text className="WalletManager__wallet-name">CONNECT EXT WALLET</text>
+								<text className="WalletManager__wallet-description">via Privy</text>
 							</view>
 						</view>
 						

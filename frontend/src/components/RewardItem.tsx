@@ -10,12 +10,12 @@ interface RewardItemProps {
 
 export function RewardItem({ title, subtitle, loading = false, onPress }: RewardItemProps) {
 	return (
-		<view className={`reward-item ${loading ? 'loading' : ''}`} bindtap={onPress}>
-			<view className="reward-item-image">
-				{loading && <view className="loading-indicator" />}
+		<view className={`RewardItem ${loading ? 'RewardItem--loading' : ''}`} bindtap={onPress}>
+			<view className="RewardItem__image">
+				{loading && <view className="RewardItem__loading-indicator" />}
 			</view>
-			<text className="reward-item-title">{title}</text>
-			{subtitle && <text className="reward-subtitle">{subtitle}</text>}
+			<text className="RewardItem__title">{title}</text>
+			{subtitle && <text className="RewardItem__subtitle">{subtitle}</text>}
 		</view>
 	)
 } 

@@ -19,16 +19,16 @@ export function ProgressBar({
 	const safeProgress = Math.min(Math.max(0, progress), 100)
 	
 	return (
-		<view className={`progress-container ${className}`}>
+		<view className={`ProgressBar ${className}`}>
 			<view 
-				className="progress-bar"
+				className="ProgressBar__bar"
 				style={{
 					height: `${height}px`,
 					backgroundColor: `rgba(255, 255, 255, 0.2)`
 				}}
 			>
 				<view 
-					className="progress-value"
+					className="ProgressBar__value"
 					style={{
 						width: `${safeProgress}%`,
 						backgroundColor: color
@@ -36,7 +36,7 @@ export function ProgressBar({
 				/>
 			</view>
 			{showLabel && (
-				<text className="progress-label">{safeProgress}%</text>
+				<text className="ProgressBar__label">{safeProgress}%</text>
 			)}
 		</view>
 	)

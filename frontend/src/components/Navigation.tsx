@@ -19,15 +19,15 @@ export function Navigation() {
 	]
 	
 	return (
-		<view className="nav-bar">
+		<view className="Navigation">
 			{navItems.map(item => (
 				<view 
 					key={item.path}
-					className={`nav-item ${currentRoute === item.path ? 'active' : ''}`} 
+					className={`Navigation__item ${currentRoute === item.path ? 'Navigation__item--active' : ''}`} 
 					bindtap={() => navigate(item.path)}
 				>
-					<image src={item.icon} className="nav-icon" />
-					<text className="nav-text">{item.label}</text>
+					<image src={item.icon} className="Navigation__icon" />
+					<text className="Navigation__text">{item.label}</text>
 				</view>
 			))}
 		</view>

@@ -36,13 +36,13 @@ export function Drawer({
 	if (!isOpen && !isAnimating) return null
 	
 	return (
-		<view className={`drawer-container ${isOpen ? 'open' : 'closing'}`}>
+		<view className={`Drawer ${isOpen ? 'Drawer--open' : 'Drawer--closing'}`}>
 			<view 
-				className="drawer-overlay" 
+				className="Drawer__overlay" 
 				bindtap={closeOnOverlayClick ? onClose : undefined}
 			/>
 			<view 
-				className={`drawer-content ${className}`}
+				className={`Drawer__content ${className}`}
 				style={{ 
 					height: typeof height === 'number' ? `${height}px` : height 
 				}}

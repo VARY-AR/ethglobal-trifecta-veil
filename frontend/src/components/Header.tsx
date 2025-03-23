@@ -14,21 +14,21 @@ export function Header() {
 	}
 	
 	return (
-		<view className="header">
+		<view className="Header">
 			<view className="container">
 				<view></view>
 
-				<view className="header-logo">
-					<text className="logo">VEIL</text>
+				<view className="Header__logo">
+					<text className="Header__logo-text">VEIL</text>
 				</view>
 				
-				<view className="header-actions">
+				<view className="Header__actions">
 					<Button 
 						variant="transparent"
 						bindtap={openWalletManager}
 						aria-label="Open wallet"
 					>
-						<image src={walletIcon} className="wallet-button-icon" />
+						<image src={walletIcon} className="Header__wallet-icon" />
 					</Button>
 				</view>
 			</view>
