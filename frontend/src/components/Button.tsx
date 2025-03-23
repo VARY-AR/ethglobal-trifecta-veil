@@ -3,7 +3,7 @@ import './Button.css'
 
 interface ButtonProps {
 	children: ReactNode
-	variant?: 'primary' | 'secondary' | 'outline' | 'text' | 'link' | 'danger'
+	variant?: 'primary' | 'secondary' | 'outline' | 'text' | 'link' | 'danger' | 'transparent'
 	fullWidth?: boolean
 	disabled?: boolean
 	className?: string

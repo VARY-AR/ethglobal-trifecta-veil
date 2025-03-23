@@ -1,15 +1,33 @@
 .reward-item {
 	display: flex;
 	flex-direction: column;
-	border-radius: 8px;
-	overflow: hidden;
-	background-color: #333333;
+	margin-bottom: 16px;
 }
 
 .reward-image {
 	aspect-ratio: 1;
-	background-color: #444444;
 	position: relative;
+	background: linear-gradient(135deg, #444444 0%, #555555 100%);
+	border-radius: 8px;
+	margin-bottom: 8px;
+	overflow: hidden;
+}
+
+/* Different gradient variations for items */
+.reward-item:nth-of-type(1) .reward-image {
+	background: linear-gradient(135deg, #444444 0%, #555555 100%);
+}
+
+.reward-item:nth-of-type(2) .reward-image {
+	background: linear-gradient(135deg, #555555 0%, #444444 100%);
+}
+
+.reward-item:nth-of-type(3) .reward-image {
+	background: linear-gradient(135deg, #555555 0%, #777777 100%);
+}
+
+.reward-item:nth-of-type(4) .reward-image {
+	background: linear-gradient(135deg, #444444 0%, #666666 100%);
 }
 
 .reward-details {
@@ -21,14 +39,15 @@
 	font-size: 14px;
 	font-weight: 600;
 	color: #ffffff;
-	/* text-transform: uppercase; */
+	text-align: center;
+	letter-spacing: 0.05em;
 }
 
 .reward-subtitle {
-	font-size: 12px;
-	color: #888888;
+	font-size: 11px;
+	color: rgba(255, 255, 255, 0.5);
 	margin-top: 4px;
-	/* text-transform: uppercase; */
+	text-align: center;
 }
 
 .loading .reward-image {
@@ -37,10 +56,9 @@
 
 .loading-indicator {
 	position: absolute;
-	bottom: 16px;
-	right: 16px;
-	width: 32px;
-	height: 32px;
-	background: radial-gradient(circle, #666666 0%, #444444 70%);
-	border-radius: 50%;
+	bottom: 0;
+	right: 0;
+	width: 50%;
+	height: 50%;
+	background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.2) 100%);
 } 

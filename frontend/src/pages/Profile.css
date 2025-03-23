@@ -1,5 +1,6 @@
 .profile-container {
 	padding: 16px;
+	padding-bottom: 48px;
 }
 
 .profile-header {
@@ -10,21 +11,22 @@
 }
 
 .profile-avatar {
-	width: 80px;
-	height: 80px;
+	width: 100px;
+	height: 100px;
 	border-radius: 50%;
-	background-color: #e0e0e0;
+	background: radial-gradient(circle, #e0e0e0 0%, #c0c0c0 100%);
 	margin-bottom: 16px;
 }
 
 .profile-username {
-	font-size: 18px;
-	font-weight: 600;
+	font-size: 16px;
+	font-weight: 500;
 	color: #ffffff;
+	letter-spacing: 0.05em;
 }
 
 .profile-section {
-	margin-bottom: 32px;
+	margin-bottom: 48px;
 }
 
 .rewards-grid {

@@ -58,3 +58,9 @@
 	background-color: #FF4D4D;
 	--color-text: #FFFFFF;
 }
+
+.button.transparent {
+	background-color: transparent;
+	--color-text: #FFFFFF;
+	border-radius: 0;
+}

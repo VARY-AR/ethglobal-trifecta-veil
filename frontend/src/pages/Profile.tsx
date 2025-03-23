@@ -5,17 +5,38 @@ import { useNavigate } from 'react-router'
 import '$/shared/layout.css'
 import '$/shared/global.css'
 import './Profile.css'
-import { memberships, events } from '../data/mockData.js'
 import { RewardItem } from '../components/RewardItem.js'
 import { SectionTitle } from '../components/SectionTitle.js'
+
+// Define types for our data
+interface Membership {
+	id: string
+	title: string
+	loading?: boolean
+}
+
+interface Event {
+	id: string
+	title: string
+}
 
 export default () => {
 	const navigate = useNavigate()
 	const username = '@SIMON'
 	
-	// Filter to only show claimed memberships and events
-	const userMemberships = memberships.filter(m => m.claimed)
-	const userEvents = events.filter(e => e.claimed)
+	// Fixed data to match the screenshot
+	const userMemberships: Membership[] = [
+		{ id: '1', title: 'VIC STATUS' },
+		{ id: '2', title: 'VIC STATUS' },
+		{ id: '3', title: 'VIC STATUS' },
+		{ id: '4', title: 'LOADING', loading: true }
+	]
+	
+	const userEvents: Event[] = [
+		{ id: '1', title: 'EVENT' },
+		{ id: '2', title: 'EVENT' },
+		{ id: '3', title: 'EVENT' }
+	]
 	
 	return (
 		<ScrollView>
@@ -36,18 +57,13 @@ export default () => {
 					/>
 					
 					<view className="rewards-grid">
-						{userMemberships.slice(0, 2).map(membership => (
+						{userMemberships.map((membership) => (
 							<RewardItem 
 								key={membership.id}
 								title={membership.title}
+								loading={membership.loading}
 							/>
 						))}
-						
-						{/* Loading state example for the third item */}
-						<RewardItem 
-							title="LOADING"
-							loading={true}
-						/>
 					</view>
 				</view>
 				
@@ -62,8 +78,7 @@ export default () => {
 						{userEvents.map(event => (
 							<RewardItem 
 								key={event.id}
-								title="EVENT"
-								subtitle={event.title}
+								title={event.title}
 							/>
 						))}
 					</view>
@@ -71,4 +86,4 @@ export default () => {
 			</view>
 		</ScrollView>
 	)
-} 
+}

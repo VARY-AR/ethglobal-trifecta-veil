@@ -24,11 +24,11 @@ export function Header() {
 				
 				<view className="header-actions">
 					<Button 
-						className="wallet-button"
+						variant="transparent"
 						bindtap={openWalletManager}
 						aria-label="Open wallet"
 					>
-						<image src={walletIcon} className="wallet-icon" />
+						<image src={walletIcon} className="wallet-button-icon" />
 					</Button>
 				</view>
 			</view>

@@ -19,7 +19,7 @@ export default () => {
 	
 	if (!event) {
 		return (
-			<view className="event-not-found">
+			<view className="reward-not-found">
 				<Header />
 				<view className="container">
 					<text className="error-message">Event not found</text>
@@ -37,26 +37,26 @@ export default () => {
 		<ScrollView>
 			<Header />
 			
-			<view className="event-detail-container">
-				<view className="event-hero">
+			<view className="reward-detail-container">
+				<view className="reward-hero">
 					{event.image ? (
-						<image className="event-image" src={event.image} />
+						<image className="reward-image" src={event.image} />
 					) : (
-						<view className="event-image-placeholder">
-							<text className="event-title">{event.title}</text>
-							<text className="event-subtitle">{event.location}</text>
+						<view className="reward-image-placeholder">
+							<text className="reward-title">{event.title}</text>
+							<text className="reward-subtitle">{event.location}</text>
 						</view>
 					)}
 				</view>
 				
-				<view className="container event-content">
+				<view className="container reward-content">
 					<SectionTitle 
 						title="DESCRIPTION"
 					/>
 					
-					<view className="event-description">
-						<text className="event-description-title">{event.title.split(' ')[0]} STUDIO</text>
-						<text className="event-description-text">
+					<view className="reward-description">
+						<text className="reward-description-title">{event.title.split(' ')[0]} STUDIO</text>
+						<text className="reward-description-text">
 							{readMore ? event.fullDescription : event.description}
 						</text>
 						<text className="read-more-link" bindtap={() => setReadMore(!readMore)}>
@@ -65,11 +65,11 @@ export default () => {
 					</view>
 					
 					{event.links && event.links.length > 0 && (
-						<view className="event-links">
+						<view className="reward-links">
 							{event.links.map((link, index) => (
-								<view key={index} className="event-link-item">
-									<text className="event-link-text">{link.title}</text>
-									<text className="event-link-arrow">⟶</text>
+								<view key={index} className="reward-link-item">
+									<text className="reward-link-text">{link.title}</text>
+									<text className="reward-link-arrow">⟶</text>
 								</view>
 							))}
 						</view>
@@ -97,4 +97,4 @@ export default () => {
 			</view>
 		</ScrollView>
 	)
-} 
+}

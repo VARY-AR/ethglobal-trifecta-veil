@@ -8,7 +8,7 @@
 
 :root,
 page {
-	--safeInset-top: 2rem;
+	--safeInset-top: 3rem;
 	--safeInset-bottom: 1.5rem;
 
 	@supports (padding: env(safe-area-inset-bottom)) {
