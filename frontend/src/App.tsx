@@ -7,9 +7,8 @@ import { PrivyProvider } from './lib/PrivyProvider.jsx'
 // Import all pages
 import ExplorePage from './pages/Explore.jsx'
 import WalletsPage from './pages/Wallets.jsx'
-import { ProductDashboardPage } from './pages/ProductDashboardPage.js'
-import { RewardsPage } from './pages/RewardsPage.js'
-import { BrandOnboardingPage } from './pages/BrandOnboardingPage.js'
+import { ProductsPage } from './pages/ProductsPage.js'
+import { ProfilePage } from './pages/ProfilePage.js'
 import { EventDetailPage } from './pages/EventDetail.js'
 import { EventVerifyPage } from './pages/EventVerify.js'
 import { Navigation } from './components/Navigation.js'
@@ -19,14 +18,14 @@ export function App() {
 	return (
 		<PrivyProvider>
 			<MemoryRouter
-				initialEntries={['/explore']}
+				initialEntries={['/profile']}
 			>
 				<Routes>
+					<Route path="/" element={<ProfilePage />} />
+					<Route path="/profile" element={<ProfilePage />} />
 					<Route path="/explore" element={<ExplorePage />} />
 					<Route path="/wallets" element={<WalletsPage />} />
-					<Route path="/products" element={<ProductDashboardPage />} />
-					<Route path="/rewards" element={<RewardsPage />} />
-					<Route path="/profile" element={<BrandOnboardingPage />} />
+					<Route path="/products" element={<ProductsPage />} />
 					<Route path="/event/:id" element={<EventDetailPage />} />
 					<Route path="/event/:id/verify" element={<EventVerifyPage />} />
 				</Routes>

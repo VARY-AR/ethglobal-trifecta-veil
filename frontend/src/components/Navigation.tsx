@@ -14,11 +14,11 @@ export function Navigation() {
 	const currentRoute = location.pathname
 
 	const navItems = [
-		{ path: '/', label: 'Home', icon: homeIcon },
-		{ path: '/wallets', label: 'Wallets', icon: walletIcon },
+		{ path: '/profile', label: 'Profile', icon: profileIcon },
 		{ path: '/explore', label: 'Explore', icon: exploreIcon },
+		// { path: '/wallets', label: 'Wallets', icon: walletIcon },
 		{ path: '/products', label: 'Products', icon: passportIcon },
-		{ path: '/profile', label: 'Profile', icon: profileIcon }
+		// { path: '/', label: 'Home', icon: homeIcon }
 	]
 	
 	return (

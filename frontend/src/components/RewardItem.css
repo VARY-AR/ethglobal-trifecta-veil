@@ -1,0 +1,46 @@
+.reward-item {
+	display: flex;
+	flex-direction: column;
+	border-radius: 8px;
+	overflow: hidden;
+	background-color: #333333;
+}
+
+.reward-image {
+	aspect-ratio: 1;
+	background-color: #444444;
+	position: relative;
+}
+
+.reward-details {
+	padding: 12px;
+	text-align: center;
+}
+
+.reward-title {
+	font-size: 14px;
+	font-weight: 600;
+	color: #ffffff;
+	/* text-transform: uppercase; */
+}
+
+.reward-subtitle {
+	font-size: 12px;
+	color: #888888;
+	margin-top: 4px;
+	/* text-transform: uppercase; */
+}
+
+.loading .reward-image {
+	position: relative;
+}
+
+.loading-indicator {
+	position: absolute;
+	bottom: 16px;
+	right: 16px;
+	width: 32px;
+	height: 32px;
+	background: radial-gradient(circle, #666666 0%, #444444 70%);
+	border-radius: 50%;
+} 

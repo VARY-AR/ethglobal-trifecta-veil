@@ -4,17 +4,20 @@ export const memberships = [
 	{
 		id: 1,
 		title: 'FUJIFILM EARLY ADOPTER',
-		description: 'Exclusive access to camera gear testing and presale'
+		description: 'Exclusive access to camera gear testing and presale',
+		claimed: true
 	},
 	{
 		id: 2,
 		title: 'BALENCIAGA DEGEN',
-		description: 'Exclusive access to design collaboration platform'
+		description: 'Exclusive access to design collaboration platform',
+		claimed: true
 	},
 	{
 		id: 3,
 		title: 'ARPA STUDIO NOSE',
-		description: 'Exclusive access to worldwide presale events'
+		description: 'Exclusive access to worldwide presale events',
+		claimed: false
 	}
 ] as const
 
@@ -42,7 +45,8 @@ export const events = [
 				url: 'https://arpa.studio/vic/nose'
 			}
 		],
-		location: 'New York'
+		location: 'New York',
+		claimed: true
 	},
 	{
 		id: 2,
@@ -62,7 +66,8 @@ export const events = [
 				url: 'https://prada.com'
 			}
 		],
-		location: 'Milan'
+		location: 'Milan',
+		claimed: true
 	},
 	{
 		id: 3,
@@ -82,7 +87,8 @@ export const events = [
 				url: 'https://kendricklamar.com'
 			}
 		],
-		location: 'Los Angeles'
+		location: 'Los Angeles',
+		claimed: true
 	}
 ] as const
 
