@@ -102,39 +102,39 @@ export default () => {
 			
 			<view class="column gap-lg">
 				{/* Verification visualization */}
-				<view className="verify-visual">
+				<view className="RewardVerify__visual">
 					{verificationStage === 0 && (
-						<image className="verify-image" src={VERIFICATION_VISUALS.polyhedron} />
+						<image className="RewardVerify__image" src={VERIFICATION_VISUALS.polyhedron} />
 					)}
 					{verificationStage === 1 && (
-						<image className="verify-image" src={VERIFICATION_VISUALS.sphere} />
+						<image className="RewardVerify__image" src={VERIFICATION_VISUALS.sphere} />
 					)}
 					{verificationStage === 2 && (
-						<image className="verify-image" src={VERIFICATION_VISUALS.grid} />
+						<image className="RewardVerify__image" src={VERIFICATION_VISUALS.grid} />
 					)}
 					{(verificationStage === 3 || verificationStage === 4) && (
-						<image className="verify-image" src={VERIFICATION_VISUALS.heart} />
+						<image className="RewardVerify__image" src={VERIFICATION_VISUALS.heart} />
 					)}
 				</view>
 				
 				{/* Verification steps */}
-				<view className="verify-steps">
+				<view className="RewardVerify__steps">
 					{verificationStage === 0 && (
 						<>
-							<view className="verify-section">
+							<view className="RewardVerify__section">
 								<SectionTitle
 									title="YOUR PROOF"
 								/>
-								<view className="verify-requirements">
+								<view className="RewardVerify__requirements">
 									{event.requirements.map((requirement, index) => (
-										<view key={index} className="verify-requirement-item">
-											<view className="verify-check">
+										<view key={index} className="RewardVerify__requirement-item">
+											<view className="RewardVerify__check">
 												{/* <image 
-													className="verify-check-icon" 
+													className="RewardVerify__check-icon" 
 													src={verifyCheck} 
 												/> */}
 											</view>
-											<text className="verify-requirement-text">{requirement}</text>
+											<text className="RewardVerify__requirement-text">{requirement}</text>
 										</view>
 									))}
 								</view>
@@ -142,38 +142,38 @@ export default () => {
 								<Button 
 									fullWidth 
 									variant="secondary" 
-									className="verify-button" 
+									className="RewardVerify__button" 
 									bindtap={openProofBaseDrawer}
 								>
 									SEE PROOF BASE
 								</Button>
 							</view>
 
-							<view className="verify-section">
+							<view className="RewardVerify__section">
 								<SectionTitle
 									title="YOUR ANONYMITY"
 								/>
 								
-								<view className="anonymity-info">
-									<text className="anonymity-title">The brand won't know</text>
-									<view className="anonymity-items">
-										<text className="anonymity-item">• your identity</text>
-										<text className="anonymity-item">• the product brands</text>
-										<text className="anonymity-item">• the product individual prices</text>
+								<view className="RewardVerify__anonymity-info">
+									<text className="RewardVerify__anonymity-title">The brand won't know</text>
+									<view className="RewardVerify__anonymity-items">
+										<text className="RewardVerify__anonymity-item">• your identity</text>
+										<text className="RewardVerify__anonymity-item">• the product brands</text>
+										<text className="RewardVerify__anonymity-item">• the product individual prices</text>
 									</view>
 								</view>
 								
-								<view className="verify-actions">
+								<view className="RewardVerify__actions">
 									<Button 
 										variant="outline" 
-										className="verify-action-button"
+										className="RewardVerify__action-button"
 										bindtap={() => navigate(`/event/${id}`)}
 									>
 										CANCEL
 									</Button>
 									<Button 
 										variant="primary" 
-										className="verify-action-button"
+										className="RewardVerify__action-button"
 										bindtap={startVerification}
 									>
 										REQUEST
@@ -184,21 +184,21 @@ export default () => {
 					)}
 					
 					{verificationStage >= 1 && verificationStage < 4 && (
-						<view className="verification-progress">
-							<view className="verification-status">
-								<view className={`verification-step ${verificationStage >= 1 ? 'active' : ''}`}>
+						<view className="RewardVerify__verification-progress">
+							<view className="RewardVerify__verification-status">
+								<view className={`RewardVerify__verification-step ${verificationStage >= 1 ? 'RewardVerify__verification-step--active' : ''}`}>
 									{/* <image 
-										className="verify-step-icon" 
+										className="RewardVerify__step-icon" 
 										src={verifyCheck} 
 									/> */}
-									<text className="verify-step-text">Generating ZK Proof</text>
+									<text className="RewardVerify__step-text">Generating ZK Proof</text>
 								</view>
-								<view className={`verification-step ${verificationStage >= 2 ? 'active' : ''}`}>
+								<view className={`RewardVerify__verification-step ${verificationStage >= 2 ? 'RewardVerify__verification-step--active' : ''}`}>
 									{/* <image 
-										className="verify-step-icon" 
+										className="RewardVerify__step-icon" 
 										src={verifyCheck} 
 									/> */}
-									<text className="verify-step-text">Requesting Admission</text>
+									<text className="RewardVerify__step-text">Requesting Admission</text>
 								</view>
 							</view>
 							
@@ -206,13 +206,13 @@ export default () => {
 								<ProgressBar progress={verificationProgress} />
 							)}
 							
-							<text className="verification-message">VEILING IN PROGRESS</text>
+							<text className="RewardVerify__verification-message">VEILING IN PROGRESS</text>
 						</view>
 					)}
 					
 					{verificationStage === 4 && (
-						<view className="verification-success">
-							<text className="verification-success-title">ADMISSION GRANTED</text>
+						<view className="RewardVerify__verification-success">
+							<text className="RewardVerify__verification-success-title">ADMISSION GRANTED</text>
 							<Button 
 								fullWidth 
 								bindtap={mintReward}
@@ -232,35 +232,35 @@ export default () => {
 				onClose={() => setIsDrawerOpen(false)}
 				height="80%"
 			>
-				<view className="proof-base-drawer">
-					<text className="proof-base-title">CLOSE</text>
+				<view className="RewardVerify__proof-base-drawer">
+					<text className="RewardVerify__proof-base-title">CLOSE</text>
 					
-					<text className="proof-base-subtitle">YOUR PROOF IS BASED ON</text>
+					<text className="RewardVerify__proof-base-subtitle">YOUR PROOF IS BASED ON</text>
 					
-					<view className="proof-passports">
-						<view className="proof-passport-item">
-							<view className="proof-passport-placeholder">
-								<image className="proof-passport-image" src={proofImage} />
+					<view className="RewardVerify__proof-passports">
+						<view className="RewardVerify__proof-passport-item">
+							<view className="RewardVerify__proof-passport-placeholder">
+								<image className="RewardVerify__proof-passport-image" src={proofImage} />
 							</view>
-							<text className="proof-passport-label">PRODUCT PASSPORT</text>
+							<text className="RewardVerify__proof-passport-label">PRODUCT PASSPORT</text>
 						</view>
-						<view className="proof-passport-item">
-							<view className="proof-passport-placeholder">
-								<image className="proof-passport-image" src={proofGeneratingImage} />
+						<view className="RewardVerify__proof-passport-item">
+							<view className="RewardVerify__proof-passport-placeholder">
+								<image className="RewardVerify__proof-passport-image" src={proofGeneratingImage} />
 							</view>
-							<text className="proof-passport-label">PRODUCT PASSPORT</text>
+							<text className="RewardVerify__proof-passport-label">PRODUCT PASSPORT</text>
 						</view>
-						<view className="proof-passport-item">
-							<view className="proof-passport-placeholder">
-								<image className="proof-passport-image" src={admissionRequestingImage} />
+						<view className="RewardVerify__proof-passport-item">
+							<view className="RewardVerify__proof-passport-placeholder">
+								<image className="RewardVerify__proof-passport-image" src={admissionRequestingImage} />
 							</view>
-							<text className="proof-passport-label">PRODUCT PASSPORT</text>
+							<text className="RewardVerify__proof-passport-label">PRODUCT PASSPORT</text>
 						</view>
-						<view className="proof-passport-item">
-							<view className="proof-passport-placeholder">
-								<image className="proof-passport-image" src={admissionGrantedImage} />
+						<view className="RewardVerify__proof-passport-item">
+							<view className="RewardVerify__proof-passport-placeholder">
+								<image className="RewardVerify__proof-passport-image" src={admissionGrantedImage} />
 							</view>
-							<text className="proof-passport-label">PRODUCT PASSPORT</text>
+							<text className="RewardVerify__proof-passport-label">PRODUCT PASSPORT</text>
 						</view>
 					</view>
 				</view>

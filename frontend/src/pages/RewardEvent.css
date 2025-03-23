@@ -1,4 +1,4 @@
-.reward-not-found {
+.RewardEvent__not-found {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -7,13 +7,13 @@
 	padding: 2rem;
 }
 
-.error-message {
+.RewardEvent__error-message {
 	font-size: 1.25rem;
 	margin-bottom: 1.5rem;
 	text-align: center;
 }
 
-.reward-detail-container {
+.RewardEvent {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
@@ -21,19 +21,19 @@
 	color: #FFFFFF;
 }
 
-.reward-hero {
+.RewardEvent__hero {
 	width: 100%;
 	height: 35vh;
 	position: relative;
 }
 
-.reward-image {
+.RewardEvent__image {
 	width: 100%;
 	height: 100%;
 	/* object-fit: cover; */
 }
 
-.reward-image-placeholder {
+.RewardEvent__image-placeholder {
 	width: 100%;
 	height: 100%;
 	/* background-color: #333333; */
@@ -46,100 +46,96 @@
 	color: white;
 }
 
-.reward-title {
+.RewardEvent__title {
 	font-size: 1.5rem;
 	font-weight: 600;
-	text-align: center;
+	text-align: right;
 	margin-bottom: 0.5rem;
 	letter-spacing: 0.1rem;
 }
 
-.reward-subtitle {
-	font-size: 0.875rem;
-	color: rgba(255, 255, 255, 0.7);
-	text-align: center;
-	letter-spacing: 0.05rem;
-}
-
-.reward-content {
-	padding-top: 1.5rem;
-	padding-bottom: 6rem;
-}
-
-.reward-description {
-	margin-bottom: 2rem;
-}
-
-.reward-description-title {
+.RewardEvent__subtitle {
 	font-size: 1rem;
-	font-weight: 600;
-	margin-bottom: 1rem;
-}
-
-.reward-description-text {
-	font-size: 0.875rem;
-	line-height: 1.5;
-	color: rgba(255, 255, 255, 0.9);
-	margin-bottom: 0.5rem;
-}
-
-.read-more-link {
-	font-size: 0.75rem;
-	color: rgba(255, 255, 255, 0.7);
-	/* text-transform: uppercase; */
+	color: rgba(255, 255, 255, 0.8);
+	text-align: right;
 	letter-spacing: 0.05rem;
-	cursor: pointer;
-	margin-top: 0.5rem;
 }
 
-.reward-links {
+.RewardEvent__content {
+	padding: 1.5rem;
+}
+
+.RewardEvent__description {
 	margin-bottom: 2rem;
 }
 
-.reward-link-item {
+.RewardEvent__description-title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-bottom: 0.75rem;
+}
+
+.RewardEvent__description-text {
+	font-size: 1rem;
+	line-height: 1.6;
+	margin-bottom: 1rem;
+	color: rgba(255, 255, 255, 0.9);
+	white-space: pre-wrap;
+}
+
+.RewardEvent__read-more-link {
+	color: #4A90E2;
+	font-size: 0.9rem;
+	cursor: pointer;
+}
+
+.RewardEvent__links {
+	margin-bottom: 2rem;
+}
+
+.RewardEvent__link-item {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem;
-	border-radius: 0.25rem;
-	background-color: #333333;
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.75rem;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
 	cursor: pointer;
 }
 
-.reward-link-text {
-	font-size: 0.875rem;
+.RewardEvent__link-text {
+	font-size: 1rem;
 	font-weight: 500;
 }
 
-.reward-link-arrow {
-	font-size: 1rem;
-	color: rgba(255, 255, 255, 0.6);
-}
-
-.requirements-list {
-	display: flex;
-	flex-direction: column;
-	gap: 0.75rem;
-	margin-bottom: 2rem;
-}
-
-.requirement-item {
-	display: flex;
-	gap: 0.5rem;
-	align-items: flex-start;
-}
-
-.requirement-bullet {
+.RewardEvent__link-arrow {
 	font-size: 1.25rem;
 	color: rgba(255, 255, 255, 0.7);
 }
 
-.requirement-text {
-	font-size: 0.875rem;
-	line-height: 1.5;
+.RewardEvent__requirements-list {
+	margin-bottom: 2rem;
 }
 
-.action-button-container {
+.RewardEvent__requirement-item {
+	display: flex;
+	margin-bottom: 0.75rem;
+}
+
+.RewardEvent__requirement-bullet {
+	margin-right: 0.75rem;
+	font-size: 1.25rem;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.RewardEvent__requirement-text {
+	font-size: 1rem;
+	line-height: 1.5;
+	flex: 1;
+}
+
+.RewardEvent__action-button-container {
 	margin-top: 2rem;
+	margin-bottom: 1rem;
 } 

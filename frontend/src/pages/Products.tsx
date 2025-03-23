@@ -15,9 +15,9 @@ interface ProductCategoryProps {
 
 // Product category component
 const ProductCategory = ({ title, onPress }: ProductCategoryProps) => (
-	<view className="product-category" bindtap={onPress}>
-		<view className="product-image" />
-		<text className="product-title">{title}</text>
+	<view className="Products__category" bindtap={onPress}>
+		<view className="Products__category-image" />
+		<text className="Products__category-title">{title}</text>
 	</view>
 )
 
@@ -46,13 +46,13 @@ export default () => {
 		<ScrollView>
 			<Header />
 			
-			<view className="container products-container">
+			<view className="Products">
 				<SectionTitle 
 					title="YOUR PRODUCTS"
 					subtitle={`${itemCount} ITEMS`}
 				/>
 				
-				<view className="products-grid">
+				<view className="Products__grid">
 					{productCategories.map(category => (
 						<ProductCategory
 							key={category.id}

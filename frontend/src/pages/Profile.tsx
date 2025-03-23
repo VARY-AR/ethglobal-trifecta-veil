@@ -29,56 +29,60 @@ export default () => {
 		{ id: '1', title: 'VIC STATUS' },
 		{ id: '2', title: 'VIC STATUS' },
 		{ id: '3', title: 'VIC STATUS' },
-		{ id: '4', title: 'LOADING', loading: true }
+		{ id: '4', title: 'VIC STATUS', loading: true }
 	]
 	
 	const userEvents: Event[] = [
-		{ id: '1', title: 'EVENT' },
-		{ id: '2', title: 'EVENT' },
-		{ id: '3', title: 'EVENT' }
+		{ id: '1', title: 'STORMZY GUEST LIST' },
+		{ id: '2', title: 'BALENCIAGA EVENT' },
+		{ id: '3', title: 'ARTSY SHOW' },
+		{ id: '4', title: 'LOADING...' }
 	]
+	
+	const handleRewardPress = (id: string) => {
+		navigate(`/reward-verify/${id}`)
+	}
 	
 	return (
 		<ScrollView>
 			<Header />
 			
-			<view className="container profile-container">
-				{/* User profile header */}
-				<view className="profile-header">
-					<view className="profile-avatar" />
-					<text className="profile-username">{username}</text>
+			<view className="Profile">
+				<view className="Profile__header">
+					<view className="Profile__avatar"></view>
+					<text className="Profile__username">{username}</text>
 				</view>
 				
-				{/* Memberships section */}
-				<view className="profile-section">
-					<SectionTitle 
+				<view className="Profile__section">
+					<SectionTitle
 						title="YOUR MEMBERSHIPS"
-						subtitle="ACTIVE"
+						subtitle="Brand Memberships"
 					/>
 					
-					<view className="rewards-grid">
-						{userMemberships.map((membership) => (
+					<view className="Profile__rewards-grid">
+						{userMemberships.map((item) => (
 							<RewardItem 
-								key={membership.id}
-								title={membership.title}
-								loading={membership.loading}
+								key={item.id}
+								title={item.title}
+								loading={item.loading}
+								onPress={() => handleRewardPress(item.id)}
 							/>
 						))}
 					</view>
 				</view>
 				
-				{/* Events section */}
-				<view className="profile-section">
-					<SectionTitle 
-						title="YOUR EVENTS"
-						subtitle="UPCOMING"
+				<view className="Profile__section">
+					<SectionTitle
+						title="YOUR REWARDS"
+						subtitle="Event Rewards"
 					/>
 					
-					<view className="rewards-grid">
-						{userEvents.map(event => (
+					<view className="Profile__rewards-grid">
+						{userEvents.map((item) => (
 							<RewardItem 
-								key={event.id}
-								title={event.title}
+								key={item.id}
+								title={item.title}
+								onPress={() => handleRewardPress(item.id)}
 							/>
 						))}
 					</view>

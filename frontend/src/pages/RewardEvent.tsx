@@ -19,10 +19,10 @@ export default () => {
 	
 	if (!event) {
 		return (
-			<view className="reward-not-found">
+			<view className="RewardEvent__not-found">
 				<Header />
 				<view className="container">
-					<text className="error-message">Event not found</text>
+					<text className="RewardEvent__error-message">Event not found</text>
 					<Button bindtap={() => navigate('/')}>Back to Home</Button>
 				</view>
 			</view>
@@ -37,39 +37,39 @@ export default () => {
 		<ScrollView>
 			<Header />
 			
-			<view className="reward-detail-container">
-				<view className="reward-hero">
+			<view className="RewardEvent">
+				<view className="RewardEvent__hero">
 					{event.image ? (
-						<image className="reward-image" src={event.image} />
+						<image className="RewardEvent__image" src={event.image} />
 					) : (
-						<view className="reward-image-placeholder">
-							<text className="reward-title">{event.title}</text>
-							<text className="reward-subtitle">{event.location}</text>
+						<view className="RewardEvent__image-placeholder">
+							<text className="RewardEvent__title">{event.title}</text>
+							<text className="RewardEvent__subtitle">{event.location}</text>
 						</view>
 					)}
 				</view>
 				
-				<view className="container reward-content">
+				<view className="container RewardEvent__content">
 					<SectionTitle 
 						title="DESCRIPTION"
 					/>
 					
-					<view className="reward-description">
-						<text className="reward-description-title">{event.title.split(' ')[0]} STUDIO</text>
-						<text className="reward-description-text">
+					<view className="RewardEvent__description">
+						<text className="RewardEvent__description-title">{event.title.split(' ')[0]} STUDIO</text>
+						<text className="RewardEvent__description-text">
 							{readMore ? event.fullDescription : event.description}
 						</text>
-						<text className="read-more-link" bindtap={() => setReadMore(!readMore)}>
+						<text className="RewardEvent__read-more-link" bindtap={() => setReadMore(!readMore)}>
 							{readMore ? 'READ LESS' : 'READ MORE'}
 						</text>
 					</view>
 					
 					{event.links && event.links.length > 0 && (
-						<view className="reward-links">
+						<view className="RewardEvent__links">
 							{event.links.map((link, index) => (
-								<view key={index} className="reward-link-item">
-									<text className="reward-link-text">{link.title}</text>
-									<text className="reward-link-arrow">⟶</text>
+								<view key={index} className="RewardEvent__link-item">
+									<text className="RewardEvent__link-text">{link.title}</text>
+									<text className="RewardEvent__link-arrow">⟶</text>
 								</view>
 							))}
 						</view>
@@ -79,16 +79,16 @@ export default () => {
 						title="REQUIREMENTS"
 					/>
 					
-					<view className="requirements-list">
+					<view className="RewardEvent__requirements-list">
 						{event.requirements.map((requirement, index) => (
-							<view key={index} className="requirement-item">
-								<text className="requirement-bullet">•</text>
-								<text className="requirement-text">{requirement}</text>
+							<view key={index} className="RewardEvent__requirement-item">
+								<text className="RewardEvent__requirement-bullet">•</text>
+								<text className="RewardEvent__requirement-text">{requirement}</text>
 							</view>
 						))}
 					</view>
 					
-					<view className="action-button-container">
+					<view className="RewardEvent__action-button-container">
 						<Button fullWidth bindtap={verifyEligibility}>
 							VERIFY ELIGIBILITY
 						</Button>

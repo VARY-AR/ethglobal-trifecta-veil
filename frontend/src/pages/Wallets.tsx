@@ -16,16 +16,16 @@ export default () => {
 		<ScrollView>
 			<Header />
 			
-			<view className="container wallets-container">
-				<view className="tabs">
+			<view className="Wallets">
+				<view className="Wallets__tabs">
 					<view 
-						className={`tab ${activeTab === 'tokens' ? 'active' : ''}`}
+						className={`Wallets__tab ${activeTab === 'tokens' ? 'Wallets__tab--active' : ''}`}
 						bindtap={() => setActiveTab('tokens')}
 					>
 						<text>Your Tokens</text>
 					</view>
 					<view 
-						className={`tab ${activeTab === 'history' ? 'active' : ''}`}
+						className={`Wallets__tab ${activeTab === 'history' ? 'Wallets__tab--active' : ''}`}
 						bindtap={() => setActiveTab('history')}
 					>
 						<text>Transaction History</text>
@@ -33,38 +33,38 @@ export default () => {
 				</view>
 				
 				{activeTab === 'tokens' && (
-					<view className="wallet-tokens">
+					<view className="Wallets__tokens-list">
 						{walletTokens.map(token => (
-							<Card key={token.id} className="token-card">
-								<view className="token-header">
-									<text className="token-name">{token.name}</text>
+							<Card key={token.id} className="Wallets__token-card">
+								<view className="Wallets__token-header">
+									<text className="Wallets__token-name">{token.name}</text>
 									{token.verified && (
-										<image src={verifyIcon} className="verified-icon" />
+										<image src={verifyIcon} className="Wallets__verified-icon" />
 									)}
 								</view>
 								
-								<view className="token-details">
-									<view className="token-detail">
-										<text className="detail-label">Brand</text>
-										<text className="detail-value">{token.brand}</text>
+								<view className="Wallets__token-details">
+									<view className="Wallets__token-detail">
+										<text className="Wallets__detail-label">Brand</text>
+										<text className="Wallets__detail-value">{token.brand}</text>
 									</view>
 									
-									<view className="token-detail">
-										<text className="detail-label">Acquired</text>
-										<text className="detail-value">{new Date(token.acquired).toLocaleDateString()}</text>
+									<view className="Wallets__token-detail">
+										<text className="Wallets__detail-label">Acquired</text>
+										<text className="Wallets__detail-value">{new Date(token.acquired).toLocaleDateString()}</text>
 									</view>
 									
-									<view className="token-detail">
-										<text className="detail-label">Token ID</text>
-										<text className="detail-value token-id">{token.tokenId}</text>
+									<view className="Wallets__token-detail">
+										<text className="Wallets__detail-label">Token ID</text>
+										<text className="Wallets__detail-value Wallets__token-id">{token.tokenId}</text>
 									</view>
 								</view>
 								
-								<view className="token-attributes">
+								<view className="Wallets__token-attributes">
 									{Object.entries(token.attributes).map(([key, value], index) => (
-										<view key={index} className="attribute">
-											<text className="attribute-key">{key}</text>
-											<text className="attribute-value">{value}</text>
+										<view key={index} className="Wallets__attribute">
+											<text className="Wallets__attribute-key">{key}</text>
+											<text className="Wallets__attribute-value">{value}</text>
 										</view>
 									))}
 								</view>
@@ -74,18 +74,18 @@ export default () => {
 				)}
 				
 				{activeTab === 'history' && (
-					<view className="transaction-history">
+					<view className="Wallets__history-list">
 						{transactionHistory.map(tx => (
-							<Card key={tx.id} className="transaction-card">
-								<view className="transaction-content">
-									<view className="transaction-details">
-										<text className="transaction-type">{tx.type}</text>
-										<text className="transaction-detail">{tx.detail}</text>
-										<text className="transaction-date">{new Date(tx.date).toLocaleDateString()}</text>
+							<Card key={tx.id} className="Wallets__transaction-card">
+								<view className="Wallets__transaction-content">
+									<view className="Wallets__transaction-details">
+										<text className="Wallets__transaction-type">{tx.type}</text>
+										<text className="Wallets__transaction-detail">{tx.detail}</text>
+										<text className="Wallets__transaction-date">{new Date(tx.date).toLocaleDateString()}</text>
 									</view>
-									<view className="transaction-status">
-										<text className={`status ${tx.status.toLowerCase()}`}>{tx.status}</text>
-										<image src={chevronIcon} className="chevron-icon" />
+									<view className="Wallets__transaction-status">
+										<text className={`Wallets__status Wallets__status--${tx.status.toLowerCase()}`}>{tx.status}</text>
+										<image src={chevronIcon} className="Wallets__chevron-icon" />
 									</view>
 								</view>
 							</Card>

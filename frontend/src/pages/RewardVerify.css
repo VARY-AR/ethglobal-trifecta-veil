@@ -1,15 +1,15 @@
-.verify-content {
+.RewardVerify__content {
 	display: grid;
 	padding-bottom: 3rem;
 }
 
-.verify-section {
+.RewardVerify__section {
 	background-color: rgba(255, 255, 255, 0.1);
 	padding: 1rem;
 	margin-bottom: 1rem;
 }
 
-.verify-visual {
+.RewardVerify__visual {
 	margin: 2rem;
 	min-height: 10rem;
 	height: 40vh;
@@ -19,31 +19,31 @@
 	margin-bottom: 1rem;
 }
 
-.verify-image {
+.RewardVerify__image {
 	width: 100%;
 	height: 100%;
 	/* object-fit: contain; */
 }
 
-.verify-steps {
+.RewardVerify__steps {
 	flex: 1;
 	padding: 0 1rem;
 }
 
-.verify-requirements {
+.RewardVerify__requirements {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 	margin-bottom: 1.5rem;
 }
 
-.verify-requirement-item {
+.RewardVerify__requirement-item {
 	display: flex;
 	align-items: center;
 	gap: 0.75rem;
 }
 
-.verify-check {
+.RewardVerify__check {
 	width: 24px;
 	height: 24px;
 	display: flex;
@@ -51,52 +51,52 @@
 	justify-content: center;
 }
 
-.verify-check-icon {
+.RewardVerify__check-icon {
 	width: 100%;
 	height: 100%;
 	color: #FFFFFF;
 }
 
-.verify-requirement-text {
+.RewardVerify__requirement-text {
 	font-size: 0.875rem;
 }
 
-.verify-button {
+.RewardVerify__button {
 	margin-bottom: 1.5rem;
 }
 
-.anonymity-info {
+.RewardVerify__anonymity-info {
 	margin-bottom: 2rem;
 }
 
-.anonymity-title {
+.RewardVerify__anonymity-title {
 	font-size: 1rem;
 	font-weight: 500;
 	margin-bottom: 1rem;
 }
 
-.anonymity-items {
+.RewardVerify__anonymity-items {
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
 }
 
-.anonymity-item {
+.RewardVerify__anonymity-item {
 	font-size: 0.875rem;
 }
 
-.verify-actions {
+.RewardVerify__actions {
 	display: flex;
 	gap: 1rem;
 	margin-top: 2rem;
 }
 
-.verify-action-button {
+.RewardVerify__action-button {
 	flex: 1;
 }
 
 /* Verification Progress */
-.verification-progress {
+.RewardVerify__verification-progress {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -105,7 +105,7 @@
 	padding: 2rem 0;
 }
 
-.verification-status {
+.RewardVerify__verification-status {
 	display: flex;
 	flex-direction: column;
 	gap: 1.5rem;
@@ -113,28 +113,28 @@
 	width: 100%;
 }
 
-.verification-step {
+.RewardVerify__verification-step {
 	display: flex;
 	align-items: center;
 	gap: 0.75rem;
 	opacity: 0.5;
 }
 
-.verification-step.active {
+.RewardVerify__verification-step--active {
 	opacity: 1;
 }
 
-.verify-step-icon {
+.RewardVerify__step-icon {
 	width: 24px;
 	height: 24px;
 }
 
-.verify-step-text {
+.RewardVerify__step-text {
 	font-size: 1rem;
 	font-weight: 500;
 }
 
-.verification-message {
+.RewardVerify__verification-message {
 	margin-top: 2rem;
 	font-size: 0.875rem;
 	letter-spacing: 0.1rem;
@@ -142,7 +142,7 @@
 }
 
 /* Verification Success */
-.verification-success {
+.RewardVerify__verification-success {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -152,7 +152,7 @@
 	padding: 2rem 0;
 }
 
-.verification-success-title {
+.RewardVerify__verification-success-title {
 	font-size: 1.5rem;
 	font-weight: 600;
 	letter-spacing: 0.2rem;
@@ -160,13 +160,13 @@
 }
 
 /* Proof Base Drawer */
-.proof-base-drawer {
+.RewardVerify__proof-base-drawer {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
 }
 
-.proof-base-title {
+.RewardVerify__proof-base-title {
 	text-align: center;
 	font-size: 0.875rem;
 	font-weight: 500;
@@ -174,27 +174,27 @@
 	opacity: 0.7;
 }
 
-.proof-base-subtitle {
+.RewardVerify__proof-base-subtitle {
 	text-align: center;
 	font-size: 0.875rem;
 	letter-spacing: 0.1rem;
 	margin-bottom: 0.5rem;
 }
 
-.proof-passports {
+.RewardVerify__proof-passports {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 1rem;
 }
 
-.proof-passport-item {
+.RewardVerify__proof-passport-item {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 0.5rem;
 }
 
-.proof-passport-placeholder {
+.RewardVerify__proof-passport-placeholder {
 	width: 100%;
 	min-height: 12rem;
 	height: auto;
@@ -207,13 +207,13 @@
 	overflow: hidden;
 }
 
-.proof-passport-image {
+.RewardVerify__proof-passport-image {
 	aspect-ratio: 1;
 	width: 100%;
 	height: 100%;
 }
 
-.proof-passport-label {
+.RewardVerify__proof-passport-label {
 	font-size: 0.75rem;
 	opacity: 0.7;
 	text-align: center;
