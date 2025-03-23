@@ -74,11 +74,19 @@ export default () => {
 					clearInterval(timer)
 					setVerificationStage(2)
 				}
-			}, 1000)
+			}, 500)
+		} else if (verificationStage === 2) {
+			// Add a delay before moving to admission granted stage
+			timer = setTimeout(() => {
+				setVerificationStage(3)
+			}, 2000)
 		}
 		
 		return () => {
-			if (timer) clearInterval(timer)
+			if (timer) {
+				if (verificationStage === 1) clearInterval(timer)
+				else clearTimeout(timer)
+			}
 		}
 	}, [verificationStage])
 	
@@ -119,6 +127,8 @@ export default () => {
 	return (
 		<ScrollView>
 			<Header />
+
+			<text>{verificationStage}</text>
 			
 			<view class="column gap-lg">
 				{/* Verification visualization */}
@@ -230,7 +240,7 @@ export default () => {
 						</view>
 					)}
 					
-					{verificationStage === 4 && (
+					{verificationStage === 3 && (
 						<view className="RewardVerify__verification-success">
 							<text className="RewardVerify__verification-success-title">ADMISSION GRANTED</text>
 							<Button 
