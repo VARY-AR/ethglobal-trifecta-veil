@@ -1,10 +1,11 @@
 .Badge__wrapper {
 	position: relative;
-	display: inline-block;
+	/* display: inline-block; */
+	display: block;
 }
 
 .Badge {
-	/* display: inline-flex; */
+	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: 4px 8px;

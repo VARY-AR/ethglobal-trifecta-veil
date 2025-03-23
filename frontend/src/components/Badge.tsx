@@ -65,11 +65,11 @@ export function Badge({
 			>
 				<text className="Badge__text">{children || getStatusLabel()}</text>
 			</view>
-			{isTooltipVisible && (
+			{/* {isTooltipVisible && (
 				<view className="Badge__tooltip">
 					<text className="Badge__tooltip-text">{getTooltipMessage()}</text>
 				</view>
-			)}
+			)} */}
 		</view>
 	)
 }

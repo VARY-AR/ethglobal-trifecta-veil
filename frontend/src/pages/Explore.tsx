@@ -8,11 +8,13 @@ import type { BadgeStatus } from '$/components/Badge.js'
 import chevronIcon from '$/assets/chevron-right.png'
 import '$/shared/layout.css'
 import '$/shared/global.css'
+// import '../shared/styles/Page.css'
 import './Explore.css'
+import { useState } from 'react'
 
 export default () => {
 	const navigate = useNavigate()
-	const { events, memberships, getRewardStatus, isRewardClaimed } = useAppState()
+	const { events, memberships, bounties, getRewardStatus } = useAppState()
 	
 	const goToEventDetail = (eventId: number) => {
 		navigate(`/reward/${eventId}`)
@@ -22,10 +24,23 @@ export default () => {
 		navigate(`/reward/${membershipId}`)
 	}
 
+	const goToBountyDetail = (bountyId: string) => {
+		navigate(`/reward/${bountyId}`)
+	}
+
 	// Get badge status for a reward
 	const getStatusClasses = (status: BadgeStatus): string => {
 		return status === 'claimed' ? 'Explore__reward-card--claimed' : ''
 	}
+
+	// Filter bounties by category
+	const membershipBounties = bounties.filter((bounty) => 
+		bounty.category === 'VIC Membership' || bounty.category === 'Gift Voucher'
+	)
+	
+	const eventBounties = bounties.filter((bounty) => 
+		bounty.category === 'Event'
+	)
 
 	return (
 		<ScrollView>
@@ -46,6 +61,41 @@ export default () => {
 					/>
 					
 					<view className="Explore__rewards-list">
+						{membershipBounties.map((bounty) => {
+							const status = getRewardStatus(bounty.id, 'bounty')
+							return (
+								<view 
+									key={bounty.id}
+									className={`Explore__reward-card ${getStatusClasses(status)}`}
+									bindtap={() => goToBountyDetail(bounty.id)}
+								>
+									<view className="Explore__reward-card__badge">
+										<Badge status={status} />
+									</view>
+									<view className="Explore__reward-card__layout">
+										{bounty.imageUri && (
+											<view className="Explore__reward-card__image-container">
+												<image 
+													src={bounty.imageUri} 
+													className="Explore__reward-card__image" 
+												/>
+											</view>
+										)}
+										<view className="Explore__reward-card__content">
+											<text className="Explore__reward-card__title">{bounty.name}</text>
+											<text className="Explore__reward-card__description">{bounty.description}</text>
+											<view className="Explore__reward-card__category">
+												<text className="Explore__reward-card__category-text">{bounty.category}</text>
+											</view>
+										</view>
+										<view className="Explore__reward-card__right">
+											<image src={chevronIcon} className="Explore__reward-card__icon" />
+										</view>
+									</view>
+								</view>
+							)
+						})}
+						
 						{memberships.map((membership) => {
 							const status = getRewardStatus(membership.id, 'membership')
 							return (
@@ -79,6 +129,41 @@ export default () => {
 					/>
 					
 					<view className="Explore__rewards-list">
+						{eventBounties.map((bounty) => {
+							const status = getRewardStatus(bounty.id, 'bounty')
+							return (
+								<view 
+									key={bounty.id}
+									className={`Explore__reward-card ${getStatusClasses(status)}`}
+									bindtap={() => goToBountyDetail(bounty.id)}
+								>
+									<view className="Explore__reward-card__badge">
+										<Badge status={status} />
+									</view>
+									<view className="Explore__reward-card__layout">
+										{bounty.imageUri && (
+											<view className="Explore__reward-card__image-container">
+												<image 
+													src={bounty.imageUri} 
+													className="Explore__reward-card__image" 
+												/>
+											</view>
+										)}
+										<view className="Explore__reward-card__content">
+											<text className="Explore__reward-card__title">{bounty.name}</text>
+											<text className="Explore__reward-card__description">{bounty.description}</text>
+											<view className="Explore__reward-card__category">
+												<text className="Explore__reward-card__category-text">{bounty.category}</text>
+											</view>
+										</view>
+										<view className="Explore__reward-card__right">
+											<image src={chevronIcon} className="Explore__reward-card__icon" />
+										</view>
+									</view>
+								</view>
+							)
+						})}
+						
 						{events.map((event) => {
 							const status = getRewardStatus(event.id, 'event')
 							return (
@@ -91,6 +176,14 @@ export default () => {
 										<Badge status={status} />
 									</view>
 									<view className="Explore__reward-card__layout">
+										{event.image && (
+											<view className="Explore__reward-card__image-container">
+												<image 
+													src={event.image} 
+													className="Explore__reward-card__image" 
+												/>
+											</view>
+										)}
 										<view className="Explore__reward-card__content">
 											<text className="Explore__reward-card__title">{event.title}</text>
 											<text className="Explore__reward-card__description">{event.date}</text>

@@ -27,20 +27,24 @@ const VERIFICATION_VISUALS = {
 export default () => {
 	const navigate = useNavigate()
 	const { id } = useParams()
-	const { events, updateRewardStatus } = useAppState()
+	const { events, bounties, updateRewardStatus } = useAppState()
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 	const [verificationStage, setVerificationStage] = useState(0)
 	const [verificationProgress, setVerificationProgress] = useState(0)
 	
-	// Find event by ID
+	// Find event or bounty by ID
 	const event = events.find(e => e.id === Number(id))
+	const bounty = bounties.find(b => b.id === id)
 	
-	// If event not found, redirect to events page
+	const rewardType = event ? 'event' : bounty ? 'bounty' : null
+	const reward = event || bounty
+	
+	// If reward not found, redirect to explore page
 	useEffect(() => {
-		if (!event) {
+		if (!reward) {
 			navigate('/')
 		}
-	}, [event, navigate])
+	}, [reward, navigate])
 	
 	// Mock proving steps to simulate verification process
 	const PROVING_STEPS = [
@@ -86,8 +90,12 @@ export default () => {
 	// Handle minting reward
 	const mintReward = () => {
 		// Update the reward status to claimed in app state
-		updateRewardStatus(Number(id), 'event', 'claimed')
-		// Navigate back to the event page to see the ticket
+		if (rewardType === 'event') {
+			updateRewardStatus(Number(id), 'event', 'claimed')
+		} else if (rewardType === 'bounty') {
+			updateRewardStatus(id as string, 'bounty', 'claimed')
+		}
+		// Navigate back to the reward page to see the ticket
 		navigate(`/reward/${id}`)
 	}
 	
@@ -96,7 +104,17 @@ export default () => {
 		setIsDrawerOpen(true)
 	}
 	
-	if (!event) return null
+	// Get reward requirements based on type
+	const getRequirements = () => {
+		if (rewardType === 'event') {
+			return event!.requirements
+		} else if (rewardType === 'bounty') {
+			return bounty!.requirements.map(req => req.description)
+		}
+		return []
+	}
+	
+	if (!reward) return null
 	
 	return (
 		<ScrollView>
@@ -128,7 +146,7 @@ export default () => {
 									title="YOUR PROOF"
 								/>
 								<view className="RewardVerify__requirements">
-									{event.requirements.map((requirement, index) => (
+									{getRequirements().map((requirement, index) => (
 										<view key={index} className="RewardVerify__requirement-item">
 											<view className="RewardVerify__check">
 												{/* <image 
@@ -248,21 +266,9 @@ export default () => {
 						</view>
 						<view className="RewardVerify__proof-passport-item">
 							<view className="RewardVerify__proof-passport-placeholder">
-								<image className="RewardVerify__proof-passport-image" src={proofGeneratingImage} />
+								<image className="RewardVerify__proof-passport-image" src={proofImage} />
 							</view>
-							<text className="RewardVerify__proof-passport-label">PRODUCT PASSPORT</text>
-						</view>
-						<view className="RewardVerify__proof-passport-item">
-							<view className="RewardVerify__proof-passport-placeholder">
-								<image className="RewardVerify__proof-passport-image" src={admissionRequestingImage} />
-							</view>
-							<text className="RewardVerify__proof-passport-label">PRODUCT PASSPORT</text>
-						</view>
-						<view className="RewardVerify__proof-passport-item">
-							<view className="RewardVerify__proof-passport-placeholder">
-								<image className="RewardVerify__proof-passport-image" src={admissionGrantedImage} />
-							</view>
-							<text className="RewardVerify__proof-passport-label">PRODUCT PASSPORT</text>
+							<text className="RewardVerify__proof-passport-label">PURCHASE TIME STAMP</text>
 						</view>
 					</view>
 				</view>
