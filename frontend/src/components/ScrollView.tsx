@@ -17,7 +17,9 @@ export function ScrollView({
 			style={style}
 			scroll-orientation="vertical"
 		>
-			{children}
+			<view className="ScrollView__content">
+				{children}
+			</view>
 		</scroll-view>
 	)
 }

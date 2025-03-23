@@ -1,8 +1,6 @@
 .ScrollView {
-	height: calc(100% - 4rem);
+	height: calc(100% - var(--safeInset-bottom) - 4.25rem);
 
 	background: var(--color-background);
-
-	margin-bottom: var(--safeInset-bottom);
-	padding: var(--safeInset-top) 0 calc(var(--safeInset-bottom) + 4rem) 0;
+	padding-bottom: var(--safeInset-top) 0 calc(var(--safeInset-bottom) + 10rem) 0;
 }

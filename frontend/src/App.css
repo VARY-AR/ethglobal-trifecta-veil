@@ -270,7 +270,7 @@ text {
 /* Categories grid */
 .categories-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 	gap: var(--gap-sm);
 	margin: var(--gap-sm) 0;
 }
