@@ -128,8 +128,6 @@ export default () => {
 		<ScrollView>
 			<Header />
 
-			<text>{verificationStage}</text>
-			
 			<view class="column gap-lg">
 				{/* Verification visualization */}
 				<view className="RewardVerify__visual">
