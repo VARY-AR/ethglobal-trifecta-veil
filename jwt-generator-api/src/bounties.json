@@ -18,7 +18,287 @@
             "0xdA17104992D1382739C1b05FaC909050d713e1E6",
             "0xC68aFB1C3Fd9dC85c7FD2afaa62c4b973E91f6c6",
             "0xDC5D240a3DC17cC3477FFF9B2d2B9da78C6b2E79",
-            "0xD148Da449978011457A4510daCA7538061186fb9",
+            "0xD148Da449978011457A4510daCA7538061186fb9"
+          ],
+          "minCount": 4
+        }
+      },
+      {
+        "type": "ownership-unique-collection-count",
+        "description": "From at least 2 brands",
+        "parameters": {
+          "minCount": 2
+        }
+      },
+      {
+        "type": "date",
+        "description": "Products purchased in last 12 months",
+        "parameters": {
+          "maxAgeInDays": 365
+        }
+      }
+    ]
+  },
+  {
+    "id": "louis-vuitton-city-guide-app-access",
+    "name": "Louis Vuitton City Guide App Access",
+    "description": "Complimentary access to the Louis Vuitton City Guide app, offering insights into the world's most fascinating cities.",
+    "category": "Gift Voucher",
+    "brandWebsite": "https://www.louisvuitton.com/",
+    "imageUri": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiisvspoBItTQBbzKjifwiKapqCb_lejqo-axhZ7DWlO-RJyBpitR937d7rTWJ3QAvLQo45mKNESNLlKnlgYX_BIKaGr_kC-afCU1cpfZSuB-88s20kXxEaR8XhttEzDAWfQiBIMWKxUQtG/s640/Screen+Shot+2015-11-15+at+12.56.57+PM.png",
+    "requirements": [
+      {
+        "type": "ownership-count",
+        "description": "You own min 4 premium products",
+        "parameters": {
+          "contractAddresses": [
+            "0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
+            "0xaBA661FA1D46B03298E13862ec5e03111586BcFE",
+            "0xeE8aA4b09E598006891eB35BCd86e15632aC3334",
+            "0xdA17104992D1382739C1b05FaC909050d713e1E6",
+            "0xC68aFB1C3Fd9dC85c7FD2afaa62c4b973E91f6c6",
+            "0xDC5D240a3DC17cC3477FFF9B2d2B9da78C6b2E79",
+            "0xD148Da449978011457A4510daCA7538061186fb9"
+          ],
+          "minCount": 4
+        }
+      },
+      {
+        "type": "ownership-unique-collection-count",
+        "description": "From at least 2 brands",
+        "parameters": {
+          "minCount": 2
+        }
+      },
+      {
+        "type": "date",
+        "description": "Products purchased in last 12 months",
+        "parameters": {
+          "maxAgeInDays": 365
+        }
+      }
+    ]
+  },
+  {
+    "id": "chanel-high-jewelry-exhibition",
+    "name": "Chanel High Jewelry Exhibition",
+    "description": "Invitation to a private viewing of Chanel's latest high jewelry collection.",
+    "category": "Event",
+    "brandWebsite": "https://www.chanel.com/",
+    "imageUri": "https://optim.tildacdn.com/tild3636-3830-4265-b862-343536363739/-/format/webp/G79A4496by_natashapo.jpg",
+    "requirements": [
+      {
+        "type": "ownership-count",
+        "description": "You own min 4 premium products",
+        "parameters": {
+          "contractAddresses": [
+            "0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
+            "0xaBA661FA1D46B03298E13862ec5e03111586BcFE",
+            "0xeE8aA4b09E598006891eB35BCd86e15632aC3334",
+            "0xdA17104992D1382739C1b05FaC909050d713e1E6",
+            "0xC68aFB1C3Fd9dC85c7FD2afaa62c4b973E91f6c6",
+            "0xDC5D240a3DC17cC3477FFF9B2d2B9da78C6b2E79",
+            "0xD148Da449978011457A4510daCA7538061186fb9"
+          ],
+          "minCount": 4
+        }
+      },
+      {
+        "type": "ownership-unique-collection-count",
+        "description": "From at least 2 brands",
+        "parameters": {
+          "minCount": 2
+        }
+      },
+      {
+        "type": "date",
+        "description": "Products purchased in last 12 months",
+        "parameters": {
+          "maxAgeInDays": 365
+        }
+      }
+    ]
+  },
+  {
+    "id": "dior-privee-fragrance-workshop",
+    "name": "Dior Privée Fragrance Workshop",
+    "description": "Hands-on workshop to create a personalized fragrance with Dior's master perfumers.",
+    "category": "Event",
+    "brandWebsite": "https://www.dior.com/",
+    "imageUri": "https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Library-Sites-DiorSharedLibrary/default/dw8b632434/images/beauty/0-HOME/LCP/RENO-2025/PCD_GAMME_NOIR_3700x2000.jpg?sw=1560",
+    "requirements": [
+      {
+        "type": "ownership-count",
+        "description": "You own min 4 premium products",
+        "parameters": {
+          "contractAddresses": [
+            "0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
+            "0xaBA661FA1D46B03298E13862ec5e03111586BcFE",
+            "0xeE8aA4b09E598006891eB35BCd86e15632aC3334",
+            "0xdA17104992D1382739C1b05FaC909050d713e1E6",
+            "0xC68aFB1C3Fd9dC85c7FD2afaa62c4b973E91f6c6",
+            "0xDC5D240a3DC17cC3477FFF9B2d2B9da78C6b2E79",
+            "0xD148Da449978011457A4510daCA7538061186fb9"
+          ],
+          "minCount": 4
+        }
+      },
+      {
+        "type": "ownership-unique-collection-count",
+        "description": "From at least 2 brands",
+        "parameters": {
+          "minCount": 2
+        }
+      },
+      {
+        "type": "date",
+        "description": "Products purchased in last 12 months",
+        "parameters": {
+          "maxAgeInDays": 365
+        }
+      }
+    ]
+  },
+  {
+    "id": "gucci-osteria-dining-experience",
+    "name": "Gucci Osteria Dining Experience",
+    "description": "Exclusive dining experience at Gucci Osteria, the brand's Michelin-starred restaurant.",
+    "category": "Event",
+    "brandWebsite": "https://www.gucci.com/",
+    "imageUri": "https://backend.gucciosteria.com/wp-content/uploads/2022/01/OSTERIA_10.jpg",
+    "requirements": [
+      {
+        "type": "ownership-count",
+        "description": "You own min 4 premium products",
+        "parameters": {
+          "contractAddresses": [
+            "0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
+            "0xaBA661FA1D46B03298E13862ec5e03111586BcFE",
+            "0xeE8aA4b09E598006891eB35BCd86e15632aC3334",
+            "0xdA17104992D1382739C1b05FaC909050d713e1E6",
+            "0xC68aFB1C3Fd9dC85c7FD2afaa62c4b973E91f6c6",
+            "0xDC5D240a3DC17cC3477FFF9B2d2B9da78C6b2E79",
+            "0xD148Da449978011457A4510daCA7538061186fb9"
+          ],
+          "minCount": 4
+        }
+      },
+      {
+        "type": "ownership-unique-collection-count",
+        "description": "From at least 2 brands",
+        "parameters": {
+          "minCount": 2
+        }
+      },
+      {
+        "type": "date",
+        "description": "Products purchased in last 12 months",
+        "parameters": {
+          "maxAgeInDays": 365
+        }
+      }
+    ]
+  },
+  {
+    "id": "prada-mode-membership",
+    "name": "Prada Mode Membership",
+    "description": "Access to Prada's traveling private club, offering unique cultural experiences.",
+    "category": "VIC Membership",
+    "brandWebsite": "https://www.prada.com/",
+    "imageUri": "https://www.pradagroup.com/content/dam/pradagroup/immagini/sustainability/sustainability-overview/2020/cultura/prada-mode/testata_pradamode.jpg/_jcr_content/renditions/cq5dam.web.1920.1920.jpeg",
+    "requirements": [
+      {
+        "type": "ownership-count",
+        "description": "You own min 4 premium products",
+        "parameters": {
+          "contractAddresses": [
+            "0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
+            "0xaBA661FA1D46B03298E13862ec5e03111586BcFE",
+            "0xeE8aA4b09E598006891eB35BCd86e15632aC3334",
+            "0xdA17104992D1382739C1b05FaC909050d713e1E6",
+            "0xC68aFB1C3Fd9dC85c7FD2afaa62c4b973E91f6c6",
+            "0xDC5D240a3DC17cC3477FFF9B2d2B9da78C6b2E79",
+            "0xD148Da449978011457A4510daCA7538061186fb9"
+          ],
+          "minCount": 4
+        }
+      },
+      {
+        "type": "ownership-unique-collection-count",
+        "description": "From at least 2 brands",
+        "parameters": {
+          "minCount": 2
+        }
+      },
+      {
+        "type": "date",
+        "description": "Products purchased in last 12 months",
+        "parameters": {
+          "maxAgeInDays": 365
+        }
+      }
+    ]
+  },
+  {
+    "id": "tiffany-diamond-academy",
+    "name": "Tiffany Diamond Academy",
+    "description": "Educational session on diamonds, including a behind-the-scenes tour of Tiffany's workshop.",
+    "category": "Event",
+    "brandWebsite": "https://www.tiffany.com/",
+    "imageUri": "https://images.prestigeonline.com/hk/jewellery/features/behind-the-scenes-at-the-tiffany-co.-diamond-academy/314562-2-eng-US/Behind-the-Scenes-at-the-Tiffany-Co.-Diamond-Academy.jpg",
+    "requirements": [
+      {
+        "type": "ownership-count",
+        "description": "You own min 4 premium products",
+        "parameters": {
+          "contractAddresses": [
+            "0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
+            "0xaBA661FA1D46B03298E13862ec5e03111586BcFE",
+            "0xeE8aA4b09E598006891eB35BCd86e15632aC3334",
+            "0xdA17104992D1382739C1b05FaC909050d713e1E6",
+            "0xC68aFB1C3Fd9dC85c7FD2afaa62c4b973E91f6c6",
+            "0xDC5D240a3DC17cC3477FFF9B2d2B9da78C6b2E79",
+            "0xD148Da449978011457A4510daCA7538061186fb9"
+          ],
+          "minCount": 4
+        }
+      },
+      {
+        "type": "ownership-unique-collection-count",
+        "description": "From at least 2 brands",
+        "parameters": {
+          "minCount": 2
+        }
+      },
+      {
+        "type": "date",
+        "description": "Products purchased in last 12 months",
+        "parameters": {
+          "maxAgeInDays": 365
+        }
+      }
+    ]
+  },
+  {
+    "id": "rolex-sailing-experience",
+    "name": "Rolex Sailing Experience",
+    "description": "Invitation to join a sailing event sponsored by Rolex.",
+    "category": "Event",
+    "brandWebsite": "https://www.rolex.com/",
+    "imageUri": "https://static01.nyt.com/images/2021/08/28/multimedia/28sp-maxi-challenges-inyt2/28sp-maxi-challenges-inyt2-mediumSquareAt3X.jpg",
+    "requirements": [
+      {
+        "type": "ownership-count",
+        "description": "You own min 4 premium products",
+        "parameters": {
+          "contractAddresses": [
+            "0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
+            "0xaBA661FA1D46B03298E13862ec5e03111586BcFE",
+            "0xeE8aA4b09E598006891eB35BCd86e15632aC3334",
+            "0xdA17104992D1382739C1b05FaC909050d713e1E6",
+            "0xC68aFB1C3Fd9dC85c7FD2afaa62c4b973E91f6c6",
+            "0xDC5D240a3DC17cC3477FFF9B2d2B9da78C6b2E79",
+            "0xD148Da449978011457A4510daCA7538061186fb9"
           ],
           "minCount": 4
         }
