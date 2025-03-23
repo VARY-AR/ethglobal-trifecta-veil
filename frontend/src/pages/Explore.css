@@ -1,0 +1,104 @@
+.Explore__search-container {
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+
+.Explore__search-input {
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 0.5rem;
+	padding: 0.8rem 1rem;
+	display: flex;
+	align-items: center;
+}
+
+.Explore__search-icon {
+	width: 1rem;
+	height: 1rem;
+	margin-right: 0.5rem;
+	opacity: 0.5;
+}
+
+.Explore__search-placeholder {
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 0.9rem;
+}
+
+.Explore__section {
+	margin-bottom: 2.5rem;
+}
+
+.Explore__rewards-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.Explore__reward-card {
+	background-color: #333333;
+	border-radius: 0.75rem;
+	padding: 1.5rem;
+	margin-bottom: 0.75rem;
+}
+
+.Explore__reward-card__layout {
+	display: flex;
+	align-items: center;
+	padding-top: 4rem;
+	gap: 0.5em;
+	justify-content: end;
+}
+
+.Explore__reward-card .Explore__reward-card__content {
+	display: grid;
+	justify-items: end;
+	flex: 1;
+	display: grid;
+	gap: 0.33em;
+}
+
+.Explore__reward-card__title {
+	text-align: right;
+	font-size: 1rem;
+	font-weight: 600;
+	letter-spacing: 0.05rem;
+}
+
+.Explore__reward-card__description {
+	text-align: right;
+	color: #999999;
+	font-size: 0.75rem;
+}
+
+.Explore__reward-card__icon {
+	width: 1.5em;
+	height: 1.5em;
+	opacity: 0.8;
+}
+
+.Explore__reward-card__right {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 8px;
+}
+
+.Explore__reward-card__claimed-badge {
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	font-size: 10px;
+	font-weight: 600;
+	padding: 4px 8px;
+	border-radius: 4px;
+	letter-spacing: 1px;
+}
+
+.Explore__reward-card--claimed {
+	border-left: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+@media (min-width: 768px) {
+	.container {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+}

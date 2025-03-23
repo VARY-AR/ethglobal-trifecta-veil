@@ -1,0 +1,220 @@
+.RewardVerify__content {
+	display: grid;
+	padding-bottom: 3rem;
+}
+
+.RewardVerify__section {
+	background-color: rgba(255, 255, 255, 0.1);
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+
+.RewardVerify__visual {
+	margin: 2rem;
+	min-height: 10rem;
+	height: 40vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.RewardVerify__image {
+	width: 100%;
+	height: 100%;
+	/* object-fit: contain; */
+}
+
+.RewardVerify__steps {
+	flex: 1;
+	padding: 0 1rem;
+}
+
+.RewardVerify__requirements {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.RewardVerify__requirement-item {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.RewardVerify__check {
+	width: 24px;
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.RewardVerify__check-icon {
+	width: 100%;
+	height: 100%;
+	color: #FFFFFF;
+}
+
+.RewardVerify__requirement-text {
+	font-size: 0.875rem;
+}
+
+.RewardVerify__button {
+	margin-bottom: 1.5rem;
+}
+
+.RewardVerify__anonymity-info {
+	margin-bottom: 2rem;
+}
+
+.RewardVerify__anonymity-title {
+	font-size: 1rem;
+	font-weight: 500;
+	margin-bottom: 1rem;
+}
+
+.RewardVerify__anonymity-items {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.RewardVerify__anonymity-item {
+	font-size: 0.875rem;
+}
+
+.RewardVerify__actions {
+	display: flex;
+	gap: 1rem;
+	margin-top: 2rem;
+}
+
+.RewardVerify__action-button {
+	flex: 1;
+}
+
+/* Verification Progress */
+.RewardVerify__verification-progress {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 0;
+}
+
+.RewardVerify__verification-status {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	margin-bottom: 2rem;
+	width: 100%;
+}
+
+.RewardVerify__verification-step {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	opacity: 0.5;
+}
+
+.RewardVerify__verification-step--active {
+	opacity: 1;
+}
+
+.RewardVerify__step-icon {
+	width: 24px;
+	height: 24px;
+}
+
+.RewardVerify__step-text {
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.RewardVerify__verification-message {
+	margin-top: 2rem;
+	font-size: 0.875rem;
+	letter-spacing: 0.1rem;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+/* Verification Success */
+.RewardVerify__verification-success {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 4rem;
+	padding: 2rem 0;
+}
+
+.RewardVerify__verification-success-title {
+	font-size: 1.5rem;
+	font-weight: 600;
+	letter-spacing: 0.2rem;
+	text-align: center;
+}
+
+/* Proof Base Drawer */
+.RewardVerify__proof-base-drawer {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.RewardVerify__proof-base-title {
+	text-align: center;
+	font-size: 0.875rem;
+	font-weight: 500;
+	margin-bottom: 1rem;
+	opacity: 0.7;
+}
+
+.RewardVerify__proof-base-subtitle {
+	text-align: center;
+	font-size: 0.875rem;
+	letter-spacing: 0.1rem;
+	margin-bottom: 0.5rem;
+}
+
+.RewardVerify__proof-passports {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+.RewardVerify__proof-passport-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.RewardVerify__proof-passport-placeholder {
+	width: 100%;
+	min-height: 12rem;
+	height: auto;
+	aspect-ratio: 1;
+	background-color: #333;
+	border-radius: 0.25rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.RewardVerify__proof-passport-image {
+	aspect-ratio: 1;
+	width: 100%;
+	height: 100%;
+}
+
+.RewardVerify__proof-passport-label {
+	font-size: 0.75rem;
+	opacity: 0.7;
+	text-align: center;
+}

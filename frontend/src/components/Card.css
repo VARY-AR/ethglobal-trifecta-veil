@@ -1,0 +1,39 @@
+.Card {
+	background-color: #333333;
+	border-radius: 0.75rem;
+	padding: 1.5rem;
+	margin-bottom: 0.75rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Card__content {
+	flex: 1;
+	display: grid;
+	gap: 0.33em;
+}
+
+.Card__title {
+	font-size: 1rem;
+	font-weight: 600;
+	letter-spacing: 0.05rem;
+}
+
+.Card__description {
+	color: #999999;
+	font-size: 0.75rem;
+}
+
+.Card__icon {
+	width: 1.5em;
+	height: 1.5em;
+	opacity: 0.8;
+}
+
+.Card--reward {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+} 

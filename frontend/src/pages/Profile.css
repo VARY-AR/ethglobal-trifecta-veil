@@ -1,0 +1,44 @@
+.Profile {
+	padding: 16px;
+	padding-bottom: 48px;
+}
+
+.Profile__header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 32px;
+}
+
+.Profile__avatar {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background: radial-gradient(circle, #e0e0e0 0%, #c0c0c0 100%);
+	margin-bottom: 16px;
+}
+
+.Profile__username {
+	font-size: 16px;
+	font-weight: 500;
+	color: #ffffff;
+	letter-spacing: 0.05em;
+}
+
+.Profile__section {
+	margin-bottom: 48px;
+}
+
+.Profile__rewards-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+	margin-bottom: 16px;
+}
+
+.Profile__no-rewards {
+	text-align: center;
+	opacity: 0.6;
+	padding: 24px 0;
+	width: 100%;
+}

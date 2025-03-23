@@ -1,0 +1,155 @@
+/* Layout system - LynxJS compatible */
+
+:root {
+	--gap-xs: 0.25rem;
+	--gap-sm: 0.5rem;
+	--gap-md: 1rem;
+	--gap-lg: 1.5rem;
+	--gap-xl: 2rem;
+	
+	--color-primary: #FFFFFF;
+	--color-primary-dark: #E0E0E0;
+	--color-primary-light: #FFFFFF;
+	
+	--color-background: #111111;
+	--color-surface: #333333;
+	--color-text: #FFFFFF;
+	--color-text-light: #AAAAAA;
+	--color-border: #444444;
+	
+	--color-error: #ef4444;
+	--color-success: #10b981;
+	--color-warning: #f59e0b;
+	--color-info: #3b82f6;
+	
+	--border-radius-sm: 0.25rem;
+	--border-radius-md: 0.5rem;
+	--border-radius-lg: 1rem;
+}
+
+/* Row and column layout */
+.row {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 100%;
+	gap: var(--gap-md);
+}
+
+.column {
+	display: grid;
+	gap: var(--gap-sm);
+	padding-bottom: 5rem;
+}
+.column > * + * {
+	margin-top: var(--gap-sm);
+}
+
+/* Gap utilities */
+.gap-xs {
+	gap: var(--gap-xs);
+}
+
+.gap-sm {
+	gap: var(--gap-sm);
+}
+
+.gap-md {
+	gap: var(--gap-md);
+}
+
+.gap-lg {
+	gap: var(--gap-lg);
+}
+
+.gap-xl {
+	gap: var(--gap-xl);
+}
+
+/* Padding utilities */
+.p-xs {
+	padding: var(--gap-xs);
+}
+
+.p-sm {
+	padding: var(--gap-sm);
+}
+
+.p-md {
+	padding: var(--gap-md);
+}
+
+.p-lg {
+	padding: var(--gap-lg);
+}
+
+.p-xl {
+	padding: var(--gap-xl);
+}
+
+/* Flex and alignment utilities */
+.flex-1 {
+	flex: 1;
+}
+
+.center {
+	align-items: center;
+	justify-content: center;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.items-center {
+	align-items: center;
+}
+
+.text-center {
+	text-align: center;
+}
+
+/* Multi-column layouts - CSS Grid */
+.row-2 {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: var(--gap-md);
+	margin-bottom: var(--gap-md);
+}
+
+.row-3 {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: var(--gap-md);
+	margin-bottom: var(--gap-md);
+}
+
+.row-4 {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: var(--gap-md);
+	margin-bottom: var(--gap-md);
+}
+
+/* Mobile responsive layouts */
+@media (max-width: 768px) {
+	.container {
+		padding: 0 var(--gap-md);
+	}
+	
+	.row-2, 
+	.row-3, 
+	.row-4 {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+	.row-3 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	
+	.row-4 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+} 

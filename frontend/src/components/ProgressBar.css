@@ -1,0 +1,25 @@
+.ProgressBar {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.ProgressBar__bar {
+	width: 100%;
+	border-radius: 2px;
+	overflow: hidden;
+	position: relative;
+}
+
+.ProgressBar__value {
+	height: 100%;
+	border-radius: 2px;
+	transition: width 0.3s ease-in-out;
+}
+
+.ProgressBar__label {
+	font-size: 0.75rem;
+	color: rgba(255, 255, 255, 0.8);
+	text-align: right;
+} 

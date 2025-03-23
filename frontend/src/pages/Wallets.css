@@ -1,0 +1,176 @@
+/* Wallets page styles */
+
+.Wallets {
+	padding: 0 1rem;
+}
+
+.Wallets__tabs {
+	display: flex;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	margin-bottom: 1.5rem;
+}
+
+.Wallets__tab {
+	flex: 1;
+	padding: 0.75rem 0;
+	text-align: center;
+	font-size: 0.9rem;
+	color: rgba(255, 255, 255, 0.6);
+	position: relative;
+	cursor: pointer;
+}
+
+.Wallets__tab--active {
+	color: #FFFFFF;
+	font-weight: 600;
+}
+
+.Wallets__tab--active::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 20%;
+	right: 20%;
+	height: 2px;
+	background-color: #FFFFFF;
+}
+
+.Wallets__tokens-list,
+.Wallets__history-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.Wallets__token-card,
+.Wallets__transaction-card {
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	padding: 1rem;
+}
+
+.Wallets__token-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.Wallets__token-name {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #FFFFFF;
+}
+
+.Wallets__verified-icon {
+	width: 1.2rem;
+	height: 1.2rem;
+}
+
+.Wallets__token-details {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.Wallets__token-detail {
+	display: flex;
+	justify-content: space-between;
+}
+
+.Wallets__detail-label {
+	font-size: 0.8rem;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.Wallets__detail-value {
+	font-size: 0.8rem;
+	color: #FFFFFF;
+}
+
+.Wallets__token-id {
+	font-family: monospace;
+}
+
+.Wallets__token-attributes {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	gap: 0.75rem;
+}
+
+.Wallets__attribute {
+	background-color: rgba(255, 255, 255, 0.05);
+	border-radius: 4px;
+	padding: 0.5rem;
+}
+
+.Wallets__attribute-key {
+	font-size: 0.7rem;
+	color: rgba(255, 255, 255, 0.6);
+	margin-bottom: 0.25rem;
+}
+
+.Wallets__attribute-value {
+	font-size: 0.8rem;
+	color: #FFFFFF;
+}
+
+.Wallets__transaction-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Wallets__transaction-details {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.Wallets__transaction-type {
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: #FFFFFF;
+}
+
+.Wallets__transaction-detail {
+	font-size: 0.8rem;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.Wallets__transaction-date {
+	font-size: 0.7rem;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.Wallets__transaction-status {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.Wallets__status {
+	font-size: 0.8rem;
+	padding: 0.25rem 0.5rem;
+	border-radius: 4px;
+}
+
+.Wallets__status--completed {
+	background-color: rgba(0, 255, 0, 0.2);
+	color: #AAFFAA;
+}
+
+.Wallets__status--pending {
+	background-color: rgba(255, 255, 0, 0.2);
+	color: #FFFFAA;
+}
+
+.Wallets__chevron-icon {
+	width: 0.8rem;
+	height: 0.8rem;
+	opacity: 0.5;
+}

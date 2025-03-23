@@ -1,0 +1,88 @@
+.WalletManager {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	color: white;
+	gap: 20px;
+}
+
+.WalletManager__header {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	padding-bottom: 10px;
+}
+
+.WalletManager__close-button {
+	text-align: center;
+	font-size: 14px;
+	opacity: 0.7;
+	cursor: pointer;
+	letter-spacing: 0.05em;
+}
+
+.WalletManager__title {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.WalletManager__title .h2 {
+	font-size: 1.5em;
+	letter-spacing: 0.05em;
+}
+
+.WalletManager__list {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	margin-bottom: 30px;
+}
+
+.WalletManager__option {
+	display: flex;
+	align-items: center;
+	padding: 15px;
+	background-color: rgba(255, 255, 255, 0.07);
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.WalletManager__option:hover {
+	background-color: rgba(255, 255, 255, 0.12);
+}
+
+.WalletManager__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 50%;
+	margin-right: 15px;
+	font-size: 20px;
+}
+
+.WalletManager__details {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.WalletManager__wallet-name {
+	font-weight: 600;
+	font-size: 0.9em;
+}
+
+.WalletManager__wallet-description {
+	font-size: 0.75em;
+	opacity: 0.7;
+}
+
+.WalletManager__items {
+	font-size: 0.8em;
+	opacity: 0.6;
+} 

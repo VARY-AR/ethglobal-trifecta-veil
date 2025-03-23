@@ -1,0 +1,141 @@
+.RewardEvent__not-found {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 2rem;
+}
+
+.RewardEvent__error-message {
+	font-size: 1.25rem;
+	margin-bottom: 1.5rem;
+	text-align: center;
+}
+
+.RewardEvent {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+.RewardEvent__hero {
+	width: 100%;
+	height: 35vh;
+	position: relative;
+}
+
+.RewardEvent__image {
+	width: 100%;
+	height: 100%;
+	/* object-fit: cover; */
+}
+
+.RewardEvent__image-placeholder {
+	width: 100%;
+	height: 100%;
+	/* background-color: #333333; */
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	justify-content: end;
+	padding: 2rem;
+	background: linear-gradient(135deg, #333 0%, #222 100%);
+	color: white;
+}
+
+.RewardEvent__title {
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-align: right;
+	margin-bottom: 0.5rem;
+	letter-spacing: 0.1rem;
+}
+
+.RewardEvent__subtitle {
+	font-size: 1rem;
+	color: rgba(255, 255, 255, 0.8);
+	text-align: right;
+	letter-spacing: 0.05rem;
+}
+
+.RewardEvent__content {
+	padding: 1.5rem;
+}
+
+.RewardEvent__description {
+	margin-bottom: 2rem;
+}
+
+.RewardEvent__description-title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-bottom: 0.75rem;
+}
+
+.RewardEvent__description-text {
+	font-size: 1rem;
+	line-height: 1.6;
+	margin-bottom: 1rem;
+	color: rgba(255, 255, 255, 0.9);
+	/* white-space: pre-wrap; */
+}
+
+.RewardEvent__read-more-link {
+	color: #4A90E2;
+	font-size: 0.9rem;
+	cursor: pointer;
+}
+
+.RewardEvent__links {
+	margin-bottom: 2rem;
+}
+
+.RewardEvent__link-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	margin-bottom: 0.75rem;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.RewardEvent__link-text {
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.RewardEvent__link-arrow {
+	font-size: 1.25rem;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.RewardEvent__requirements-list {
+	margin-bottom: 2rem;
+}
+
+.RewardEvent__requirement-item {
+	display: flex;
+	margin-bottom: 0.75rem;
+}
+
+.RewardEvent__requirement-bullet {
+	margin-right: 0.75rem;
+	font-size: 1.25rem;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.RewardEvent__requirement-text {
+	font-size: 1rem;
+	line-height: 1.5;
+	flex: 1;
+}
+
+.RewardEvent__action-button-container {
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+} 

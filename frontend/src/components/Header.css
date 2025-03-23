@@ -1,0 +1,51 @@
+.Header {
+	z-index: 1;
+	position: sticky;
+	top: calc(-1 * var(--safeInset-top));
+
+	margin-top: calc(-1 * var(--safeInset-top));
+	padding: 1rem 0;
+	padding-top: calc(1rem + var(--safeInset-top));
+
+	background-color: rgba(0, 0, 0, 0.9);
+	box-shadow: 0 0 2rem #000, 0 0 1rem #000;
+}
+
+.Header__logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Header__logo-text {
+	font-size: 1.33rem;
+	font-weight: 700;
+	color: #FFFFFF;
+	letter-spacing: 0.66em;
+	margin-right: -0.66em;
+}
+
+.Header__nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Header .container {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Header__actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	max-height: 1px;
+}
+
+.Header__wallet-icon {
+	width: 1.5em;
+	height: 1.5em;
+}

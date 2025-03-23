@@ -1,0 +1,75 @@
+.SectionTitle {
+	margin-bottom: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.SectionTitle__title {
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+	letter-spacing: 0.05rem;
+	color: #FFFFFF;
+}
+
+.SectionTitle__subtitle-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+
+.SectionTitle__subtitle {
+	font-size: 0.8rem;
+	color: rgba(255, 255, 255, 0.6);
+	letter-spacing: 0.1rem;
+}
+
+.SectionTitle__subtitle-flair {
+	background-color: rgba(255, 255, 255, 0.6);
+	height: 1.25px;
+	width: 1em;
+}
+
+.SectionTitle--row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+/* Legacy styles - keeping for compatibility */
+.SectionTitle__container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	margin: 1.5rem 0;
+	width: 100%;
+}
+
+.SectionTitle__container--centered {
+	align-items: center;
+	text-align: center;
+}
+
+.SectionTitle__legacy-title {
+	font-size: 0.875rem;
+	font-weight: 500;
+	letter-spacing: 0.1rem;
+	color: #FFFFFF;
+	margin: 0 0.75rem;
+}
+
+.SectionTitle__legacy-subtitle {
+	font-size: 0.75rem;
+	color: rgba(255, 255, 255, 0.7);
+	letter-spacing: 0.05rem;
+}
+
+.SectionTitle__divider {
+	width: 2rem;
+	height: 1px;
+	background-color: rgba(255, 255, 255, 0.3);
+	margin: 0.5rem 0;
+} 
