@@ -5,6 +5,10 @@ import circuit from "./circuit/target/circuit.json";
 // import jsonwebtoken from "jsonwebtoken";
 import { generateInputs } from "noir-jwt";
 
+function bytesToHex(bytes) {
+  return '0x' + Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
 const show = (id, content) => {
  const container = document.getElementById(id);
  container.appendChild(document.createTextNode(content));
@@ -47,12 +51,16 @@ document.getElementById("submit").addEventListener("click", async () => {
          redc_params_limbs: inputs.redc_params_limbs, 
          signature_limbs: inputs.signature_limbs,
      });
+     console.log(witness);
      show("logs", "Generated witness... ✅");
 
      show("logs", "Generating proof... ⏳");
      const proof = await backend.generateProof(witness);
      show("logs", "Generated proof... ✅");
      show("results", proof.proof);
+     console.log(proof);
+     console.log(proof.publicInputs);
+     console.log(bytesToHex(proof.proof));
 
      show('logs', 'Verifying proof... ⌛');
      const isValid = await backend.verifyProof(proof);
