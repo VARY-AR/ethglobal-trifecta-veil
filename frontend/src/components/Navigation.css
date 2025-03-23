@@ -1,12 +1,10 @@
 .nav-bar {
-	z-index: 1;
+	z-index: 1000;
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	padding: 0.5rem 0;
-	/* iOS safe area bottom inset */
-	padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+	padding-bottom: var(--safeInset-bottom);
 
 	display: flex;
 
@@ -20,8 +18,10 @@
 	display: grid;
 	justify-items: center;
 	align-content: center;
-	padding: 0.25rem;
-	gap: 0.25rem;
+	padding: 0.5rem;
+	padding-bottom: calc(0.5rem + var(--safeInset-bottom));
+	margin-bottom: calc(-1 * var(--safeInset-bottom));
+	gap: 0.15em;
 
 	color: var(--color-text-light);
 	text-align: center;
@@ -30,7 +30,12 @@
 
 .nav-item.active {
 	color: var(--color-primary);
-	font-weight: 500;
+	font-weight: 700;
+	background: linear-gradient(
+		to top,
+		rgba(255, 255, 255, 0.005),
+		rgba(255, 255, 255, 0.2)
+	);
 }
 
 .nav-icon {
@@ -45,5 +50,5 @@
 }
 
 .nav-text {
-	font-size: 12px;
+	font-size: 0.8em;
 }

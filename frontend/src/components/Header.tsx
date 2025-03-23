@@ -15,6 +15,8 @@ export function Header() {
 	return (
 		<view className="header">
 			<view className="container">
+				<view></view>
+
 				<view className="header-logo">
 					<text className="logo">VEIL</text>
 				</view>

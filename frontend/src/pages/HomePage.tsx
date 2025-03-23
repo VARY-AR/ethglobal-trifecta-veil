@@ -21,7 +21,7 @@ export function HomePage() {
 			
 			<view className="search-container">
 				<view className="search-input">
-					<text className="search-placeholder">Lorem Ipsum</text>
+					<text className="search-placeholder">Search...</text>
 				</view>
 			</view>
 			
@@ -29,17 +29,23 @@ export function HomePage() {
 				<view className="section">
 					<view className="section-header">
 						<text className="section-title">AVAILABLE MEMBERSHIPS</text>
-						<text className="section-subtitle">EXCLUSIVE BRAND ACCESS</text>
+						<view class="section-subtitle-container row">
+							<view className="section-subtitle-flair"></view>
+							<text className="section-subtitle">EXCLUSIVE BRAND ACCESS</text>
+							<view className="section-subtitle-flair"></view>
+						</view>
 					</view>
 					
 					<view className="membership-list">
 						{memberships.map(item => (
 							<Card key={item.id} className="membership-card">
-								<view className="card-content">
-									<text className="card-title">{item.title}</text>
-									<text className="card-description">{item.description}</text>
+								<view className="row">
+									<view className="card-content">
+										<text className="card-title">{item.title}</text>
+										<text className="card-description">{item.description}</text>
+									</view>
+									<image className="card-icon" src={chevronIcon} />
 								</view>
-								<image className="card-icon" src={chevronIcon} />
 							</Card>
 						))}
 					</view>
@@ -48,7 +54,11 @@ export function HomePage() {
 				<view className="section">
 					<view className="section-header">
 						<text className="section-title">AVAILABLE EVENTS</text>
-						<text className="section-subtitle">AROUND YOU</text>
+						<view class="section-subtitle-container row">
+							<view className="section-subtitle-flair"></view>
+							<text className="section-subtitle">AROUND YOU</text>
+							<view className="section-subtitle-flair"></view>
+						</view>
 					</view>
 					
 					<view className="events-list">
@@ -58,11 +68,13 @@ export function HomePage() {
 								className="event-card"
 								bindtap={() => goToEventDetail(item.id)}
 							>
-								<view className="card-content">
-									<text className="card-title">{item.title}</text>
-									<text className="card-description">{item.date}</text>
+								<view className="row">
+									<view className="card-content">
+										<text className="card-title">{item.title}</text>
+										<text className="card-description">{item.date}</text>
+									</view>
+									<image className="card-icon" src={chevronIcon} />
 								</view>
-								<image className="card-icon" src={chevronIcon} />
 							</Card>
 						))}
 					</view>

@@ -1,12 +1,14 @@
 .header {
-	background-color: rgba(0, 0, 0, 0.9);
-	padding: 1rem 0;
+	z-index: 1;
 	position: sticky;
 	top: calc(-1 * var(--safeInset-top));
-	z-index: 1;
 
 	margin-top: calc(-1 * var(--safeInset-top));
-	padding-top: var(--safeInset-top);
+	padding: 1rem 0;
+	padding-top: calc(1rem + var(--safeInset-top));
+
+	background-color: rgba(0, 0, 0, 0.9);
+	box-shadow: 0 0 2rem #000, 0 0 1rem #000;
 }
 
 .header-logo {
@@ -16,10 +18,10 @@
 }
 
 .logo {
-	font-size: 1.5rem;
+	font-size: 1.33rem;
 	font-weight: 700;
 	color: #FFFFFF;
-	letter-spacing: 0.5rem;
+	letter-spacing: 0.66em;
 }
 
 .header-nav {
@@ -29,7 +31,8 @@
 }
 
 .header .container {
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
 	justify-content: space-between;
 	align-items: center;
 }

@@ -15,29 +15,25 @@ export function Navigation() {
 	
 	return (
 		<view className="nav-bar">
-			<view className="container">
-				<view className="row">
-					<view className={`nav-item ${currentRoute === '/' ? 'active' : ''}`} bindtap={() => navigate('/')}>
-						<image src={homeIcon} className="nav-icon" />
-						<text className="nav-text">Home</text>
-					</view>
-					<view className={`nav-item ${currentRoute === '/wallet' ? 'active' : ''}`} bindtap={() => navigate('/wallet')}>
-						<image src={walletIcon} className="nav-icon" />
-						<text className="nav-text">Wallet</text>
-					</view>
-					<view className={`nav-item ${currentRoute === '/products' ? 'active' : ''}`} bindtap={() => navigate('/products')}>
-						<image src={passportIcon} className="nav-icon" />
-						<text className="nav-text">Products</text>
-					</view>
-					<view className={`nav-item ${currentRoute === '/rewards' ? 'active' : ''}`} bindtap={() => navigate('/rewards')}>
-						<image src={exploreIcon} className="nav-icon" />
-						<text className="nav-text">Rewards</text>
-					</view>
-					<view className={`nav-item ${currentRoute === '/profile' ? 'active' : ''}`} bindtap={() => navigate('/profile')}>
-						<image src={profileIcon} className="nav-icon" />
-						<text className="nav-text">Profile</text>
-					</view>
-				</view>
+			<view className={`nav-item ${currentRoute === '/' ? 'active' : ''}`} bindtap={() => navigate('/')}>
+				<image src={homeIcon} className="nav-icon" />
+				<text className="nav-text">Home</text>
+			</view>
+			<view className={`nav-item ${currentRoute === '/wallet' ? 'active' : ''}`} bindtap={() => navigate('/wallet')}>
+				<image src={walletIcon} className="nav-icon" />
+				<text className="nav-text">Wallet</text>
+			</view>
+			<view className={`nav-item ${currentRoute === '/products' ? 'active' : ''}`} bindtap={() => navigate('/products')}>
+				<image src={passportIcon} className="nav-icon" />
+				<text className="nav-text">Products</text>
+			</view>
+			<view className={`nav-item ${currentRoute === '/rewards' ? 'active' : ''}`} bindtap={() => navigate('/rewards')}>
+				<image src={exploreIcon} className="nav-icon" />
+				<text className="nav-text">Rewards</text>
+			</view>
+			<view className={`nav-item ${currentRoute === '/profile' ? 'active' : ''}`} bindtap={() => navigate('/profile')}>
+				<image src={profileIcon} className="nav-icon" />
+				<text className="nav-text">Profile</text>
 			</view>
 		</view>
 	)

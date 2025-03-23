@@ -1,7 +1,7 @@
 .scroll-container {
-	height: 100%;
+	height: calc(100% - 4rem);
 
 	background: var(--color-background);
 
-	padding: var(--safeInset-top) 0 var(--safeInset-bottom) 0;
+	padding: var(--safeInset-top) 0 calc(var(--safeInset-bottom) + 4rem) 0;
 }

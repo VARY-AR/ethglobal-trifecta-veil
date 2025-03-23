@@ -113,9 +113,3 @@
 	background-color: var(--color-success-bg);
 	color: var(--color-success);
 }
-
-.card-icon {
-	width: 16px;
-	height: 16px;
-	opacity: 0.5;
-} 

@@ -9,31 +9,28 @@
 	align-items: center;
 }
 
+.card-content {
+	flex: 1;
+	display: grid;
+	gap: 0.33em;
+}
+
 .card-title {
 	font-size: 1rem;
 	font-weight: 600;
-	margin-bottom: 0.5rem;
 	letter-spacing: 0.05rem;
 }
 
 .card-description {
 	color: #999999;
-	font-size: 0.8rem;
+	font-size: 0.75rem;
 }
 
-.card-content {
-	flex: 1;
-}
 
 .card-icon {
-	width: 24px;
-	height: 24px;
-	opacity: 0.6;
-}
-
-/* Card variations */
-.membership-card, .event-card {
-	cursor: pointer;
+	width: 1.5em;
+	height: 1.5em;
+	opacity: 0.8;
 }
 
 .reward-card {

@@ -42,10 +42,20 @@
 	letter-spacing: 0.05rem;
 }
 
+.section-subtitle-container {
+	justify-content: center;
+}
+
 .section-subtitle {
 	font-size: 0.8rem;
 	color: var(--color-text-light);
 	letter-spacing: 0.05rem;
+}
+
+.section-subtitle-flair {
+	background-color: var(--color-text);
+	height: 1.5px;
+	width: 1em;
 }
 
 .membership-list, .events-list {
@@ -54,9 +64,21 @@
 	gap: 0.75rem;
 }
 
+.membership-card .row,
+.event-card .row {
+	padding-top: 4rem;
+	gap: 0.5em;
+}
+
+.membership-card .card-content,
+.event-card .card-content {
+    display: grid;
+	justify-items: end;
+}
+
 @media (min-width: 768px) {
 	.container {
 		max-width: 800px;
 		margin: 0 auto;
 	}
-} 
+}
