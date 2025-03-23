@@ -1,73 +1,42 @@
 [
   {
-    "id": "luxury-collection-2023",
-    "name": "Luxury Collection 2023",
-    "description": "Collect premium fashion NFTs from top luxury brands to unlock exclusive benefits",
-    "startDate": "2023-10-01T00:00:00Z",
-    "endDate": "2024-05-31T23:59:59Z",
+    "id": "private-atelier-tour",
+    "name": "Private Atelier Tour",
+    "description": "Exclusive behind-the-scenes tour of the Hermès workshop in Paris.",
+    "category": "Event",
+    "brandWebsite": "https://www.hermes.com/",
+    "imageUri": "https://www.yatzer.com/sites/default/files/article_images/3011/Ateliers-Hermes-Pantin-France-yatzer-20.jpg",
     "requirements": [
       {
-        "type": "ownership",
-        "description": "Own at least 4 NFTs from Rolex or Hermes",
-        "parameters": {
-          "contractAddresses": [
-            "0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
-            "0xaBA661FA1D46B03298E13862ec5e03111586BcFE"
-          ],
-          "minCount": 4
-        }
-      },
-      {
-        "type": "price",
-        "description": "Each NFT must have a minimum value of 100 units",
-        "parameters": {
-          "minUnitPrice": 100
-        }
-      },
-      {
-        "type": "date",
-        "description": "NFTs must be created within the last year",
-        "parameters": {
-          "maxAgeInDays": 365
-        }
-      }
-    ],
-    "reward": "Exclusive access to upcoming fashion drops and virtual showroom experiences"
-  },
-  {
-    "id": "sustainable-fashion-pioneer",
-    "name": "Sustainable Fashion Pioneer",
-    "description": "Support sustainable fashion by collecting eco-friendly certified luxury items",
-    "startDate": "2023-11-15T00:00:00Z",
-    "endDate": "2024-06-30T23:59:59Z",
-    "requirements": [
-      {
-        "type": "ownership",
-        "description": "Own at least 4 NFTs from any luxury brand",
+        "type": "ownership-count",
+        "description": "You own min 4 premium products",
         "parameters": {
           "contractAddresses": [
             "0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
             "0xaBA661FA1D46B03298E13862ec5e03111586BcFE",
-            "0xeE8aA4b09E598006891eB35BCd86e15632aC3334"
+            "0xeE8aA4b09E598006891eB35BCd86e15632aC3334",
+            "0xdA17104992D1382739C1b05FaC909050d713e1E6",
+            "0xC68aFB1C3Fd9dC85c7FD2afaa62c4b973E91f6c6",
+            "0xDC5D240a3DC17cC3477FFF9B2d2B9da78C6b2E79",
+            "0xD148Da449978011457A4510daCA7538061186fb9",
           ],
           "minCount": 4
         }
       },
       {
-        "type": "price",
-        "description": "Each NFT must have a minimum value of 100 units",
+        "type": "ownership-unique-collection-count",
+        "description": "From at least 2 brands",
         "parameters": {
-          "minUnitPrice": 100
+          "minCount": 2
         }
       },
       {
         "type": "date",
-        "description": "NFTs must be created within the last year",
+        "description": "Products purchased in last 12 months",
         "parameters": {
           "maxAgeInDays": 365
         }
       }
-    ],
-    "reward": "Participation in exclusive sustainability-focused fashion events and early access to limited edition collections"
+    ]
   }
 ]

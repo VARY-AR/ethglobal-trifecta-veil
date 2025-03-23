@@ -5,5 +5,44 @@
   "address": "0xDC5D240a3DC17cC3477FFF9B2d2B9da78C6b2E79",
   "network": "baseSepolia",
   "basescanUrl": "https://sepolia.basescan.com/address/0xDC5D240a3DC17cC3477FFF9B2d2B9da78C6b2E79",
-  "tokens": []
+  "tokens": [
+    {
+      "id": 1,
+      "name": "Nautilus 5711/1A",
+      "description": "Stainless steel watch with blue dial.",
+      "imageUri": "https://www.patek.com/en/collection/nautilus/5711-1A-010",
+      "type": "Watch",
+      "supplyLimit": 50,
+      "unitPrice": 30000,
+      "brand": "Patek Philippe",
+      "contractAddress": "0xDC5D240a3DC17cC3477FFF9B2d2B9da78C6b2E79",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-23T12:34:58.143Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-23T12:35:04.534Z"
+      },
+      "lastUpdated": "2025-03-23T12:35:04.534Z"
+    },
+    {
+      "id": 2,
+      "name": "Calatrava 5227G",
+      "description": "White gold watch with cream lacquered dial.",
+      "imageUri": "https://www.patek.com/en/collection/calatrava/5227G-001",
+      "type": "Watch",
+      "supplyLimit": 60,
+      "unitPrice": 35000,
+      "brand": "Patek Philippe",
+      "contractAddress": "0xDC5D240a3DC17cC3477FFF9B2d2B9da78C6b2E79",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-23T12:35:11.365Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-23T12:35:17.941Z"
+      },
+      "lastUpdated": "2025-03-23T12:35:17.941Z"
+    }
+  ]
 }
