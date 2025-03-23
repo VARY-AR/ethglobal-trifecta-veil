@@ -4,7 +4,8 @@ import { Header } from '$/components/Header.js'
 import { ScrollView } from '$/components/ScrollView.js'
 import { Button } from '$/components/Button.js'
 import { SectionTitle } from '$/components/SectionTitle.js'
-import { events } from '$/data/mockData.js'
+import { RewardTicket } from '$/components/RewardTicket.js'
+import { useAppState } from '$/lib/AppStateProvider.js'
 import '$/shared/layout.css'
 import '$/shared/global.css'
 import './RewardEvent.css'
@@ -13,9 +14,12 @@ export default () => {
 	const navigate = useNavigate()
 	const { id } = useParams()
 	const [readMore, setReadMore] = useState(false)
+	const [isTicketOpen, setIsTicketOpen] = useState(false)
+	const { events, isRewardClaimed } = useAppState()
 	
 	// Find event by ID
 	const event = events.find(e => e.id === Number(id))
+	const isClaimed = isRewardClaimed(Number(id), 'event')
 	
 	if (!event) {
 		return (
@@ -31,6 +35,10 @@ export default () => {
 	
 	const verifyEligibility = () => {
 		navigate(`/reward/${id}/verify`)
+	}
+	
+	const viewTicket = () => {
+		setIsTicketOpen(true)
 	}
 	
 	return (
@@ -89,12 +97,27 @@ export default () => {
 					</view>
 					
 					<view className="RewardEvent__action-button-container">
-						<Button fullWidth bindtap={verifyEligibility}>
-							VERIFY ELIGIBILITY
-						</Button>
+						{isClaimed ? (
+							<Button fullWidth bindtap={viewTicket}>
+								SEE TICKET
+							</Button>
+						) : (
+							<Button fullWidth bindtap={verifyEligibility}>
+								VERIFY ELIGIBILITY
+							</Button>
+						)}
 					</view>
 				</view>
 			</view>
+			
+			{/* Ticket drawer */}
+			{event && (
+				<RewardTicket 
+					isOpen={isTicketOpen} 
+					onClose={() => setIsTicketOpen(false)}
+					event={event}
+				/>
+			)}
 		</ScrollView>
 	)
 }

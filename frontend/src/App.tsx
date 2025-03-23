@@ -3,6 +3,7 @@ import './App.css'
 import '$/shared/layout.css'
 import '$/shared/global.css'
 import { PrivyProvider } from './lib/PrivyProvider.jsx'
+import { AppStateProvider } from './lib/AppStateProvider.js'
 import { WalletManager } from './components/WalletManager.js'
 
 // Import all pages
@@ -18,21 +19,23 @@ import { Navigation } from './components/Navigation.jsx'
 export function App() {
 	return (
 		<PrivyProvider>
-			<MemoryRouter
-				initialEntries={['/profile']}
-			>
-				<Routes>
-					<Route path="/" element={<Profile />} />
-					<Route path="/profile" element={<Profile />} />
-					<Route path="/explore" element={<Explore />} />
-					<Route path="/wallets" element={<Wallets />} />
-					<Route path="/products" element={<Products />} />
-					<Route path="/reward/:id" element={<Event />} />
-					<Route path="/reward/:id/verify" element={<Verify />} />
-				</Routes>
-				<Navigation />
-				<WalletManager />
-			</MemoryRouter>
+			<AppStateProvider>
+				<MemoryRouter
+					initialEntries={['/profile']}
+				>
+					<Routes>
+						<Route path="/" element={<Profile />} />
+						<Route path="/profile" element={<Profile />} />
+						<Route path="/explore" element={<Explore />} />
+						<Route path="/wallets" element={<Wallets />} />
+						<Route path="/products" element={<Products />} />
+						<Route path="/reward/:id" element={<Event />} />
+						<Route path="/reward/:id/verify" element={<Verify />} />
+					</Routes>
+					<Navigation />
+					<WalletManager />
+				</MemoryRouter>
+			</AppStateProvider>
 		</PrivyProvider>
 	)
 }

@@ -2,6 +2,7 @@ import { useState } from '@lynx-js/react'
 import { Header } from '$/components/Header.js'
 import { ScrollView } from '$/components/ScrollView.js'
 import { useNavigate } from 'react-router'
+import { useAppState } from '$/lib/AppStateProvider.js'
 import '$/shared/layout.css'
 import '$/shared/global.css'
 import './Profile.css'
@@ -22,6 +23,7 @@ interface Event {
 
 export default () => {
 	const navigate = useNavigate()
+	const { events, memberships, isRewardClaimed } = useAppState()
 	const username = '@SIMON'
 	
 	// Fixed data to match the screenshot
@@ -39,8 +41,12 @@ export default () => {
 		{ id: '4', title: 'LOADING...' }
 	]
 	
-	const handleRewardPress = (id: string) => {
-		navigate(`/reward-verify/${id}`)
+	const handleMembershipPress = (id: number) => {
+		navigate(`/reward/${id}`)
+	}
+	
+	const handleEventPress = (id: number) => {
+		navigate(`/reward/${id}`)
 	}
 	
 	return (
@@ -60,12 +66,13 @@ export default () => {
 					/>
 					
 					<view className="Profile__rewards-grid">
-						{userMemberships.map((item) => (
+						{memberships.map((item) => (
 							<RewardItem 
 								key={item.id}
 								title={item.title}
-								loading={item.loading}
-								onPress={() => handleRewardPress(item.id)}
+								subtitle={item.description}
+								claimed={isRewardClaimed(item.id, 'membership')}
+								onPress={() => handleMembershipPress(item.id)}
 							/>
 						))}
 					</view>
@@ -73,16 +80,18 @@ export default () => {
 				
 				<view className="Profile__section">
 					<SectionTitle
-						title="YOUR REWARDS"
+						title="YOUR EVENTS"
 						subtitle="Event Rewards"
 					/>
 					
 					<view className="Profile__rewards-grid">
-						{userEvents.map((item) => (
+						{events.map((item) => (
 							<RewardItem 
 								key={item.id}
 								title={item.title}
-								onPress={() => handleRewardPress(item.id)}
+								subtitle={item.date}
+								claimed={isRewardClaimed(item.id, 'event')}
+								onPress={() => handleEventPress(item.id)}
 							/>
 						))}
 					</view>

@@ -80,7 +80,7 @@
 	line-height: 1.6;
 	margin-bottom: 1rem;
 	color: rgba(255, 255, 255, 0.9);
-	white-space: pre-wrap;
+	/* white-space: pre-wrap; */
 }
 
 .RewardEvent__read-more-link {

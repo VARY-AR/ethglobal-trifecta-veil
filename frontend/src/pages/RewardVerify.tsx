@@ -6,7 +6,7 @@ import { Drawer } from '$/components/Drawer.js'
 import { SectionTitle } from '$/components/SectionTitle.js'
 import { ProgressBar } from '$/components/ProgressBar.js'
 import { ScrollView } from '$/components/ScrollView.js'
-import { events } from '$/data/mockData.js'
+import { useAppState } from '$/lib/AppStateProvider.js'
 // import verifyCheck from '$/assets/verify-check.svg'
 import proofImage from '$/assets/proof.png'
 import proofGeneratingImage from '$/assets/proof-generating.png'
@@ -27,6 +27,7 @@ const VERIFICATION_VISUALS = {
 export default () => {
 	const navigate = useNavigate()
 	const { id } = useParams()
+	const { events, claimReward } = useAppState()
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 	const [verificationStage, setVerificationStage] = useState(0)
 	const [verificationProgress, setVerificationProgress] = useState(0)
@@ -86,7 +87,10 @@ export default () => {
 	
 	// Handle minting reward
 	const mintReward = () => {
-		navigate('/')
+		// Claim the reward in app state
+		claimReward(Number(id), 'event')
+		// Navigate back to the event page to see the ticket
+		navigate(`/reward/${id}`)
 	}
 	
 	// Handle opening proof base drawer
@@ -167,7 +171,7 @@ export default () => {
 									<Button 
 										variant="outline" 
 										className="RewardVerify__action-button"
-										bindtap={() => navigate(`/event/${id}`)}
+										bindtap={() => navigate(`/reward/${id}`)}
 									>
 										CANCEL
 									</Button>

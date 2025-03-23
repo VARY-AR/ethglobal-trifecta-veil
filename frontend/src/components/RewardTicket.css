@@ -1,0 +1,71 @@
+.RewardTicket {
+	padding: 24px 16px;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.RewardTicket__close {
+	text-align: center;
+	font-size: 12px;
+	letter-spacing: 2px;
+	margin-bottom: 16px;
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.RewardTicket__content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 24px;
+}
+
+.RewardTicket__title {
+	font-size: 18px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-align: center;
+}
+
+.RewardTicket__subtitle {
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	margin-top: -16px;
+}
+
+.RewardTicket__image-container {
+	width: 100%;
+	height: 240px;
+	overflow: hidden;
+	border-radius: 8px;
+}
+
+.RewardTicket__placeholder-image {
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, #333 0%, #222 100%);
+}
+
+.RewardTicket__qr-container {
+	width: 220px;
+	height: 220px;
+	padding: 16px;
+	background-color: white;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.RewardTicket__qr-code {
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h200v200H0z' fill='%23fff'/%3E%3Cpath d='M0 0h10v10H0zm20 0h10v10H20zm10 0h10v10H30zm20 0h10v10H50zm10 0h10v10H60zm20 0h10v10H80zm30 0h10v10h-10zm10 0h10v10h-10zm30 0h10v10h-10zm20 0h10v10h-10zm10 0h10v10h-10zM0 10h10v10H0zm60 0h10v10H60zm20 0h10v10H80zm10 0h10v10H90zm10 0h10v10h-10zm20 0h10v10h-10zm20 0h10v10h-10zm10 0h10v10h-10zm30 0h10v10h-10zM0 20h10v10H0zm10 0h10v10H10zm10 0h10v10H20zm10 0h10v10H30zm10 0h10v10H40zm10 0h10v10H50zm10 0h10v10H60zm30 0h10v10H90zm40 0h10v10h-10zm10 0h10v10h-10zm20 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zM0 30h10v10H0zm60 0h10v10H60zm20 0h10v10H80zm20 0h10v10h-10zm20 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm30 0h10v10h-10zM0 40h10v10H0zm10 0h10v10H10zm10 0h10v10H20zm10 0h10v10H30zm10 0h10v10H40zm10 0h10v10H50zm10 0h10v10H60zm30 0h10v10H90zm10 0h10v10h-10zm10 0h10v10h-10zm30 0h10v10h-10zm10 0h10v10h-10zm20 0h10v10h-10zM0 50h10v10H0zm60 0h10v10H60zm30 0h10v10H90zm10 0h10v10h-10zm10 0h10v10h-10zm20 0h10v10h-10zm20 0h10v10h-10zM0 60h10v10H0zm10 0h10v10H10zm10 0h10v10H20zm10 0h10v10H30zm10 0h10v10H40zm10 0h10v10H50zm10 0h10v10H60zm30 0h10v10H90zm20 0h10v10h-10zm20 0h10v10h-10zm10 0h10v10h-10zm20 0h10v10h-10zm10 0h10v10h-10zM90 70h10v10H90zm30 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm20 0h10v10h-10zM0 80h10v10H0zm30 0h10v10H30zm10 0h10v10H40zm20 0h10v10H70zm20 0h10v10H90zm10 0h10v10h-10zm30 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm20 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zM0 90h10v10H0zm10 0h10v10H10zm10 0h10v10H20zm10 0h10v10H30zm30 0h10v10H60zm20 0h10v10H80zm20 0h10v10h-10zm10 0h10v10h-10zm20 0h10v10h-10zm30 0h10v10h-10zm10 0h10v10h-10zM0 100h10v10H0zm10 0h10v10H10zm80 0h10v10H90zm10 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm20 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zM0 110h10v10H0zm40 0h10v10H40zm10 0h10v10H50zm20 0h10v10H70zm10 0h10v10H80zm20 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm20 0h10v10h-10zM0 120h10v10H0zm10 0h10v10H10zm10 0h10v10H20zm10 0h10v10H30zm10 0h10v10H40zm10 0h10v10H50zm20 0h10v10H70zm30 0h10v10h-10zm20 0h10v10h-10zm20 0h10v10h-10zm10 0h10v10h-10zM50 130h10v10H50zm10 0h10v10H60zm10 0h10v10H70zm50 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm30 0h10v10h-10zM10 140h10v10H10zm20 0h10v10H30zm10 0h10v10H40zm20 0h10v10H70zm10 0h10v10H80zm10 0h10v10H90zm30 0h10v10h-10zM0 150h10v10H0zm30 0h10v10H30zm10 0h10v10H40zm10 0h10v10H50zm30 0h10v10H90zm20 0h10v10h-10zm10 0h10v10h-10zm40 0h10v10h-10zM0 160h10v10H0zm10 0h10v10H10zm10 0h10v10H20zm10 0h10v10H30zm10 0h10v10H40zm10 0h10v10H50zm10 0h10v10H60zm30 0h10v10H90zm20 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm20 0h10v10h-10zm30 0h10v10h-10zM0 170h10v10H0zm60 0h10v10H60zm30 0h10v10H90zm10 0h10v10h-10zm40 0h10v10h-10zm10 0h10v10h-10zM0 180h10v10H0zm10 0h10v10H10zm10 0h10v10H20zm10 0h10v10H30zm10 0h10v10H40zm10 0h10v10H50zm10 0h10v10H60zm30 0h10v10H90zm20 0h10v10h-10zm10 0h10v10h-10zm30 0h10v10h-10zm10 0h10v10h-10zm20 0h10v10h-10zM0 190h10v10H0zm60 0h10v10H60zm10 0h10v10H70zm10 0h10v10H80zm20 0h10v10h-10zm10 0h10v10h-10zm10 0h10v10h-10zm40 0h10v10h-10zm10 0h10v10h-10z' fill='%23000'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+} 

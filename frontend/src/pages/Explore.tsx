@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router'
 import { Header } from '$/components/Header.js'
 import { ScrollView } from '$/components/ScrollView.js'
 import { SectionTitle } from '$/components/SectionTitle.js'
-import { memberships, events } from '$/data/mockData.js'
+import { useAppState } from '$/lib/AppStateProvider.js'
 import chevronIcon from '$/assets/chevron-right.png'
 import '$/shared/layout.css'
 import '$/shared/global.css'
@@ -10,9 +10,14 @@ import './Explore.css'
 
 export default () => {
 	const navigate = useNavigate()
+	const { events, memberships, isRewardClaimed } = useAppState()
 	
 	const goToEventDetail = (eventId: number) => {
 		navigate(`/reward/${eventId}`)
+	}
+	
+	const goToMembershipDetail = (membershipId: number) => {
+		navigate(`/reward/${membershipId}`)
 	}
 	
 	return (
@@ -33,16 +38,16 @@ export default () => {
 					/>
 					
 					<view className="Explore__rewards-list">
-						{memberships.map((reward, index) => (
+						{memberships.map((membership) => (
 							<view 
-								key={index}
+								key={membership.id}
 								className="Explore__reward-card"
-								bindtap={() => console.log('Membership tapped')}
+								bindtap={() => goToMembershipDetail(membership.id)}
 							>
 								<view className="Explore__reward-card__layout">
 									<view className="Explore__reward-card__content">
-										<text className="Explore__reward-card__title">{reward.title}</text>
-										<text className="Explore__reward-card__description">{reward.description}</text>
+										<text className="Explore__reward-card__title">{membership.title}</text>
+										<text className="Explore__reward-card__description">{membership.description}</text>
 									</view>
 									<image src={chevronIcon} className="Explore__reward-card__icon" />
 								</view>
@@ -53,21 +58,21 @@ export default () => {
 				
 				<view className="Explore__section">
 					<SectionTitle
-						title="REWARDS"
-						subtitle="Collect Event Rewards"
+						title="AVAILABLE EVENTS"
+						subtitle="AROUND YOU"
 					/>
 					
 					<view className="Explore__rewards-list">
-						{events.map((reward, index) => (
+						{events.map((event) => (
 							<view 
-								key={index}
+								key={event.id}
 								className="Explore__reward-card"
-								bindtap={() => goToEventDetail(reward.id)}
+								bindtap={() => goToEventDetail(event.id)}
 							>
 								<view className="Explore__reward-card__layout">
 									<view className="Explore__reward-card__content">
-										<text className="Explore__reward-card__title">{reward.title}</text>
-										<text className="Explore__reward-card__description">{reward.date}</text>
+										<text className="Explore__reward-card__title">{event.title}</text>
+										<text className="Explore__reward-card__description">{event.date}</text>
 									</view>
 									<image src={chevronIcon} className="Explore__reward-card__icon" />
 								</view>
