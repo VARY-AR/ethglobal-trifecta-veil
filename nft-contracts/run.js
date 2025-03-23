@@ -35,7 +35,7 @@ async function main() {
   const [signer] = await hre.ethers.getSigners();
   const signerAddress = await signer.getAddress();
   const brandDeployments = [];
-  for (const brandName of ["Prada", "Gucci", "Burberry"]) {
+  for (const brandName of Object.keys(brandItems)) {
     const deployment = await getDeployment(brandName);
     const brandContract = VeilBrand.attach(deployment.address);
     brandDeployments.push({ ...deployment, contract: brandContract });

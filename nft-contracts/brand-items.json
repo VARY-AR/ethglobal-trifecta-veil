@@ -1,32 +1,128 @@
 {
-  "Prada": [
+  "Rolex": [
     {
-      "name": "Leather Handbag",
-      "description": "Premium Italian leather handbag",
-      "imageUri": "https://img.stylemi.co/unsafe/fit-in/520x650/filters:fill(fff)/products/farfetch/36051869-prada-medium-galleria-saffiano-leather-tote-bag.jpg",
-      "type": "Handbag",
+      "name": "Day-Date 40",
+      "description": "18 ct yellow gold watch with a champagne-colored dial and President bracelet.",
+      "imageUri": "https://www.rolex.com/watches/day-date/m228238-0002.html",
+      "type": "Watch",
       "supplyLimit": 100,
-      "unitPrice": 11000
+      "unitPrice": 35000
+    },
+    {
+      "name": "Submariner Date",
+      "description": "Oystersteel and yellow gold watch with a black dial and rotatable bezel.",
+      "imageUri": "https://www.rolex.com/watches/submariner/m126613ln-0002.html",
+      "type": "Watch",
+      "supplyLimit": 150,
+      "unitPrice": 14500
+    }
+  ],
+  "Hermès": [
+    {
+      "name": "Birkin 30",
+      "description": "Iconic handbag crafted from Togo leather with palladium hardware.",
+      "imageUri": "https://www.hermes.com/us/en/product/birkin-30-bag-H075037CK89/",
+      "type": "Handbag",
+      "supplyLimit": 50,
+      "unitPrice": 12000
+    },
+    {
+      "name": "Carré 90 Scarf",
+      "description": "Silk twill scarf featuring the 'Brides de Gala' design.",
+      "imageUri": "https://www.hermes.com/us/en/product/carre-90-scarf-H003122S06/",
+      "type": "Garment",
+      "supplyLimit": 200,
+      "unitPrice": 430
     }
   ],
   "Gucci": [
     {
-      "name": "Designer Belt",
-      "description": "Signature GG buckle belt",
-      "imageUri": "https://imgs.search.brave.com/D2ho4AFxEhyeRoTun_3XHb3m_WWO4pwSQ6fuH_nsdIU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pNS53/YWxtYXJ0aW1hZ2Vz/LmNvbS9zZW8vR3Vj/Y2ktU3R1ZGRlZC1s/ZWF0aGVyLWJlbHQt/bWV0YWwtYm93LWhp/YmlzY3VzLXJlZC1i/bGFjay1CZWx0LU1v/b24tUGVhcmwtSXRh/bHktTmV3XzkwZWYz/NTQ5LTA5ZDUtNDJj/ZS1hMGYwLTE1NGMz/OWY5N2U1ZV8xLmU3/YjhhMDRhNzEwMTA2/MGFlOWRjNjE4MDA2/ZDIxOTk4LmpwZWc_/b2RuSGVpZ2h0PTc4/NCZvZG5XaWR0aD01/ODAmb2RuQmc9RkZG/RkZG",
-      "type": "Belt",
-      "supplyLimit": 150,
-      "unitPrice": 1300
+      "name": "GG Marmont Small Shoulder Bag",
+      "description": "Matelassé chevron leather bag with antique gold-toned hardware.",
+      "imageUri": "https://www.gucci.com/us/en/pr/gg-marmont-small-shoulder-bag-p-447632DTDHT1000",
+      "type": "Handbag",
+      "supplyLimit": 120,
+      "unitPrice": 1980
+    },
+    {
+      "name": "Men's Wool Coat",
+      "description": "Double-breasted wool coat with peak lapel and enamel buttons.",
+      "imageUri": "https://www.gucci.com/us/en/pr/mens-ready-to-wear/mens-outerwear/mens-coats/mens-wool-coat-p-634875ZACAT1000",
+      "type": "Garment",
+      "supplyLimit": 80,
+      "unitPrice": 3200
     }
   ],
-  "Burberry": [
+  "Louis Vuitton": [
     {
-      "name": "Classic Trench Coat",
-      "description": "Iconic Burberry trench coat",
-      "imageUri": "https://imgs.search.brave.com/Qrvd2-CGbPwqiNcw70XCh0cOIlnOC7SreUsBYHJ_hBA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0L3do/b3doYXR3ZWFyL3Bv/c3RzLzI4MTg1Ni9i/ZXN0LWJ1cmJlcnJ5/LXRyZW5jaC1jb2F0/LXdvbWVuLTI4MTg1/Ni0xNjc5Njc3NDA0/MTYzLW1haW4tMzIw/LTgwLmpwZw",
-      "type": "Coat",
+      "name": "Speedy Bandoulière 25",
+      "description": "Classic monogram canvas bag with detachable strap.",
+      "imageUri": "https://us.louisvuitton.com/eng-us/products/speedy-bandouliere-25-monogram-008788",
+      "type": "Handbag",
+      "supplyLimit": 200,
+      "unitPrice": 1550
+    },
+    {
+      "name": "LV Trainer Sneaker",
+      "description": "Calf leather sneaker with monogram canvas trim.",
+      "imageUri": "https://us.louisvuitton.com/eng-us/products/lv-trainer-sneaker-nvprod1770356v",
+      "type": "Garment",
+      "supplyLimit": 150,
+      "unitPrice": 1090
+    }
+  ],
+  "Chanel": [
+    {
+      "name": "Classic Handbag",
+      "description": "Lambskin handbag with gold-tone metal.",
+      "imageUri": "https://www.chanel.com/us/fashion/p/A01112Y01295C3906/classic-handbag-lambskin-gold-tone-metal/",
+      "type": "Handbag",
+      "supplyLimit": 100,
+      "unitPrice": 6500
+    },
+    {
+      "name": "J12 Watch",
+      "description": "White ceramic and steel watch with diamond indicators.",
+      "imageUri": "https://www.chanel.com/us/watches/p/H5700/j12-white-ceramic-and-steel-watch-33-mm/",
+      "type": "Watch",
+      "supplyLimit": 80,
+      "unitPrice": 7200
+    }
+  ],
+  "Patek Philippe": [
+    {
+      "name": "Nautilus 5711/1A",
+      "description": "Stainless steel watch with blue dial.",
+      "imageUri": "https://www.patek.com/en/collection/nautilus/5711-1A-010",
+      "type": "Watch",
       "supplyLimit": 50,
-      "unitPrice": 20000
+      "unitPrice": 30000
+    },
+    {
+      "name": "Calatrava 5227G",
+      "description": "White gold watch with cream lacquered dial.",
+      "imageUri": "https://www.patek.com/en/collection/calatrava/5227G-001",
+      "type": "Watch",
+      "supplyLimit": 60,
+      "unitPrice": 35000
+    }
+  ],
+  "Audemars Piguet": [
+    {
+      "name": "Royal Oak Offshore",
+      "description": "Stainless steel watch with black ceramic bezel.",
+      "imageUri": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak-offshore/26420SO.OO.A002CA.01.html",
+      "type": "Watch",
+      "supplyLimit": 70,
+      "unitPrice": 42000
+    },
+    {
+      "name": "Royal Oak Selfwinding",
+      "description": "18-carat pink gold watch with silver-toned dial.",
+      "imageUri": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/15500OR.OO.D002CR.01.html",
+      "type": "Watch",
+      "supplyLimit": 50,
+      "unitPrice": 55000
     }
   ]
 }

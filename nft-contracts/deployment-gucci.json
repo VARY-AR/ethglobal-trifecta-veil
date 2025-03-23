@@ -1,29 +1,9 @@
 {
   "brandName": "Gucci",
   "signer": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
-  "deployedAt": "2025-03-22T16:42:29.691Z",
-  "address": "0xEDBB9ea80cf07CEa5dEe7E135fCFd6ae50b1A2c8",
+  "deployedAt": "2025-03-23T12:30:21.349Z",
+  "address": "0xeE8aA4b09E598006891eB35BCd86e15632aC3334",
   "network": "baseSepolia",
-  "basescanUrl": "https://sepolia.basescan.com/address/0xEDBB9ea80cf07CEa5dEe7E135fCFd6ae50b1A2c8",
-  "tokens": [
-    {
-      "id": 1,
-      "name": "Designer Belt",
-      "description": "Signature GG buckle belt",
-      "imageUri": "https://imgs.search.brave.com/D2ho4AFxEhyeRoTun_3XHb3m_WWO4pwSQ6fuH_nsdIU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pNS53/YWxtYXJ0aW1hZ2Vz/LmNvbS9zZW8vR3Vj/Y2ktU3R1ZGRlZC1s/ZWF0aGVyLWJlbHQt/bWV0YWwtYm93LWhp/YmlzY3VzLXJlZC1i/bGFjay1CZWx0LU1v/b24tUGVhcmwtSXRh/bHktTmV3XzkwZWYz/NTQ5LTA5ZDUtNDJj/ZS1hMGYwLTE1NGMz/OWY5N2U1ZV8xLmU3/YjhhMDRhNzEwMTA2/MGFlOWRjNjE4MDA2/ZDIxOTk4LmpwZWc_/b2RuSGVpZ2h0PTc4/NCZvZG5XaWR0aD01/ODAmb2RuQmc9RkZG/RkZG",
-      "type": "Belt",
-      "supplyLimit": 150,
-      "unitPrice": 1300,
-      "brand": "Gucci",
-      "contractAddress": "0xEDBB9ea80cf07CEa5dEe7E135fCFd6ae50b1A2c8",
-      "network": "baseSepolia",
-      "createdAt": "2025-03-22T16:44:09.106Z",
-      "minting": {
-        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
-        "amount": 1,
-        "mintedAt": "2025-03-22T16:44:11.516Z"
-      },
-      "lastUpdated": "2025-03-22T16:44:11.516Z"
-    }
-  ]
+  "basescanUrl": "https://sepolia.basescan.com/address/0xeE8aA4b09E598006891eB35BCd86e15632aC3334",
+  "tokens": []
 }

@@ -8,11 +8,11 @@
     "requirements": [
       {
         "type": "ownership",
-        "description": "Own at least 4 NFTs from Prada or Gucci",
+        "description": "Own at least 4 NFTs from Rolex or Hermes",
         "parameters": {
           "contractAddresses": [
-            "0x7b96EAe24193302a31ce1FcF414aB76fF9D10D83",
-            "0xEDBB9ea80cf07CEa5dEe7E135fCFd6ae50b1A2c8"
+            "0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
+            "0xaBA661FA1D46B03298E13862ec5e03111586BcFE"
           ],
           "minCount": 4
         }
@@ -46,9 +46,9 @@
         "description": "Own at least 4 NFTs from any luxury brand",
         "parameters": {
           "contractAddresses": [
-            "0x7b96EAe24193302a31ce1FcF414aB76fF9D10D83",
-            "0xEDBB9ea80cf07CEa5dEe7E135fCFd6ae50b1A2c8",
-            "0x2FF69e6d72a371eE03C77A0A62fed49A5b5480A8"
+            "0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
+            "0xaBA661FA1D46B03298E13862ec5e03111586BcFE",
+            "0xeE8aA4b09E598006891eB35BCd86e15632aC3334"
           ],
           "minCount": 4
         }

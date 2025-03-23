@@ -9,9 +9,9 @@ const ERC1155_ABI = [
 ];
 
 const KNOWN_CONTRACTS = [
-  { address: '0x7b96EAe24193302a31ce1FcF414aB76fF9D10D83', brand: 'Prada' },
-  { address: '0xEDBB9ea80cf07CEa5dEe7E135fCFd6ae50b1A2c8', brand: 'Gucci' },
-  { address: '0x2FF69e6d72a371eE03C77A0A62fed49A5b5480A8', brand: 'Burberry' }
+  { address: '0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7', brand: 'Rolex' },
+  { address: '0xaBA661FA1D46B03298E13862ec5e03111586BcFE', brand: 'Hermes' },
+  { address: '0xeE8aA4b09E598006891eB35BCd86e15632aC3334', brand: 'Gucci' }
 ];
 
 export const _getSigningString = (tokens: Token[]): string => {
