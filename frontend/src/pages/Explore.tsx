@@ -3,6 +3,8 @@ import { Header } from '$/components/Header.js'
 import { ScrollView } from '$/components/ScrollView.js'
 import { SectionTitle } from '$/components/SectionTitle.js'
 import { useAppState } from '$/lib/AppStateProvider.js'
+import { Badge } from '$/components/Badge.js'
+import type { BadgeStatus } from '$/components/Badge.js'
 import chevronIcon from '$/assets/chevron-right.png'
 import '$/shared/layout.css'
 import '$/shared/global.css'
@@ -10,7 +12,7 @@ import './Explore.css'
 
 export default () => {
 	const navigate = useNavigate()
-	const { events, memberships, isRewardClaimed } = useAppState()
+	const { events, memberships, getRewardStatus, isRewardClaimed } = useAppState()
 	
 	const goToEventDetail = (eventId: number) => {
 		navigate(`/reward/${eventId}`)
@@ -19,14 +21,20 @@ export default () => {
 	const goToMembershipDetail = (membershipId: number) => {
 		navigate(`/reward/${membershipId}`)
 	}
-	
+
+	// Get badge status for a reward
+	const getStatusClasses = (status: BadgeStatus): string => {
+		return status === 'claimed' ? 'Explore__reward-card--claimed' : ''
+	}
+
 	return (
 		<ScrollView>
 			<Header />
 			
-			<view className="Explore__search-container">
-				<view className="Explore__search-input">
-					<text className="Explore__search-placeholder">Search...</text>
+			<view className="Explore__hero">
+				<view className="container">
+					<text className="Explore__hero-title">DISCOVER & VERIFY</text>
+					<text className="Explore__hero-subtitle">Access exclusive events and brand memberships</text>
 				</view>
 			</view>
 			
@@ -39,24 +47,22 @@ export default () => {
 					
 					<view className="Explore__rewards-list">
 						{memberships.map((membership) => {
-							const isClaimed = isRewardClaimed(membership.id, 'membership')
+							const status = getRewardStatus(membership.id, 'membership')
 							return (
 								<view 
 									key={membership.id}
-									className={`Explore__reward-card ${isClaimed ? 'Explore__reward-card--claimed' : ''}`}
+									className={`Explore__reward-card ${getStatusClasses(status)}`}
 									bindtap={() => goToMembershipDetail(membership.id)}
 								>
+									<view className="Explore__reward-card__badge">
+										<Badge status={status} />
+									</view>
 									<view className="Explore__reward-card__layout">
 										<view className="Explore__reward-card__content">
 											<text className="Explore__reward-card__title">{membership.title}</text>
 											<text className="Explore__reward-card__description">{membership.description}</text>
 										</view>
 										<view className="Explore__reward-card__right">
-											{isClaimed && (
-												<view className="Explore__reward-card__claimed-badge">
-													<text>CLAIMED</text>
-												</view>
-											)}
 											<image src={chevronIcon} className="Explore__reward-card__icon" />
 										</view>
 									</view>
@@ -74,24 +80,22 @@ export default () => {
 					
 					<view className="Explore__rewards-list">
 						{events.map((event) => {
-							const isClaimed = isRewardClaimed(event.id, 'event')
+							const status = getRewardStatus(event.id, 'event')
 							return (
 								<view 
 									key={event.id}
-									className={`Explore__reward-card ${isClaimed ? 'Explore__reward-card--claimed' : ''}`}
+									className={`Explore__reward-card ${getStatusClasses(status)}`}
 									bindtap={() => goToEventDetail(event.id)}
 								>
+									<view className="Explore__reward-card__badge">
+										<Badge status={status} />
+									</view>
 									<view className="Explore__reward-card__layout">
 										<view className="Explore__reward-card__content">
 											<text className="Explore__reward-card__title">{event.title}</text>
 											<text className="Explore__reward-card__description">{event.date}</text>
 										</view>
 										<view className="Explore__reward-card__right">
-											{isClaimed && (
-												<view className="Explore__reward-card__claimed-badge">
-													<text>CLAIMED</text>
-												</view>
-											)}
 											<image src={chevronIcon} className="Explore__reward-card__icon" />
 										</view>
 									</view>

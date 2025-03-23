@@ -5,7 +5,9 @@ import { ScrollView } from '$/components/ScrollView.js'
 import { Button } from '$/components/Button.js'
 import { SectionTitle } from '$/components/SectionTitle.js'
 import { RewardTicket } from '$/components/RewardTicket.js'
+import { Badge } from '$/components/Badge.js'
 import { useAppState } from '$/lib/AppStateProvider.js'
+import type { BadgeStatus } from '$/components/Badge.js'
 import '$/shared/layout.css'
 import '$/shared/global.css'
 import './RewardEvent.css'
@@ -15,11 +17,11 @@ export default () => {
 	const { id } = useParams()
 	const [readMore, setReadMore] = useState(false)
 	const [isTicketOpen, setIsTicketOpen] = useState(false)
-	const { events, isRewardClaimed } = useAppState()
+	const { events, getRewardStatus, updateRewardStatus, isRewardClaimed, isRewardClaimable } = useAppState()
 	
 	// Find event by ID
 	const event = events.find(e => e.id === Number(id))
-	const isClaimed = isRewardClaimed(Number(id), 'event')
+	const rewardStatus = getRewardStatus(Number(id), 'event')
 	
 	if (!event) {
 		return (
@@ -34,6 +36,8 @@ export default () => {
 	}
 	
 	const verifyEligibility = () => {
+		// When verification is started, update status to claimable
+		updateRewardStatus(Number(id), 'event', 'claimable')
 		navigate(`/reward/${id}/verify`)
 	}
 	
@@ -97,7 +101,7 @@ export default () => {
 					</view>
 					
 					<view className="RewardEvent__action-button-container">
-						{isClaimed ? (
+						{isRewardClaimed(Number(id), 'event') ? (
 							<Button fullWidth bindtap={viewTicket}>
 								SEE TICKET
 							</Button>

@@ -1,0 +1,63 @@
+.BadgeExample {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	padding: 16px;
+}
+
+.BadgeExample__section {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.BadgeExample__title {
+	font-size: 18px;
+	font-weight: 600;
+	color: #ffffff;
+}
+
+.BadgeExample__badges {
+	display: flex;
+	gap: 16px;
+}
+
+.BadgeExample__badge-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+}
+
+.BadgeExample__label {
+	font-size: 12px;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.BadgeExample__rewards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 16px;
+}
+
+/* Position example */
+.BadgeExample__position-container {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	margin-top: 16px;
+}
+
+.BadgeExample__relative-container {
+	position: relative;
+	height: 120px;
+	background-color: rgba(255, 255, 255, 0.05);
+	border-radius: 8px;
+	padding: 16px;
+}
+
+.BadgeExample__absolute-badge {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+} 

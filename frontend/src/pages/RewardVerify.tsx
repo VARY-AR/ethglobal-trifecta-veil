@@ -27,7 +27,7 @@ const VERIFICATION_VISUALS = {
 export default () => {
 	const navigate = useNavigate()
 	const { id } = useParams()
-	const { events, claimReward } = useAppState()
+	const { events, updateRewardStatus } = useAppState()
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 	const [verificationStage, setVerificationStage] = useState(0)
 	const [verificationProgress, setVerificationProgress] = useState(0)
@@ -42,41 +42,39 @@ export default () => {
 		}
 	}, [event, navigate])
 	
+	// Mock proving steps to simulate verification process
+	const PROVING_STEPS = [
+		'Generating zero-knowledge proving circuit...',
+		'Collecting verification parameters...',
+		'Building proof...',
+		'Verifying proof validity...',
+		'Connecting to the verification server...',
+		'Submitting zero-knowledge proof...',
+		'Confirming user eligibility...',
+		'Verification successful!'
+	]
+	
+	// Update verification stage and progress
 	useEffect(() => {
+		let timer: any
+		
 		if (verificationStage === 1) {
-			// Simulate verification process
-			const interval = setInterval(() => {
-				setVerificationProgress(prev => {
-					if (prev >= 100) {
-						clearInterval(interval)
-						setTimeout(() => {
-							setVerificationStage(2)
-						}, 500)
-						return 100
-					}
-					return prev + 5
-				})
-			}, 300)
-			
-			return () => clearInterval(interval)
+			let currentStep = 0
+			timer = setInterval(() => {
+				if (currentStep < PROVING_STEPS.length - 1) {
+					currentStep++
+					setVerificationProgress(
+						(currentStep / (PROVING_STEPS.length - 1)) * 100
+					)
+				} else {
+					clearInterval(timer)
+					setVerificationStage(2)
+				}
+			}, 1000)
 		}
-	}, [verificationStage])
-	
-	// When verification is complete, simulate request admission
-	useEffect(() => {
-		if (verificationStage === 2) {
-			setTimeout(() => {
-				setVerificationStage(3)
-			}, 2000)
-		}
-	}, [verificationStage])
-	
-	// For the final success stage
-	useEffect(() => {
-		if (verificationStage === 3) {
-			setTimeout(() => {
-				setVerificationStage(4)
-			}, 2000)
+		
+		return () => {
+			if (timer) clearInterval(timer)
 		}
 	}, [verificationStage])
 	
@@ -87,8 +85,8 @@ export default () => {
 	
 	// Handle minting reward
 	const mintReward = () => {
-		// Claim the reward in app state
-		claimReward(Number(id), 'event')
+		// Update the reward status to claimed in app state
+		updateRewardStatus(Number(id), 'event', 'claimed')
 		// Navigate back to the event page to see the ticket
 		navigate(`/reward/${id}`)
 	}

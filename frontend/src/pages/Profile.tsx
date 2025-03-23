@@ -8,6 +8,7 @@ import '$/shared/global.css'
 import './Profile.css'
 import { RewardItem } from '../components/RewardItem.js'
 import { SectionTitle } from '../components/SectionTitle.js'
+import type { BadgeStatus } from '../components/Badge.js'
 
 // Define types for our data
 interface Membership {
@@ -23,12 +24,16 @@ interface Event {
 
 export default () => {
 	const navigate = useNavigate()
-	const { events, memberships, isRewardClaimed } = useAppState()
+	const { events, memberships, getRewardStatus, isRewardClaimed, isRewardClaimable } = useAppState()
 	const username = '@SIMON'
 
-	// Filter to only claimed memberships and events
-	const claimedMemberships = memberships.filter(item => isRewardClaimed(item.id, 'membership'))
-	const claimedEvents = events.filter(item => isRewardClaimed(item.id, 'event'))
+	// Filter to get claimed and claimable memberships and events
+	const claimedMemberships = memberships.filter(item => 
+		isRewardClaimed(item.id, 'membership') || isRewardClaimable(item.id, 'membership')
+	)
+	const claimedEvents = events.filter(item => 
+		isRewardClaimed(item.id, 'event') || isRewardClaimable(item.id, 'event')
+	)
 
 	const handleMembershipPress = (id: number) => {
 		navigate(`/reward/${id}`)
@@ -36,6 +41,11 @@ export default () => {
 
 	const handleEventPress = (id: number) => {
 		navigate(`/reward/${id}`)
+	}
+
+	// Function to get the badge status for a reward
+	const getRewardBadgeStatus = (id: number, type: 'event' | 'membership'): BadgeStatus => {
+		return getRewardStatus(id, type)
 	}
 
 	return (
@@ -51,7 +61,7 @@ export default () => {
 				<view className="Profile__section">
 					<SectionTitle
 						title="YOUR MEMBERSHIPS"
-						subtitle="Claimed Brand Memberships"
+						subtitle="Claimed & Claimable Brand Memberships"
 					/>
 
 					{claimedMemberships.length > 0 ? (
@@ -61,20 +71,20 @@ export default () => {
 									key={item.id}
 									title={item.title}
 									subtitle={item.description}
-									claimed={true}
+									status={getRewardBadgeStatus(item.id, 'membership')}
 									onPress={() => handleMembershipPress(item.id)}
 								/>
 							))}
 						</view>
 					) : (
-						<text className="Profile__no-rewards">No memberships claimed yet.</text>
+						<text className="Profile__no-rewards">No memberships available yet.</text>
 					)}
 				</view>
 
 				<view className="Profile__section">
 					<SectionTitle
 						title="YOUR EVENTS"
-						subtitle="Claimed Event Rewards"
+						subtitle="Claimed & Claimable Event Rewards"
 					/>
 
 					{claimedEvents.length > 0 ? (
@@ -84,13 +94,13 @@ export default () => {
 									key={item.id}
 									title={item.title}
 									subtitle={item.date}
-									claimed={true}
+									status={getRewardBadgeStatus(item.id, 'event')}
 									onPress={() => handleEventPress(item.id)}
 								/>
 							))}
 						</view>
 					) : (
-						<text className="Profile__no-rewards">No events claimed yet.</text>
+						<text className="Profile__no-rewards">No events available yet.</text>
 					)}
 				</view>
 			</view>
