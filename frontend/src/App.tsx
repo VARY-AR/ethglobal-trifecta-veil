@@ -2,6 +2,7 @@ import { MemoryRouter, Routes, Route, useNavigate, useLocation } from 'react-rou
 import './App.css'
 import '$/shared/layout.css'
 import '$/shared/global.css'
+import { PrivyProvider } from './lib/PrivyProvider.jsx'
 
 // Import all pages
 import { HomePage } from './pages/HomePage.js'
@@ -16,18 +17,20 @@ import { Navigation } from './components/Navigation.js'
 // App entry point
 export function App() {
 	return (
-		<MemoryRouter>
-			<Routes>
-				<Route path="/" element={<HomePage />} />
-				<Route path="/wallet" element={<WalletPage />} />
-				<Route path="/products" element={<ProductDashboardPage />} />
-				<Route path="/rewards" element={<RewardsPage />} />
-				<Route path="/profile" element={<BrandOnboardingPage />} />
-				<Route path="/event/:id" element={<EventDetailPage />} />
-				<Route path="/event/:id/verify" element={<EventVerifyPage />} />
-			</Routes>
-			<Navigation />
-		</MemoryRouter>
+		<PrivyProvider>
+			<MemoryRouter>
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route path="/wallet" element={<WalletPage />} />
+					<Route path="/products" element={<ProductDashboardPage />} />
+					<Route path="/rewards" element={<RewardsPage />} />
+					<Route path="/profile" element={<BrandOnboardingPage />} />
+					<Route path="/event/:id" element={<EventDetailPage />} />
+					<Route path="/event/:id/verify" element={<EventVerifyPage />} />
+				</Routes>
+				<Navigation />
+			</MemoryRouter>
+		</PrivyProvider>
 	)
 }
 
