@@ -2,6 +2,7 @@ import './RewardTicket.css'
 import { Drawer } from './Drawer.js'
 import { Button } from './Button.js'
 import type { Bounty } from '../data/mockData.js'
+import qrCode from '$/assets/qr.png'
 
 interface RewardTicketProps {
 	isOpen: boolean
@@ -40,10 +41,8 @@ export function RewardTicket({ isOpen, onClose, event, bounty }: RewardTicketPro
 					</view>
 					
 					<view className="RewardTicket__qr-container">
-						{/* Placeholder for QR code - in a real app this would be generated */}
-						<view className="RewardTicket__qr-code">
-							<text>QR Code</text>
-						</view>
+						{/* QR code image */}
+						<image src={qrCode} className="RewardTicket__qr-code" />
 					</view>
 				</view>
 			</view>
