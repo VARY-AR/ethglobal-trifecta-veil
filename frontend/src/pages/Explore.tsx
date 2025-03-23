@@ -96,7 +96,7 @@ export default () => {
 							)
 						})}
 						
-						{memberships.map((membership) => {
+						{/* {memberships.map((membership) => {
 							const status = getRewardStatus(membership.id, 'membership')
 							return (
 								<view 
@@ -118,7 +118,7 @@ export default () => {
 									</view>
 								</view>
 							)
-						})}
+						})} */}
 					</view>
 				</view>
 				
@@ -164,7 +164,7 @@ export default () => {
 							)
 						})}
 						
-						{events.map((event) => {
+						{/* {events.map((event) => {
 							const status = getRewardStatus(event.id, 'event')
 							return (
 								<view 
@@ -194,7 +194,7 @@ export default () => {
 									</view>
 								</view>
 							)
-						})}
+						})} */}
 					</view>
 				</view>
 			</view>
