@@ -10,41 +10,28 @@ import { RewardItem } from '../components/RewardItem.js'
 import { SectionTitle } from '../components/SectionTitle.js'
 import type { BadgeStatus } from '../components/Badge.js'
 
-// Define types for our data
-interface Membership {
-	id: string
-	title: string
-	loading?: boolean
-}
-
-interface Event {
-	id: string
-	title: string
-}
-
 export default () => {
 	const navigate = useNavigate()
-	const { events, memberships, getRewardStatus, isRewardClaimed, isRewardClaimable } = useAppState()
+	const { bounties, getRewardStatus, isRewardClaimed, isRewardClaimable } = useAppState()
 	const username = '@SIMON'
 
-	// Filter to get claimed and claimable memberships and events
-	const claimedMemberships = memberships.filter(item => 
-		isRewardClaimed(item.id, 'membership') || isRewardClaimable(item.id, 'membership')
+	// Derive memberships and events from bounties by filtering on category
+	const membershipBounties = bounties.filter(item => 
+		item.category === 'VIC Membership' && 
+		(isRewardClaimed(item.id, 'bounty') || isRewardClaimable(item.id, 'bounty'))
 	)
-	const claimedEvents = events.filter(item => 
-		isRewardClaimed(item.id, 'event') || isRewardClaimable(item.id, 'event')
+	
+	const eventBounties = bounties.filter(item => 
+		item.category === 'Event' && 
+		(isRewardClaimed(item.id, 'bounty') || isRewardClaimable(item.id, 'bounty'))
 	)
 
-	const handleMembershipPress = (id: number) => {
-		navigate(`/reward/${id}`)
-	}
-
-	const handleEventPress = (id: number) => {
+	const handleRewardPress = (id: string) => {
 		navigate(`/reward/${id}`)
 	}
 
 	// Function to get the badge status for a reward
-	const getRewardBadgeStatus = (id: number, type: 'event' | 'membership'): BadgeStatus => {
+	const getRewardBadgeStatus = (id: string, type: 'bounty'): BadgeStatus => {
 		return getRewardStatus(id, type)
 	}
 
@@ -64,15 +51,16 @@ export default () => {
 						subtitle="Claimed & Claimable Brand Memberships"
 					/>
 
-					{claimedMemberships.length > 0 ? (
+					{membershipBounties.length > 0 ? (
 						<view className="Profile__rewards-grid">{
-							claimedMemberships.map((item) => (
+							membershipBounties.map((item) => (
 								<RewardItem
 									key={item.id}
-									title={item.title}
+									title={item.name}
 									subtitle={item.description}
-									status={getRewardBadgeStatus(item.id, 'membership')}
-									onPress={() => handleMembershipPress(item.id)}
+									image={item.imageUri}
+									status={getRewardBadgeStatus(item.id, 'bounty')}
+									onPress={() => handleRewardPress(item.id)}
 								/>
 							))}
 						</view>
@@ -87,15 +75,16 @@ export default () => {
 						subtitle="Claimed & Claimable Event Rewards"
 					/>
 
-					{claimedEvents.length > 0 ? (
+					{eventBounties.length > 0 ? (
 						<view className="Profile__rewards-grid">
-							{claimedEvents.map((item) => (
+							{eventBounties.map((item) => (
 								<RewardItem
 									key={item.id}
-									title={item.title}
-									subtitle={item.date}
-									status={getRewardBadgeStatus(item.id, 'event')}
-									onPress={() => handleEventPress(item.id)}
+									title={item.name}
+									subtitle={item.description}
+									image={item.imageUri}
+									status={getRewardBadgeStatus(item.id, 'bounty')}
+									onPress={() => handleRewardPress(item.id)}
 								/>
 							))}
 						</view>
