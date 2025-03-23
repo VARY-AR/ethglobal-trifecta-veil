@@ -1,0 +1,128 @@
+{
+  "Rolex": [
+    {
+      "name": "Day-Date 40",
+      "description": "18 ct yellow gold watch with a champagne-colored dial and President bracelet.",
+      "imageUri": "https://www.rolex.com/watches/day-date/m228238-0002.html",
+      "type": "Watch",
+      "supplyLimit": 100,
+      "unitPrice": 35000
+    },
+    {
+      "name": "Submariner Date",
+      "description": "Oystersteel and yellow gold watch with a black dial and rotatable bezel.",
+      "imageUri": "https://www.rolex.com/watches/submariner/m126613ln-0002.html",
+      "type": "Watch",
+      "supplyLimit": 150,
+      "unitPrice": 14500
+    }
+  ],
+  "Hermès": [
+    {
+      "name": "Birkin 30",
+      "description": "Iconic handbag crafted from Togo leather with palladium hardware.",
+      "imageUri": "https://www.hermes.com/us/en/product/birkin-30-bag-H075037CK89/",
+      "type": "Handbag",
+      "supplyLimit": 50,
+      "unitPrice": 12000
+    },
+    {
+      "name": "Carré 90 Scarf",
+      "description": "Silk twill scarf featuring the 'Brides de Gala' design.",
+      "imageUri": "https://www.hermes.com/us/en/product/carre-90-scarf-H003122S06/",
+      "type": "Garment",
+      "supplyLimit": 200,
+      "unitPrice": 430
+    }
+  ],
+  "Gucci": [
+    {
+      "name": "GG Marmont Small Shoulder Bag",
+      "description": "Matelassé chevron leather bag with antique gold-toned hardware.",
+      "imageUri": "https://www.gucci.com/us/en/pr/gg-marmont-small-shoulder-bag-p-447632DTDHT1000",
+      "type": "Handbag",
+      "supplyLimit": 120,
+      "unitPrice": 1980
+    },
+    {
+      "name": "Men's Wool Coat",
+      "description": "Double-breasted wool coat with peak lapel and enamel buttons.",
+      "imageUri": "https://www.gucci.com/us/en/pr/mens-ready-to-wear/mens-outerwear/mens-coats/mens-wool-coat-p-634875ZACAT1000",
+      "type": "Garment",
+      "supplyLimit": 80,
+      "unitPrice": 3200
+    }
+  ],
+  "Louis Vuitton": [
+    {
+      "name": "Speedy Bandoulière 25",
+      "description": "Classic monogram canvas bag with detachable strap.",
+      "imageUri": "https://us.louisvuitton.com/eng-us/products/speedy-bandouliere-25-monogram-008788",
+      "type": "Handbag",
+      "supplyLimit": 200,
+      "unitPrice": 1550
+    },
+    {
+      "name": "LV Trainer Sneaker",
+      "description": "Calf leather sneaker with monogram canvas trim.",
+      "imageUri": "https://us.louisvuitton.com/eng-us/products/lv-trainer-sneaker-nvprod1770356v",
+      "type": "Garment",
+      "supplyLimit": 150,
+      "unitPrice": 1090
+    }
+  ],
+  "Chanel": [
+    {
+      "name": "Classic Handbag",
+      "description": "Lambskin handbag with gold-tone metal.",
+      "imageUri": "https://www.chanel.com/us/fashion/p/A01112Y01295C3906/classic-handbag-lambskin-gold-tone-metal/",
+      "type": "Handbag",
+      "supplyLimit": 100,
+      "unitPrice": 6500
+    },
+    {
+      "name": "J12 Watch",
+      "description": "White ceramic and steel watch with diamond indicators.",
+      "imageUri": "https://www.chanel.com/us/watches/p/H5700/j12-white-ceramic-and-steel-watch-33-mm/",
+      "type": "Watch",
+      "supplyLimit": 80,
+      "unitPrice": 7200
+    }
+  ],
+  "Patek Philippe": [
+    {
+      "name": "Nautilus 5711/1A",
+      "description": "Stainless steel watch with blue dial.",
+      "imageUri": "https://www.patek.com/en/collection/nautilus/5711-1A-010",
+      "type": "Watch",
+      "supplyLimit": 50,
+      "unitPrice": 30000
+    },
+    {
+      "name": "Calatrava 5227G",
+      "description": "White gold watch with cream lacquered dial.",
+      "imageUri": "https://www.patek.com/en/collection/calatrava/5227G-001",
+      "type": "Watch",
+      "supplyLimit": 60,
+      "unitPrice": 35000
+    }
+  ],
+  "Audemars Piguet": [
+    {
+      "name": "Royal Oak Offshore",
+      "description": "Stainless steel watch with black ceramic bezel.",
+      "imageUri": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak-offshore/26420SO.OO.A002CA.01.html",
+      "type": "Watch",
+      "supplyLimit": 70,
+      "unitPrice": 42000
+    },
+    {
+      "name": "Royal Oak Selfwinding",
+      "description": "18-carat pink gold watch with silver-toned dial.",
+      "imageUri": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/15500OR.OO.D002CR.01.html",
+      "type": "Watch",
+      "supplyLimit": 50,
+      "unitPrice": 55000
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "brandName": "Audemars Piguet",
+  "signer": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+  "deployedAt": "2025-03-23T12:32:44.567Z",
+  "address": "0xD148Da449978011457A4510daCA7538061186fb9",
+  "network": "baseSepolia",
+  "basescanUrl": "https://sepolia.basescan.com/address/0xD148Da449978011457A4510daCA7538061186fb9",
+  "tokens": [
+    {
+      "id": 1,
+      "name": "Royal Oak Offshore",
+      "description": "Stainless steel watch with black ceramic bezel.",
+      "imageUri": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak-offshore/26420SO.OO.A002CA.01.html",
+      "type": "Watch",
+      "supplyLimit": 70,
+      "unitPrice": 42000,
+      "brand": "Audemars Piguet",
+      "contractAddress": "0xD148Da449978011457A4510daCA7538061186fb9",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-23T12:35:24.387Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-23T12:35:26.837Z"
+      },
+      "lastUpdated": "2025-03-23T12:35:26.837Z"
+    },
+    {
+      "id": 2,
+      "name": "Royal Oak Selfwinding",
+      "description": "18-carat pink gold watch with silver-toned dial.",
+      "imageUri": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/15500OR.OO.D002CR.01.html",
+      "type": "Watch",
+      "supplyLimit": 50,
+      "unitPrice": 55000,
+      "brand": "Audemars Piguet",
+      "contractAddress": "0xD148Da449978011457A4510daCA7538061186fb9",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-23T12:35:29.241Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-23T12:35:35.635Z"
+      },
+      "lastUpdated": "2025-03-23T12:35:35.635Z"
+    }
+  ]
+}

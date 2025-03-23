@@ -1,0 +1,48 @@
+{
+  "brandName": "Louis Vuitton",
+  "signer": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+  "deployedAt": "2025-03-23T12:30:57.737Z",
+  "address": "0xdA17104992D1382739C1b05FaC909050d713e1E6",
+  "network": "baseSepolia",
+  "basescanUrl": "https://sepolia.basescan.com/address/0xdA17104992D1382739C1b05FaC909050d713e1E6",
+  "tokens": [
+    {
+      "id": 1,
+      "name": "Speedy Bandoulière 25",
+      "description": "Classic monogram canvas bag with detachable strap.",
+      "imageUri": "https://us.louisvuitton.com/eng-us/products/speedy-bandouliere-25-monogram-008788",
+      "type": "Handbag",
+      "supplyLimit": 200,
+      "unitPrice": 1550,
+      "brand": "Louis Vuitton",
+      "contractAddress": "0xdA17104992D1382739C1b05FaC909050d713e1E6",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-23T12:34:22.946Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-23T12:34:25.178Z"
+      },
+      "lastUpdated": "2025-03-23T12:34:25.178Z"
+    },
+    {
+      "id": 2,
+      "name": "LV Trainer Sneaker",
+      "description": "Calf leather sneaker with monogram canvas trim.",
+      "imageUri": "https://us.louisvuitton.com/eng-us/products/lv-trainer-sneaker-nvprod1770356v",
+      "type": "Garment",
+      "supplyLimit": 150,
+      "unitPrice": 1090,
+      "brand": "Louis Vuitton",
+      "contractAddress": "0xdA17104992D1382739C1b05FaC909050d713e1E6",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-23T12:34:32.061Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-23T12:34:38.406Z"
+      },
+      "lastUpdated": "2025-03-23T12:34:38.406Z"
+    }
+  ]
+}

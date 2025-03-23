@@ -1,0 +1,48 @@
+{
+  "brandName": "Chanel",
+  "signer": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+  "deployedAt": "2025-03-23T12:31:34.596Z",
+  "address": "0xC68aFB1C3Fd9dC85c7FD2afaa62c4b973E91f6c6",
+  "network": "baseSepolia",
+  "basescanUrl": "https://sepolia.basescan.com/address/0xC68aFB1C3Fd9dC85c7FD2afaa62c4b973E91f6c6",
+  "tokens": [
+    {
+      "id": 1,
+      "name": "Classic Handbag",
+      "description": "Lambskin handbag with gold-tone metal.",
+      "imageUri": "https://www.chanel.com/us/fashion/p/A01112Y01295C3906/classic-handbag-lambskin-gold-tone-metal/",
+      "type": "Handbag",
+      "supplyLimit": 100,
+      "unitPrice": 6500,
+      "brand": "Chanel",
+      "contractAddress": "0xC68aFB1C3Fd9dC85c7FD2afaa62c4b973E91f6c6",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-23T12:34:40.919Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-23T12:34:43.197Z"
+      },
+      "lastUpdated": "2025-03-23T12:34:43.197Z"
+    },
+    {
+      "id": 2,
+      "name": "J12 Watch",
+      "description": "White ceramic and steel watch with diamond indicators.",
+      "imageUri": "https://www.chanel.com/us/watches/p/H5700/j12-white-ceramic-and-steel-watch-33-mm/",
+      "type": "Watch",
+      "supplyLimit": 80,
+      "unitPrice": 7200,
+      "brand": "Chanel",
+      "contractAddress": "0xC68aFB1C3Fd9dC85c7FD2afaa62c4b973E91f6c6",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-23T12:34:45.435Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-23T12:34:51.764Z"
+      },
+      "lastUpdated": "2025-03-23T12:34:51.764Z"
+    }
+  ]
+}

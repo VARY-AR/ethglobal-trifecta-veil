@@ -1,0 +1,48 @@
+{
+  "brandName": "Rolex",
+  "signer": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+  "deployedAt": "2025-03-23T12:29:11.390Z",
+  "address": "0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
+  "network": "baseSepolia",
+  "basescanUrl": "https://sepolia.basescan.com/address/0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
+  "tokens": [
+    {
+      "id": 1,
+      "name": "Day-Date 40",
+      "description": "18 ct yellow gold watch with a champagne-colored dial and President bracelet.",
+      "imageUri": "https://www.rolex.com/watches/day-date/m228238-0002.html",
+      "type": "Watch",
+      "supplyLimit": 100,
+      "unitPrice": 35000,
+      "brand": "Rolex",
+      "contractAddress": "0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-23T12:33:21.456Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-23T12:33:27.936Z"
+      },
+      "lastUpdated": "2025-03-23T12:33:27.936Z"
+    },
+    {
+      "id": 2,
+      "name": "Submariner Date",
+      "description": "Oystersteel and yellow gold watch with a black dial and rotatable bezel.",
+      "imageUri": "https://www.rolex.com/watches/submariner/m126613ln-0002.html",
+      "type": "Watch",
+      "supplyLimit": 150,
+      "unitPrice": 14500,
+      "brand": "Rolex",
+      "contractAddress": "0xC52A84AE6509532AdF027B60Cca11d3fA930F3C7",
+      "network": "baseSepolia",
+      "createdAt": "2025-03-23T12:33:34.328Z",
+      "minting": {
+        "mintedTo": "0xCE11D6fb4f1e006E5a348230449Dc387fde850CC",
+        "amount": 1,
+        "mintedAt": "2025-03-23T12:33:40.885Z"
+      },
+      "lastUpdated": "2025-03-23T12:33:40.885Z"
+    }
+  ]
+}
